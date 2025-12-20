@@ -43,6 +43,17 @@
             box-shadow: 0 25px 50px -12px rgba(217, 4, 41, 0.15);
             border-color: var(--brand-red);
         }
+
+        /* 友達紹介カードの強調スタイル */
+        .campaign-card-featured {
+            background-color: #FEF2F2; /* red-50 */
+            border: 2px solid #D90429; /* brand-red */
+            box-shadow: 0 10px 15px -3px rgba(217, 4, 41, 0.1), 0 4px 6px -2px rgba(217, 4, 41, 0.05);
+        }
+        .campaign-card-featured:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 25px 50px -12px rgba(217, 4, 41, 0.25);
+        }
         
         .cta-button {
             transition: all 0.3s ease;
@@ -72,15 +83,9 @@
                 SPECIAL CAMPAIGN
             </h2>
             <p class="mt-4 text-base md:text-lg text-gray-500">
-                お得なプランでさらにお得!!
+                年末年始もお得なプランでさらにお得!!
             </p>
-            <a href="#campaigns" class="mt-12" aria-label="キャンペーン一覧へスクロール">
-                <div class="w-12 h-12 border-2 border-gray-400 rounded-full flex justify-center items-center animate-bounce">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-                    </svg>
-                </div>
-            </a>
+            <!-- 矢印セクションを削除しました -->
         </div>
     </header>
 
@@ -91,42 +96,35 @@
             <!-- Grid for Campaign Cards -->
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10">
 
-                <!-- 特典01: 友達紹介＆ペア入会 -->
-                <div class="campaign-card rounded-2xl p-8 flex flex-col h-full text-center">
+                <!-- 特典01: 友達紹介＆ペア入会 (強調・横長表示) -->
+                <div class="campaign-card-featured rounded-2xl p-8 md:p-10 flex flex-col h-full text-center md:col-span-2">
                     <div class="flex-grow">
+                        <div class="inline-block bg-brand-red text-white text-sm font-bold px-3 py-1 rounded-full mb-2 tracking-widest">イチオシ！</div>
+                        <br>
                         <span class="text-sm font-bold brand-red tracking-widest">特典 01</span>
-                        <h3 class="text-2xl font-bold text-gray-900 mt-4 mb-6">友達紹介 & ペア入会</h3>
+                        <h3 class="text-3xl md:text-4xl font-black text-gray-900 mt-4 mb-6">友達紹介 & ペア入会</h3>
+                        <p class="text-gray-600 mb-6 font-medium">ご家族・ご友人と一緒に始めて、<br class="md:hidden">もっと楽しく！もっとお得に！</p>
                     </div>
-                    <div class="bg-brand-red text-white rounded-lg p-6 text-center">
-                        <p class="text-sm text-red-100">ENJOYポイント</p>
-                        <p class="text-4xl font-bold my-1">5,000<span class="text-lg ml-1">pt</span></p>
-                        <p class="text-sm text-red-100">それぞれにプレゼント！</p>
+                    <div class="bg-white border-2 border-red-100 rounded-xl p-8 text-center max-w-2xl mx-auto w-full shadow-sm">
+                        <p class="text-sm text-gray-500 font-bold mb-2">ENJOYポイント</p>
+                        <div class="flex justify-center items-baseline text-brand-red">
+                            <span class="text-5xl md:text-6xl font-black">5,000</span>
+                            <span class="text-2xl font-bold ml-1">pt</span>
+                        </div>
+                        <p class="text-base text-gray-600 font-bold mt-2">それぞれにプレゼント！</p>
                     </div>
-                    <a href="referral_form.html" class="cta-button w-full mt-8 block text-center bg-brand-red text-white font-bold py-4 px-8 rounded-lg hover:bg-brand-red-dark">
-                        専用フォームから申請
-                    </a>
+                    <div class="max-w-2xl mx-auto w-full">
+                        <!-- リンク: referral_form.html -->
+                        <a href="referral_form.html" class="cta-button w-full mt-8 block text-center bg-brand-red text-white font-bold py-4 px-8 rounded-lg hover:bg-brand-red-dark text-lg">
+                            専用フォームから申請
+                        </a>
+                    </div>
                 </div>
 
-                <!-- 特典02: 6ヶ月継続プラン -->
+                <!-- 特典02: 学校関係者割 -->
                 <div class="campaign-card rounded-2xl p-8 flex flex-col h-full text-center">
                     <div class="flex-grow">
                         <span class="text-sm font-bold brand-red tracking-widest">特典 02</span>
-                        <h3 class="text-2xl font-bold text-gray-900 mt-4 mb-6">6ヶ月継続プラン</h3>
-                    </div>
-                    <div class="bg-brand-red text-white rounded-lg p-6 text-center">
-                        <p class="text-sm text-red-100">月会費が6ヶ月間ずっと</p>
-                        <p class="text-4xl font-bold my-1">7,150<span class="text-lg ml-1">円<span class="text-sm font-normal">(税込)</span></span></p>
-                        <p class="text-sm text-red-100">月々2,200円 <br> 総額13,200円もお得！</p>
-                    </div>
-                    <a href="continuation_form.html" class="cta-button w-full mt-8 block text-center bg-brand-red text-white font-bold py-4 px-8 rounded-lg hover:bg-brand-red-dark">
-                        専用フォームから申請
-                    </a>
-                </div>
-
-                <!-- 特典03: 学校関係者割 -->
-                <div class="campaign-card rounded-2xl p-8 flex flex-col h-full text-center">
-                    <div class="flex-grow">
-                        <span class="text-sm font-bold brand-red tracking-widest">特典 03</span>
                         <h3 class="text-2xl font-bold text-gray-900 mt-4 mb-6">学校関係者割</h3>
                     </div>
                     <div class="bg-brand-red text-white rounded-lg p-6 text-center">
@@ -142,24 +140,30 @@
                                 <p class="text-xs text-red-100">1,100円引</p>
                             </div>
                         </div>
+                        <p class="text-xs text-red-200 mt-3 pt-3 border-t border-red-400/50">
+                            ※キャンペーン終了後の2026年7月から適用
+                        </p>
                     </div>
+                    <!-- リンク: Google Forms -->
                     <a href="https://docs.google.com/forms/d/e/1FAIpQLSfXlo9EaBUzb3kpCh-L-IwmD3k8t9UXKmh-nMRJqgQIIlX0PQ/viewform?usp=sharing&ouid=108866150161845853849" target="_blank" rel="noopener noreferrer" class="cta-button w-full mt-8 block text-center bg-white text-brand-red border-2 border-brand-red font-bold py-4 px-8 rounded-lg hover:bg-red-50">
                         専用フォームから申請
                     </a>
                 </div>
 
-                <!-- 特典04: 他クラブ乗り換え -->
+                <!-- 特典03: 他クラブ乗り換え -->
                 <div class="campaign-card rounded-2xl p-8 flex flex-col h-full text-center">
                     <div class="flex-grow">
-                        <span class="text-sm font-bold brand-red tracking-widest">特典 04</span>
+                        <span class="text-sm font-bold brand-red tracking-widest">特典 03</span>
                         <h3 class="text-2xl font-bold text-gray-900 mt-4 mb-6">他クラブ乗り換え割</h3>
                     </div>
                     <div class="bg-brand-red text-white rounded-lg p-6 text-center">
-                        <p class="text-sm text-red-100">翌月会費 (9,350円税込)が</p>
+                        <p class="text-sm text-red-100">翌月会費が</p>
                         <div class="flex justify-center items-baseline my-1">
                             <span class="text-4xl md:text-5xl font-bold">0</span><span class="text-lg font-bold ml-1">円に！</span>
                         </div>
+                        <p class="text-xs text-red-100 mt-1 invisible">space</p> <!-- レイアウト調整用の見えないスペーサー -->
                     </div>
+                    <!-- リンク: transfer_form.html -->
                     <a href="transfer_form.html" class="cta-button w-full mt-8 block text-center bg-brand-red text-white font-bold py-4 px-8 rounded-lg hover:bg-brand-red-dark">
                         専用フォームから申請
                     </a>
@@ -178,4 +182,3 @@
 
 </body>
 </html>
-
