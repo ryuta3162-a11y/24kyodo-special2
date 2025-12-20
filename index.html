@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="ja" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JOYFIT24経堂 | お得な入会キャンペーン</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+    
+    <style>
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            background-color: #FFFFFF;
+            color: #1F2937; /* gray-800 */
+        }
+        /* ブランドカラーを一元管理 */
+        :root {
+            --brand-red: #D90429;
+            --brand-red-dark: #B30021;
+        }
+        .brand-red { color: var(--brand-red); } 
+        .bg-brand-red { background-color: var(--brand-red); }
+        .hover\:bg-brand-red-dark:hover { background-color: var(--brand-red-dark); }
+        .border-brand-red { border-color: var(--brand-red); }
+
+        .hero-bg {
+            background-image: linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 1)), url('https://images.unsplash.com/photo-1571902943202-507ec2618e8f?q=80&w=1975&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .campaign-card {
+            background-color: #FFFFFF;
+            border: 1px solid #E5E7EB; /* gray-200 */
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+        }
+        
+        .campaign-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px -12px rgba(217, 4, 41, 0.15);
+            border-color: var(--brand-red);
+        }
+        
+        .cta-button {
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(217, 4, 41, 0.2), 0 4px 6px -2px rgba(217, 4, 41, 0.15);
+        }
+
+    </style>
+</head>
+<body class="text-gray-800">
+
+    <!-- Header Section -->
+    <header class="hero-bg">
+        <div class="min-h-screen container mx-auto px-6 py-12 flex flex-col justify-center items-center text-center">
+            
+            <h1 class="text-4xl md:text-6xl font-black text-gray-900 leading-tight mt-12">
+                JOYFIT24 <span class="brand-red">経堂</span>
+            </h1>
+            <p class="mt-4 text-lg md:text-xl font-medium text-gray-600 max-w-2xl">
+                最高のフィットネスライフを
+            </p>
+            <h2 class="mt-10 text-3xl md:text-5xl font-bold text-gray-900">
+                SPECIAL CAMPAIGN
+            </h2>
+            <p class="mt-4 text-base md:text-lg text-gray-500">
+                お得なプランでさらにお得!!
+            </p>
+            <a href="#campaigns" class="mt-12" aria-label="キャンペーン一覧へスクロール">
+                <div class="w-12 h-12 border-2 border-gray-400 rounded-full flex justify-center items-center animate-bounce">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                    </svg>
+                </div>
+            </a>
+        </div>
+    </header>
+
+    <!-- Main Content: Campaign Section -->
+    <main id="campaigns" class="py-20 sm:py-24 bg-white">
+        <div class="container mx-auto px-6">
+            
+            <!-- Grid for Campaign Cards -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10">
+
+                <!-- 特典01: 友達紹介＆ペア入会 -->
+                <div class="campaign-card rounded-2xl p-8 flex flex-col h-full text-center">
+                    <div class="flex-grow">
+                        <span class="text-sm font-bold brand-red tracking-widest">特典 01</span>
+                        <h3 class="text-2xl font-bold text-gray-900 mt-4 mb-6">友達紹介 & ペア入会</h3>
+                    </div>
+                    <div class="bg-brand-red text-white rounded-lg p-6 text-center">
+                        <p class="text-sm text-red-100">ENJOYポイント</p>
+                        <p class="text-4xl font-bold my-1">5,000<span class="text-lg ml-1">pt</span></p>
+                        <p class="text-sm text-red-100">それぞれにプレゼント！</p>
+                    </div>
+                    <a href="referral_form.html" class="cta-button w-full mt-8 block text-center bg-brand-red text-white font-bold py-4 px-8 rounded-lg hover:bg-brand-red-dark">
+                        専用フォームから申請
+                    </a>
+                </div>
+
+                <!-- 特典02: 6ヶ月継続プラン -->
+                <div class="campaign-card rounded-2xl p-8 flex flex-col h-full text-center">
+                    <div class="flex-grow">
+                        <span class="text-sm font-bold brand-red tracking-widest">特典 02</span>
+                        <h3 class="text-2xl font-bold text-gray-900 mt-4 mb-6">6ヶ月継続プラン</h3>
+                    </div>
+                    <div class="bg-brand-red text-white rounded-lg p-6 text-center">
+                        <p class="text-sm text-red-100">月会費が6ヶ月間ずっと</p>
+                        <p class="text-4xl font-bold my-1">7,150<span class="text-lg ml-1">円<span class="text-sm font-normal">(税込)</span></span></p>
+                        <p class="text-sm text-red-100">月々2,200円 <br> 総額13,200円もお得！</p>
+                    </div>
+                    <a href="continuation_form.html" class="cta-button w-full mt-8 block text-center bg-brand-red text-white font-bold py-4 px-8 rounded-lg hover:bg-brand-red-dark">
+                        専用フォームから申請
+                    </a>
+                </div>
+
+                <!-- 特典03: 学校関係者割 -->
+                <div class="campaign-card rounded-2xl p-8 flex flex-col h-full text-center">
+                    <div class="flex-grow">
+                        <span class="text-sm font-bold brand-red tracking-widest">特典 03</span>
+                        <h3 class="text-2xl font-bold text-gray-900 mt-4 mb-6">学校関係者割</h3>
+                    </div>
+                    <div class="bg-brand-red text-white rounded-lg p-6 text-center">
+                        <div class="grid grid-cols-2 divide-x divide-red-300">
+                            <div class="px-2">
+                                <p class="text-sm text-red-100">学生</p>
+                                <p class="text-2xl font-bold my-1">7,150<span class="text-sm ml-1">円</span></p>
+                                <p class="text-xs text-red-100">2,200円引</p>
+                            </div>
+                            <div class="px-2">
+                                <p class="text-sm text-red-100">教職員</p>
+                                <p class="text-2xl font-bold my-1">8,250<span class="text-sm ml-1">円</span></p>
+                                <p class="text-xs text-red-100">1,100円引</p>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSfXlo9EaBUzb3kpCh-L-IwmD3k8t9UXKmh-nMRJqgQIIlX0PQ/viewform?usp=sharing&ouid=108866150161845853849" target="_blank" rel="noopener noreferrer" class="cta-button w-full mt-8 block text-center bg-white text-brand-red border-2 border-brand-red font-bold py-4 px-8 rounded-lg hover:bg-red-50">
+                        専用フォームから申請
+                    </a>
+                </div>
+
+                <!-- 特典04: 他クラブ乗り換え -->
+                <div class="campaign-card rounded-2xl p-8 flex flex-col h-full text-center">
+                    <div class="flex-grow">
+                        <span class="text-sm font-bold brand-red tracking-widest">特典 04</span>
+                        <h3 class="text-2xl font-bold text-gray-900 mt-4 mb-6">他クラブ乗り換え割</h3>
+                    </div>
+                    <div class="bg-brand-red text-white rounded-lg p-6 text-center">
+                        <p class="text-sm text-red-100">翌月会費 (9,350円税込)が</p>
+                        <div class="flex justify-center items-baseline my-1">
+                            <span class="text-4xl md:text-5xl font-bold">0</span><span class="text-lg font-bold ml-1">円に！</span>
+                        </div>
+                    </div>
+                    <a href="transfer_form.html" class="cta-button w-full mt-8 block text-center bg-brand-red text-white font-bold py-4 px-8 rounded-lg hover:bg-brand-red-dark">
+                        専用フォームから申請
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-50 border-t border-gray-200">
+        <div class="container mx-auto px-6 py-8 text-center text-gray-500">
+            <p>&copy; 2024 JOYFIT24 Kyodo. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
+

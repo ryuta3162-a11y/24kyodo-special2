@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JOYFIT24経堂 他クラブ乗り換え申請</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Noto Sans JP', sans-serif; }
+        .file-input-label { transition: all 0.2s ease-in-out; }
+        .file-input-label:hover { box-shadow: 0 4px 12px rgba(0,0,0,0.1); transform: translateY(-2px); }
+        .button-loading { opacity: 0.7; cursor: not-allowed; }
+        
+        .modal-overlay {
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-color: rgba(0, 0, 0, 0.75);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 50;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            pointer-events: none;
+        }
+        .modal-overlay.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+        .modal-container {
+            background-color: white;
+            border-radius: 0.75rem;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            width: 90%;
+            max-width: 600px;
+            max-height: 90vh;
+            display: flex;
+            flex-direction: column;
+            transform: scale(0.95);
+            transition: transform 0.3s ease;
+        }
+        .modal-overlay.active .modal-container {
+            transform: scale(1);
+        }
+        .modal-tab-content { display: none; }
+        .modal-tab-content.active { display: block; }
+    </style>
+</head>
+<body class="bg-gray-100">
+
+    <div class="container mx-auto max-w-2xl px-4 py-8 sm:py-12">
+        
+        <header class="text-center mb-8">
+            <h1 class="text-3xl sm:text-4xl font-bold text-gray-800 mb-2">JOYFIT24経堂</h1>
+            <p class="text-xl sm:text-2xl font-semibold text-red-600">他クラブ乗り換え申請</p>
+        </header>
+
+        <div class="bg-gradient-to-br from-red-50 to-white border-2 border-red-200 rounded-xl shadow-lg mb-8 p-6">
+            <div class="text-center">
+                <p class="text-lg font-bold text-red-700">
+                    JOYFITアプリ入会と<br>
+                    <span class="text-2xl">こちらの申請</span>で適用になります。
+                </p>
+            </div>
+            <div class="mt-6 border-t border-red-200 pt-6 space-y-4 text-gray-700 text-sm">
+                <div class="flex items-start">
+                    <svg class="w-5 h-5 text-red-500 mr-3 mt-0.5 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                        <path d="M10 1a9 9 0 100 18 9 9 0 000-18zM2 10a8 8 0 1116 0 8 8 0 01-16 0zm6-3a1 1 0 011-1h2a1 1 0 110 2H9a1 1 0 01-1-1zm-1 4a1 1 0 100 2h6a1 1 0 100-2H7z" />
+                    </svg>
+                    <div>
+                        <span class="font-semibold">新規限定</span>のキャンペーンです。
+                    </div>
+                </div>
+                <div class="flex items-start">
+                    <svg class="w-5 h-5 text-red-500 mr-3 mt-0.5 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd" />
+                    </svg>
+                     <div>
+                        <strong class="text-red-600">【当月末までに】</strong>申請してください。
+                    </div>
+                </div>
+                 <div class="flex items-start">
+                    <svg class="w-5 h-5 text-red-500 mr-3 mt-0.5 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                         <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.28 7.22a.75.75 0 00-1.06 1.06L8.94 10l-1.72 1.72a.75.75 0 101.06 1.06L10 11.06l1.72 1.72a.75.75 0 101.06-1.06L11.06 10l1.72-1.72a.75.75 0 00-1.06-1.06L10 8.94 8.28 7.22z" clip-rule="evenodd" />
+                    </svg>
+                    <div>
+                        <span class="font-semibold">法人会員様</span>は適用対象外です。
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <form id="transfer-form" class="bg-white p-6 sm:p-8 rounded-lg shadow-xl" novalidate>
+            <input type="hidden" name="campaignType" value="乗り換え">
+            
+            <div class="space-y-6">
+                <!-- お名前 -->
+                <div>
+                    <label for="name" class="block text-sm font-bold text-gray-700 mb-2">お名前 <span class="text-red-500">*</span></label>
+                    <input type="text" id="name" name="お名前" placeholder="例：山田 太郎" required class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-red-500 transition">
+                </div>
+
+                <!-- 移籍元クラブ -->
+                <div>
+                    <label for="previous-club-select" class="block text-sm font-bold text-gray-700 mb-2">移籍元クラブ <span class="text-red-500">*</span></label>
+                    <select id="previous-club-select" required class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-red-500 transition bg-white">
+                        <option value="" disabled selected>選択してください</option>
+                        <option value="ルネサンス">ルネサンス</option>
+                        <option value="ファストジム">ファストジム</option>
+                        <option value="チョコザップ">チョコザップ</option>
+                        <option value="エニタイム">エニタイム</option>
+                        <option value="FIT PLACE">FIT PLACE</option>
+                        <option value="LAVA">LAVA</option>
+                        <option value="パーソナルジム">パーソナルジム</option>
+                        <option value="その他">その他</option>
+                    </select>
+                    <div id="other-club-wrapper" class="hidden mt-2">
+                        <input type="text" id="other-club-input" placeholder="移籍元クラブ名を入力してください" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-red-500 transition">
+                    </div>
+                    <input type="hidden" name="移籍元クラブ" id="final-previous-club-value">
+                </div>
+                
+                <!-- 移籍元クラブ地名 -->
+                <div>
+                    <label for="club-location" class="block text-sm font-bold text-gray-700 mb-2">移籍元クラブの地名 <span class="text-red-500">*</span></label>
+                    <input type="text" id="club-location" name="移籍元クラブの地名" placeholder="例：経堂" required class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-red-500 transition">
+                </div>
+
+                <!-- 画像アップロード -->
+                <div>
+                    <label class="block text-sm font-bold text-gray-700 mb-2">会員証明画像のアップロード <span class="text-red-500">*</span></label>
+                    <p class="text-xs text-gray-500 mb-3">お名前と店舗名がわかる画像をアップロードしてください。(最大5ファイル)</p>
+                    <label for="file-upload" class="file-input-label w-full flex flex-col items-center px-4 py-6 bg-white text-red-600 rounded-lg shadow-sm border border-red-300 border-dashed cursor-pointer hover:bg-red-50">
+                        <svg class="w-8 h-8" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M16.88 9.1A4 4 0 0 1 16 17H5a5 5 0 0 1-1-9.9V7a3 3 0 0 1 4.52-2.59A4.98 4.98 0 0 1 17 8c0 .38-.04.74-.12 1.1zM11 11h3l-4 4-4-4h3V9h2v2z" /></svg>
+                        <span id="file-upload-text" class="mt-2 text-base leading-normal">タップしてファイルを選択</span>
+                        <input id="file-upload" type="file" multiple class="hidden" accept="image/*,.heic,.heif" required>
+                    </label>
+                    <div id="file-preview" class="mt-4 text-sm text-gray-600"></div>
+                    <div id="base64-fields"></div> 
+                </div>
+            </div>
+
+            <!-- 送信ボタン -->
+            <div class="mt-10">
+                <button type="submit" class="w-full bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-4 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 transition-transform transform hover:scale-105">入力内容を送信する</button>
+            </div>
+        </form>
+    </div>
+
+    <footer class="text-center py-8">
+        <img src="joyfit_logo.png" alt="JOYFIT24 ロゴ" class="mx-auto h-12 w-auto" onerror="this.style.display='none'">
+    </footer>
+
+    <!-- 完了後モーダル -->
+    <div id="completion-modal" class="modal-overlay">
+        <div class="modal-container">
+            <div id="modal-header" class="p-4 border-b">
+                <p class="text-center text-sm font-semibold text-gray-500">下記内容をスクリーンショットし、<br class="sm:hidden">控えとして保管してください。</p>
+            </div>
+            <div class="flex-grow overflow-y-auto">
+                <div id="tab-receipt" class="modal-tab-content active p-6 sm:p-8">
+                    <h2 class="text-2xl font-bold text-center text-gray-800 mb-4">申請が完了しました</h2>
+                    <div class="bg-gray-50 p-4 rounded-lg space-y-3 text-sm" id="receipt-content">
+                        <!-- ここに申請内容が動的に入ります -->
+                    </div>
+                </div>
+                <div id="tab-guidance" class="modal-tab-content p-6 sm:p-8">
+                    <h2 class="text-xl font-bold text-center text-gray-800 mb-4">【重要】ご入会手続きについて</h2>
+                    <div class="text-center space-y-4">
+                        <p class="text-sm text-gray-700">キャンペーン申請ありがとうございます。<br>特典は自動で適応されますのでご安心ください。</p>
+                        <div class="bg-yellow-100 border-l-4 border-yellow-500 text-yellow-800 p-4 text-sm">
+                            <p><strong>こちらのフォームは入会手続きではありません。</strong><br>まだお済みでない方は、下記ボタンよりJOYFIT APPでのご入会手続きをお願いいたします。</p>
+                        </div>
+                        <a href="https://joyfit.jp/kyodo/app_join/" target="_blank" rel="noopener noreferrer" class="inline-block w-full max-w-xs bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-4 rounded-md transition-transform transform hover:scale-105">JOYFIT APPから入会手続きへ</a>
+                    </div>
+                </div>
+            </div>
+            <div class="p-2 bg-gray-100 grid grid-cols-2 gap-2">
+                <button id="btn-show-receipt" class="px-4 py-2 text-sm font-semibold rounded-md transition-colors bg-red-600 text-white">申込内容の控え</button>
+                <button id="btn-show-guidance" class="px-4 py-2 text-sm font-semibold rounded-md transition-colors bg-white text-gray-700">ご入会手続きの案内</button>
+            </div>
+            <div class="p-4 border-t flex flex-col sm:flex-row gap-4">
+                <a href="index.html" class="w-full text-center bg-gray-200 hover:bg-gray-300 text-gray-800 font-bold py-2 px-4 rounded-md transition">他の申請へ（トップに戻る）</a>
+                <button id="modal-close-btn" class="w-full bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-md transition">閉じる</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const form = document.getElementById('transfer-form');
+            const submitButton = form.querySelector('button[type="submit"]');
+            const previousClubSelect = document.getElementById('previous-club-select');
+            const otherClubWrapper = document.getElementById('other-club-wrapper');
+            const otherClubInput = document.getElementById('other-club-input');
+            const fileUpload = document.getElementById('file-upload');
+            const fileUploadText = document.getElementById('file-upload-text');
+            const filePreview = document.getElementById('file-preview');
+            const base64Fields = document.getElementById('base64-fields');
+            const modal = document.getElementById('completion-modal');
+            const modalCloseBtn = document.getElementById('modal-close-btn');
+            const receiptContent = document.getElementById('receipt-content');
+            const tabReceipt = document.getElementById('tab-receipt');
+            const tabGuidance = document.getElementById('tab-guidance');
+            const btnShowReceipt = document.getElementById('btn-show-receipt');
+            const btnShowGuidance = document.getElementById('btn-show-guidance');
+            const modalHeader = document.getElementById('modal-header');
+
+            previousClubSelect.addEventListener('change', (event) => {
+                const isOther = event.target.value === 'その他';
+                otherClubWrapper.classList.toggle('hidden', !isOther);
+                otherClubInput.required = isOther;
+                if (!isOther) otherClubInput.value = '';
+            });
+
+            fileUpload.addEventListener('change', (event) => {
+                const files = event.target.files;
+                filePreview.innerHTML = '';
+                base64Fields.innerHTML = ''; 
+
+                if (!files || files.length === 0) {
+                    fileUploadText.textContent = 'タップしてファイルを選択';
+                    fileUpload.required = true;
+                    return;
+                }
+                if (files.length > 5) {
+                    showNotification('ファイルは5つまでしかアップロードできません。', 'error');
+                    fileUpload.value = '';
+                    return;
+                }
+
+                fileUploadText.textContent = `${files.length}個のファイルを選択中`;
+                const list = document.createElement('ul');
+                list.className = 'list-disc list-inside space-y-1';
+                
+                let filePromises = Array.from(files).map((file, index) => {
+                    return new Promise((resolve, reject) => {
+                        if (file.size > 10 * 1024 * 1024) { // 10MB
+                           return reject(new Error(`${file.name} はサイズが大きすぎます (最大10MB)。`));
+                        }
+
+                        const listItem = document.createElement('li');
+                        listItem.textContent = `${file.name} (${(file.size / 1024 / 1024).toFixed(2)} MB)`;
+                        list.appendChild(listItem);
+
+                        const reader = new FileReader();
+                        reader.onload = (e) => {
+                            const base64String = e.target.result.split(',')[1];
+                            
+                            const hiddenInputData = document.createElement('input');
+                            hiddenInputData.type = 'hidden';
+                            hiddenInputData.name = `imageBase64_${index + 1}`;
+                            hiddenInputData.value = base64String;
+                            base64Fields.appendChild(hiddenInputData);
+
+                            const hiddenInputName = document.createElement('input');
+                            hiddenInputName.type = 'hidden';
+                            hiddenInputName.name = `imageFileName_${index + 1}`;
+                            hiddenInputName.value = file.name;
+                            base64Fields.appendChild(hiddenInputName);
+
+                            const hiddenInputMime = document.createElement('input');
+                            hiddenInputMime.type = 'hidden';
+                            hiddenInputMime.name = `imageMimeType_${index + 1}`;
+                            hiddenInputMime.value = file.type;
+                            base64Fields.appendChild(hiddenInputMime);
+
+                            resolve();
+                        };
+                        reader.onerror = error => reject(error);
+                        reader.readAsDataURL(file);
+                    });
+                });
+                
+                Promise.all(filePromises)
+                    .then(() => {
+                        filePreview.appendChild(list);
+                        fileUpload.required = false;
+                    })
+                    .catch(error => {
+                        showNotification(error.message, 'error');
+                        fileUpload.value = '';
+                        filePreview.innerHTML = '';
+                        base64Fields.innerHTML = '';
+                        fileUploadText.textContent = 'タップしてファイルを選択';
+                        fileUpload.required = true;
+                    });
+            });
+
+            form.addEventListener('submit', async (event) => {
+                event.preventDefault();
+                
+                const finalClubValueInput = document.getElementById('final-previous-club-value');
+                finalClubValueInput.value = previousClubSelect.value === 'その他' ? otherClubInput.value : previousClubSelect.value;
+                
+                if (!form.checkValidity()) {
+                    showNotification('必須項目をすべて入力・選択してください。', 'error');
+                    form.reportValidity();
+                    return;
+                }
+
+                submitButton.disabled = true;
+                submitButton.textContent = '送信中...';
+                submitButton.classList.add('button-loading');
+
+                const formData = new FormData(form);
+                const payload = {};
+                formData.forEach((value, key) => { payload[key] = value; });
+
+                const gasWebAppUrl = 'https://script.google.com/macros/s/AKfycbzmuAd-yGKOdoD49j3nPi4gjPPaq-0AFXK0faWLsoVLhRK1LLOBvZQBGdanqncljxdw8A/exec';
+
+                try {
+                    await fetch(gasWebAppUrl, {
+                        method: 'POST',
+                        mode: 'no-cors',
+                        headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+                        body: JSON.stringify(payload)
+                    });
+                    
+                    showCompletionModal(payload);
+
+                } catch (error) {
+                    console.error('Error submitting form:', error);
+                    showNotification(`送信に失敗しました。ネットワーク接続を確認してください。`, 'error');
+                } finally {
+                    submitButton.disabled = false;
+                    submitButton.textContent = '入力内容を送信する';
+                    submitButton.classList.remove('button-loading');
+                }
+            });
+            
+            const showCompletionModal = (data) => {
+                receiptContent.innerHTML = `
+                    <p><strong>申請日時:</strong> ${new Date().toLocaleString('ja-JP')}</p>
+                    <p><strong>キャンペーン:</strong> ${data['campaignType'] || '未入力'}</p>
+                    <hr class="my-2">
+                    <p><strong>お名前:</strong> ${data['お名前'] || '未入力'}</p>
+                    <p><strong>移籍元クラブ:</strong> ${data['移籍元クラブ'] || '未入力'}</p>
+                    <p><strong>移籍元地名:</strong> ${data['移籍元クラブの地名'] || '未入力'}</p>
+                    <p><strong>アップロードファイル数:</strong> ${fileUpload.files.length}件</p>
+                `;
+                modal.classList.add('active');
+            };
+
+            const hideModal = () => {
+                modal.classList.remove('active');
+                form.reset();
+                otherClubWrapper.classList.add('hidden');
+                otherClubInput.required = false;
+                fileUploadText.textContent = 'タップしてファイルを選択';
+                filePreview.innerHTML = '';
+                base64Fields.innerHTML = '';
+                fileUpload.required = true;
+                switchTab('receipt');
+            };
+
+            const switchTab = (tabName) => {
+                tabReceipt.classList.toggle('active', tabName === 'receipt');
+                tabGuidance.classList.toggle('active', tabName !== 'guidance');
+                btnShowReceipt.classList.toggle('bg-red-600', tabName === 'receipt');
+                btnShowReceipt.classList.toggle('text-white', tabName === 'receipt');
+                btnShowReceipt.classList.toggle('bg-white', tabName !== 'receipt');
+                btnShowReceipt.classList.toggle('text-gray-700', tabName !== 'receipt');
+                btnShowGuidance.classList.toggle('bg-red-600', tabName === 'guidance');
+                btnShowGuidance.classList.toggle('text-white', tabName === 'guidance');
+                btnShowGuidance.classList.toggle('bg-white', tabName !== 'guidance');
+                btnShowGuidance.classList.toggle('text-gray-700', tabName !== 'guidance');
+                modalHeader.classList.toggle('hidden', tabName === 'guidance');
+            };
+            
+            modalCloseBtn.addEventListener('click', hideModal);
+            btnShowReceipt.addEventListener('click', () => switchTab('receipt'));
+            btnShowGuidance.addEventListener('click', () => switchTab('guidance'));
+
+             function showNotification(message, type = 'error') {
+                const existingNotification = document.querySelector('.form-notification');
+                if (existingNotification) existingNotification.remove();
+                const notification = document.createElement('div');
+                notification.className = 'form-notification fixed bottom-5 right-5 p-4 rounded-lg text-white z-50 transition-opacity duration-300 shadow-lg';
+                notification.innerHTML = message; 
+                notification.style.backgroundColor = type === 'success' ? '#16a34a' : '#dc2626';
+                document.body.appendChild(notification);
+                setTimeout(() => { notification.style.opacity = '1'; }, 10);
+                setTimeout(() => {
+                    notification.style.opacity = '0';
+                    setTimeout(() => notification.remove(), 300);
+                }, 5000);
+            }
+        });
+    </script>
+</body>
+</html>
+

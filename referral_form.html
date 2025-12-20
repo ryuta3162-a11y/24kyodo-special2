@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>【JOYFIT24経堂】紹介・ペア入会申請</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Noto Sans JP', sans-serif; }
+        .button-loading { opacity: 0.7; cursor: not-allowed; }
+        .required-mark::after { content: '*'; color: #dc2626; margin-left: 0.25rem; }
+        input[type="radio"]:checked + .radio-label { border-color: #dc2626; background-color: #fef2f2; box-shadow: 0 0 0 2px #dc2626; }
+        .modal-tab-btn.active { background-color: #dc2626; color: white; }
+    </style>
+</head>
+<body class="bg-gray-100">
+
+    <div class="container mx-auto max-w-3xl px-4 py-8 sm:py-12">
+        
+        <header class="text-center mb-8">
+            <h1 class="text-3xl sm:text-4xl font-bold text-gray-800 mb-2">JOYFIT24経堂</h1>
+            <p class="text-xl sm:text-2xl font-semibold text-red-600">紹介・ペア入会申請</p>
+        </header>
+
+        <div class="bg-gradient-to-br from-red-50 to-white border-2 border-red-200 rounded-xl shadow-lg mb-8 p-6">
+            <div class="text-center">
+                <p class="text-lg font-bold text-red-700">
+                    こちらは経堂限定のキャンペーンです。
+                </p>
+            </div>
+            <div class="mt-6 border-t border-red-200 pt-6 space-y-4 text-gray-700 text-sm">
+                <div class="flex items-start">
+                    <svg class="w-5 h-5 text-red-500 mr-3 mt-0.5 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                    </svg>
+                    <div>
+                        紹介者とご友人の双方の入会が完了した場合、<br>
+                        特典が付与されます。
+                    </div>
+                </div>
+                <div class="flex items-start">
+                    <svg class="w-5 h-5 text-red-500 mr-3 mt-0.5 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.28 7.22a.75.75 0 00-1.06 1.06L8.94 10l-1.72 1.72a.75.75 0 101.06 1.06L10 11.06l1.72 1.72a.75.75 0 101.06-1.06L11.06 10l1.72-1.72a.75.75 0 00-1.06-1.06L10 8.94 8.28 7.22z" clip-rule="evenodd" />
+                    </svg>
+                    <div>
+                        申請月までにアプリから未入会の場合、<br>
+                        双方の特典は付与されません。
+                    </div>
+                </div>
+                <div class="flex items-start">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-red-500 mr-3 mt-0.5 flex-shrink-0" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd" />
+                    </svg>
+                    <div>
+                        <strong class="font-semibold">ご紹介者様は経堂の会員様に限ります。</strong><br>
+                        ご友人が他店舗に入会された場合、特典はご紹介者様のみに付与されます。<br>
+                        <span class="text-xs">※双方の特典をご希望の場合は、ご友人も経堂にご入会ください。</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <form id="referral-form" class="bg-white p-6 sm:p-8 rounded-lg shadow-xl" novalidate>
+            <input type="hidden" name="campaignType" value="紹介・ペア入会">
+
+            <fieldset class="mb-10">
+                <legend class="text-xl font-bold text-gray-800 border-b border-red-200 pb-2 mb-6 w-full">ご紹介者様（あなた）の情報</legend>
+                <div class="space-y-6">
+                    <div class="sm:grid sm:grid-cols-2 sm:gap-6 space-y-6 sm:space-y-0">
+                        <div>
+                            <label for="referrer-name" class="block text-sm font-bold text-gray-700 mb-2 required-mark">お名前（フルネーム）</label>
+                            <input type="text" id="referrer-name" name="ご紹介者様のお名前" placeholder="例：佐藤太郎" required class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-red-500">
+                        </div>
+                        <div>
+                            <label for="referrer-phone" class="block text-sm font-bold text-gray-700 mb-2 required-mark">お電話番号</label>
+                            <input type="tel" id="referrer-phone" name="ご紹介者様のお電話番号" placeholder="09012345678" required class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-red-500" pattern="[0-9]{10,11}" title="ハイフン不要・半角数字で入力してください。">
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <legend class="text-xl font-bold text-gray-800 border-b border-red-200 pb-2 mb-6 w-full">紹介したい方（ご友人）の情報</legend>
+                <div class="space-y-6">
+                     <div class="sm:grid sm:grid-cols-2 sm:gap-6 space-y-6 sm:space-y-0">
+                        <div>
+                            <label for="friend-name" class="block text-sm font-bold text-gray-700 mb-2 required-mark">お名前（フルネーム）</label>
+                            <input type="text" id="friend-name" name="ご友人のお名前" placeholder="例：鈴木花子" required class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-red-500">
+                        </div>
+                        <div>
+                            <label for="friend-phone" class="block text-sm font-bold text-gray-700 mb-2 required-mark">お電話番号</label>
+                            <input type="tel" id="friend-phone" name="ご友人のお電話番号" placeholder="09012345678" required class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-red-500" pattern="[0-9]{10,11}" title="ハイフン不要・半角数字で入力してください。">
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-bold text-gray-700 mb-2 required-mark">ご入会予定店舗</label>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-2">
+                             <label>
+                                 <input type="radio" name="store-choice" value="JOYFIT24 経堂" class="hidden" checked>
+                                 <div class="radio-label border border-gray-300 rounded-md p-4 text-center cursor-pointer font-semibold transition">JOYFIT24 経堂</div>
+                             </label>
+                             <label>
+                                 <input type="radio" name="store-choice" value="その他" class="hidden">
+                                 <div class="radio-label border border-gray-300 rounded-md p-4 text-center cursor-pointer font-semibold transition">その他 (他店舗の場合)</div>
+                             </label>
+                        </div>
+                        <div id="other-store-wrapper" class="hidden mt-4">
+                            <label for="other-store-input" class="block text-sm font-semibold text-gray-600 mb-2">他店舗名をご記入ください</label>
+                            <input type="text" id="other-store-input" placeholder="例：JOYFIT24 麻布十番" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-red-500">
+                        </div>
+                         <input type="hidden" id="final-store-name" name="入会予定店舗">
+                    </div>
+                </div>
+            </fieldset>
+
+            <div class="mt-10 pt-6 border-t">
+                <button type="submit" class="w-full bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-4 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 transition-transform transform hover:scale-105">
+                    この内容で紹介する
+                </button>
+            </div>
+        </form>
+    </div>
+
+    <footer class="text-center py-8">
+        <img src="joyfit_logo.png" alt="JOYFIT24 ロゴ" class="mx-auto h-12 w-auto">
+    </footer>
+
+    <!-- 申し込み完了モーダル -->
+    <div id="confirmation-modal" class="hidden fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center p-4 z-50">
+        <div class="bg-white rounded-lg shadow-2xl w-full max-w-2xl max-h-[90vh] flex flex-col">
+            <div id="modal-panels" class="p-6 sm:p-8 overflow-y-auto">
+                <!-- Panel 1: Receipt -->
+                <div id="receipt-panel">
+                    <!-- Content will be injected here by JavaScript -->
+                </div>
+                <!-- Panel 2: App Join Guide -->
+                <div id="guide-panel" class="hidden">
+                    <div class="bg-red-50 border-l-4 border-red-500 p-4 rounded-r-lg">
+                        <h3 class="font-bold text-red-800 text-lg">【重要】ご入会手続きについて</h3>
+                        <p class="text-sm text-red-700 mt-2">
+                            キャンペーン申請ありがとうございます。<br>特典は自動で適用されます。<br><br>
+                            こちらは<strong class="font-semibold">キャンペーン専用の申請フォーム</strong>です。<br>まだ入会がお済みでない方は、下記ボタンよりご入会手続きをお願いいたします。
+                        </p>
+                        <a href="https://joyfit.jp/kyodo/app_join/" target="_blank" rel="noopener noreferrer" class="inline-block bg-red-600 text-white font-bold py-2 px-4 rounded-lg mt-4 hover:bg-red-700 transition-colors">
+                            JOYFIT APPから入会手続きへ
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <footer class="p-2 bg-gray-100 border-t grid grid-cols-4 gap-2 text-sm">
+                <button id="tab-receipt" class="modal-tab-btn p-2 rounded-md font-semibold transition-colors">控え</button>
+                <button id="tab-guide" class="modal-tab-btn p-2 rounded-md font-semibold transition-colors">入会案内</button>
+                <a href="index.html" class="modal-tab-btn text-center p-2 rounded-md font-semibold bg-gray-200 hover:bg-gray-300 transition-colors">他の申請へ</a>
+                <button id="close-modal-btn" class="modal-tab-btn p-2 rounded-md font-semibold bg-gray-200 hover:bg-gray-300 transition-colors">閉じる</button>
+            </footer>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const storeChoiceRadios = document.querySelectorAll('input[name="store-choice"]');
+            const otherStoreWrapper = document.getElementById('other-store-wrapper');
+            const otherStoreInput = document.getElementById('other-store-input');
+            storeChoiceRadios.forEach(radio => {
+                radio.addEventListener('change', (event) => {
+                    if (event.target.value === 'その他') {
+                        otherStoreWrapper.classList.remove('hidden');
+                        otherStoreInput.required = true;
+                    } else {
+                        otherStoreWrapper.classList.add('hidden');
+                        otherStoreInput.required = false;
+                        otherStoreInput.value = '';
+                    }
+                });
+            });
+        });
+
+        const form = document.getElementById('referral-form');
+        form.addEventListener('submit', async (event) => {
+            event.preventDefault();
+            const submitButton = form.querySelector('button[type="submit"]');
+
+            const finalStoreInput = document.getElementById('final-store-name');
+            const selectedStoreChoice = document.querySelector('input[name="store-choice"]:checked').value;
+            if (selectedStoreChoice === 'その他') {
+                finalStoreInput.value = document.getElementById('other-store-input').value;
+            } else {
+                finalStoreInput.value = selectedStoreChoice;
+            }
+
+            if (!form.checkValidity()) {
+                showNotification('必須項目をすべて入力してください。', 'error');
+                form.reportValidity();
+                return;
+            }
+            
+            submitButton.disabled = true;
+            submitButton.textContent = '送信中...';
+            submitButton.classList.add('button-loading');
+
+            const formData = new FormData(form);
+            const payload = {};
+            formData.forEach((value, key) => { payload[key] = value; });
+            
+            const gasWebAppUrl = 'https://script.google.com/macros/s/AKfycbzmuAd-yGKOdoD49j3nPi4gjPPaq-0AFXK0faWLsoVLhRK1LLOBvZQBGdanqncljxdw8A/exec';
+
+            try {
+                await fetch(gasWebAppUrl, {
+                    method: 'POST',
+                    mode: 'no-cors',
+                    headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+                    body: JSON.stringify(payload)
+                });
+
+                showConfirmationScreen(payload);
+
+            } catch (error) {
+                console.error('Error submitting form:', error);
+                showNotification(`送信に失敗しました。ネットワーク接続を確認してください。`, 'error');
+            } finally {
+                submitButton.disabled = false;
+                submitButton.textContent = 'この内容で紹介する';
+                submitButton.classList.remove('button-loading');
+            }
+        });
+
+        const modal = document.getElementById('confirmation-modal');
+        const receiptPanel = document.getElementById('receipt-panel');
+        const guidePanel = document.getElementById('guide-panel');
+        const tabReceipt = document.getElementById('tab-receipt');
+        const tabGuide = document.getElementById('tab-guide');
+        const closeModalBtn = document.getElementById('close-modal-btn');
+
+        function showConfirmationScreen(data) {
+            const submissionDate = new Date().toLocaleString('ja-JP');
+            receiptPanel.innerHTML = `
+                <div class="text-center">
+                    <h3 class="text-lg font-bold text-gray-800">ご紹介ありがとうございます！</h3>
+                    <p class="text-sm text-gray-600 mt-2 mb-4">以下の内容で申請を受け付けました。</p>
+                    <p class="text-red-600 font-semibold p-2 bg-red-50 rounded-md">
+                        この画面をスクリーンショットし、<br>控えとして大切に保管してください。
+                    </p>
+                </div>
+                <div class="space-y-3 text-sm border rounded-lg p-4 mt-4">
+                    <div class="flex"><p class="w-1/3 font-semibold text-gray-500">申請日時</p><p class="w-2/3">${submissionDate}</p></div>
+                    <div class="flex"><p class="w-1/3 font-semibold text-gray-500">キャンペーン</p><p class="w-2/3">${data.campaignType}</p></div>
+                </div>
+                <div class="mt-4">
+                    <h4 class="font-bold text-gray-700 mb-2">ご紹介者様（あなた）の情報</h4>
+                    <div class="space-y-3 text-sm border rounded-lg p-4">
+                        <div class="flex"><p class="w-1/3 font-semibold text-gray-500">お名前</p><p class="w-2/3">${data['ご紹介者様のお名前']}</p></div>
+                        <div class="flex"><p class="w-1/3 font-semibold text-gray-500">お電話番号</p><p class="w-2/3">${data['ご紹介者様のお電話番号']}</p></div>
+                    </div>
+                </div>
+                <div class="mt-4">
+                    <h4 class="font-bold text-gray-700 mb-2">ご友人様の情報</h4>
+                    <div class="space-y-3 text-sm border rounded-lg p-4">
+                        <div class="flex"><p class="w-1/3 font-semibold text-gray-500">お名前</p><p class="w-2/3">${data['ご友人のお名前']}</p></div>
+                        <div class="flex"><p class="w-1/3 font-semibold text-gray-500">お電話番号</p><p class="w-2/3">${data['ご友人のお電話番号']}</p></div>
+                        <div class="flex"><p class="w-1/3 font-semibold text-gray-500">入会予定店舗</p><p class="w-2/3">${data['入会予定店舗']}</p></div>
+                    </div>
+                </div>
+            `;
+            modal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+            switchTab('receipt');
+        }
+        
+        function switchTab(tabName) {
+            receiptPanel.classList.toggle('hidden', tabName !== 'receipt');
+            guidePanel.classList.toggle('hidden', tabName !== 'guide');
+            tabReceipt.classList.toggle('active', tabName === 'receipt');
+            tabGuide.classList.toggle('active', tabName !== 'receipt');
+        }
+
+        tabReceipt.addEventListener('click', () => switchTab('receipt'));
+        tabGuide.addEventListener('click', () => switchTab('guide'));
+
+        closeModalBtn.addEventListener('click', () => {
+            modal.classList.add('hidden');
+            document.body.style.overflow = '';
+            form.reset();
+            document.getElementById('other-store-wrapper').classList.add('hidden');
+            document.getElementById('other-store-input').required = false;
+        });
+
+        function showNotification(message, type = 'error') {
+            const existingNotification = document.querySelector('.form-notification');
+            if (existingNotification) existingNotification.remove();
+            const notification = document.createElement('div');
+            notification.className = 'form-notification fixed bottom-5 right-5 p-4 rounded-lg text-white z-50 transition-opacity duration-300 shadow-lg';
+            notification.innerHTML = message; 
+            notification.style.backgroundColor = type === 'success' ? '#16a34a' : '#dc2626';
+            document.body.appendChild(notification);
+            setTimeout(() => { notification.style.opacity = '1'; }, 10);
+            setTimeout(() => {
+                notification.style.opacity = '0';
+                setTimeout(() => notification.remove(), 300);
+            }, 5000);
+        }
+    </script>
+</body>
+</html>
+
