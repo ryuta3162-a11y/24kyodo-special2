@@ -12,7 +12,6 @@
         body {
             font-family: 'Noto Sans JP', sans-serif;
             color: #333;
-            /* 背景画像：暗めのジム画像で統一 */
             background-image: 
                 linear-gradient(rgba(20, 20, 20, 0.9), rgba(20, 20, 20, 0.95)),
                 url('https://images.unsplash.com/photo-1571902943202-507ec2618e8f?q=80&w=1975&auto=format&fit=crop');
@@ -29,16 +28,13 @@
         .bg-brand-red { background-color: var(--brand-red); }
         .border-brand-red { border-color: var(--brand-red); }
 
-        /* フォームコンテナ：極限までシンプルに */
         .form-container {
             background-color: #FFFFFF;
-            /* わずかなボーダーで区切りを表現 */
             border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 4px; /* 角丸を小さくしてシャープに */
+            border-radius: 4px;
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
         }
 
-        /* カスタムチェックボックス：シンプルかつ赤く */
         .custom-checkbox {
             appearance: none;
             background-color: #fff;
@@ -48,7 +44,7 @@
             width: 1.25em;
             height: 1.25em;
             border: 1px solid #9CA3AF;
-            border-radius: 50%; /* 丸形 */
+            border-radius: 50%;
             display: grid;
             place-content: center;
             transition: all 0.2s;
@@ -69,10 +65,9 @@
             transform: scale(1);
         }
 
-        /* 入力フィールド：ミニマルに */
         .minimal-input {
             border: none;
-            border-bottom: 1px solid #D1D5DB; /* 下線のみ */
+            border-bottom: 1px solid #D1D5DB;
             border-radius: 0;
             padding: 0.75rem 0;
             background-color: transparent;
@@ -95,27 +90,48 @@
         }
         
         .button-loading { opacity: 0.7; cursor: not-allowed; }
-        .modal-tab-btn.active { background-color: #1F2937; color: white; } /* 黒ボタン */
+
+        /* 閉じるボタンのスタイル */
+        .close-btn {
+            position: absolute;
+            top: -15px;
+            right: -15px;
+            width: 40px;
+            height: 40px;
+            background-color: var(--brand-red);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: bold;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+            cursor: pointer;
+            transition: transform 0.2s, background-color 0.2s;
+            z-index: 60;
+        }
+        .close-btn:hover {
+            transform: scale(1.1);
+            background-color: #b91c1c;
+        }
     </style>
 </head>
 <body class="antialiased py-16 px-4 sm:px-6">
 
     <div class="container mx-auto max-w-xl">
         
-        <!-- Header: シンプルなロゴとタイトル -->
         <header class="text-center mb-12">
             <h1 class="text-3xl font-bold text-white mb-2 tracking-widest">
                 JOYFIT24 <span class="text-brand-red">KYODO</span>
             </h1>
-            <p class="text-sm text-gray-400 tracking-wider uppercase">
+            <p class="text-sm text-gray-400 tracking-wider">
                 6ヶ月継続プラン申請
             </p>
         </header>
 
-        <!-- Main Form Container -->
         <div class="form-container p-8 sm:p-12 relative">
             
-            <!-- キャンペーン適用条件（ミニマルなリストデザイン） -->
             <div class="mb-12">
                 <div class="text-center mb-8 pb-4 border-b border-gray-100">
                     <p class="text-base font-medium text-gray-800">
@@ -161,14 +177,12 @@
             <form id="continuation-form" class="space-y-10" novalidate>
                 <input type="hidden" name="campaignType" value="6ヶ月継続(2026年8月迄)">
 
-                <!-- Input: Name -->
                 <div>
                     <label for="name" class="block text-xs font-bold text-gray-400 uppercase tracking-wider mb-1">お名前 (フルネーム)</label>
                     <input type="text" id="name" name="お名前" placeholder="例：山田 太郎" required class="minimal-input w-full text-lg text-gray-900 placeholder-gray-300">
                     <p class="text-xs text-gray-400 mt-2">お名前をフルネームで入力してください。</p>
                 </div>
 
-                <!-- Input: Terms (シックなボックス) -->
                 <div class="bg-gray-50 p-6 rounded-sm">
                     <label class="block text-xs font-bold text-gray-400 uppercase tracking-wider mb-4">在籍条件のご確認</label>
                     <div class="space-y-4 text-sm text-gray-700">
@@ -190,45 +204,54 @@
                 </div>
 
                 <div class="pt-2">
-                    <button type="submit" class="cta-button w-full bg-brand-red text-white font-medium py-4 px-6 rounded-sm shadow-lg text-sm tracking-widest uppercase hover:shadow-xl">
-                        入力内容を送信する
+                    <button type="submit" class="cta-button w-full bg-brand-red text-white font-medium py-4 px-6 rounded-sm shadow-lg text-sm tracking-widest hover:shadow-xl">
+                        上記の内容で申請する
                     </button>
                 </div>
             </form>
         </div>
         
         <footer class="text-center py-12 opacity-50">
-            <!-- ロゴ画像を削除しました -->
             <p class="text-xs text-gray-500 mt-4">&copy; JOYFIT24 Kyodo</p>
         </footer>
 
     </div>
 
-    <!-- Modal: シックなデザインに統一 -->
+    <!-- モーダル: デザイン刷新 -->
     <div id="confirmation-modal" class="hidden fixed inset-0 bg-black bg-opacity-90 backdrop-blur-sm flex items-center justify-center p-4 z-50">
-        <div class="bg-white rounded-sm shadow-2xl w-full max-w-lg flex flex-col overflow-hidden">
-            <div class="p-8 text-center bg-gray-50 border-b border-gray-100">
-                <h3 class="text-xl font-bold text-gray-900 mb-2">申請ありがとうございます</h3>
-                <p class="text-sm text-gray-500">申請を受け付けました</p>
-            </div>
-            <div id="modal-panels" class="p-8 overflow-y-auto bg-white">
-                <div id="receipt-panel"></div>
-                <div id="guide-panel" class="hidden">
-                    <div class="text-center">
-                        <p class="text-sm text-gray-600 leading-relaxed mb-6">
-                            キャンペーン特典は自動で適用されます。<br>
-                            まだ入会がお済みでない方は、以下よりお手続きください。
-                        </p>
-                        <a href="https://joyfit.jp/kyodo/app_join/" target="_blank" rel="noopener noreferrer" class="cta-button inline-block bg-brand-red text-white font-bold py-3 px-8 rounded-sm text-sm tracking-wide w-full">
-                            JOYFIT APP 入会手続き
-                        </a>
+        <div class="relative bg-white rounded-lg shadow-2xl w-full max-w-lg flex flex-col p-8 overflow-visible">
+            
+            <!-- 閉じるボタン (右上にバナー風に配置) -->
+            <button id="close-modal-btn" class="close-btn" aria-label="閉じる">
+                &times;
+            </button>
+
+            <!-- コンテンツ -->
+            <div class="text-center">
+                <h3 class="text-2xl font-black text-gray-900 mb-2">申請ありがとうございます</h3>
+                <p class="text-sm text-gray-500 font-bold">申請を受け付けました</p>
+                <p class="text-sm text-gray-500 mt-1 mb-6">下記がお控えの代わりになります</p>
+
+                <!-- 控え内容 -->
+                <div id="receipt-panel" class="mb-8 text-left bg-gray-50 p-6 rounded border border-gray-100">
+                    <!-- JSで内容挿入 -->
+                </div>
+
+                <!-- スクリーンショット保存の強調 -->
+                <div class="bg-red-50 border-2 border-brand-red rounded-lg p-4 text-brand-red shadow-md animate-pulse">
+                    <div class="flex items-center justify-center mb-1">
+                        <svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                        <span class="font-black text-lg">重要</span>
                     </div>
+                    <p class="font-bold text-sm sm:text-base">この画面をスクリーンショットして<br>必ず保存してください</p>
+                </div>
+                
+                <div class="mt-6">
+                    <a href="https://joyfit.jp/kyodo/app_join/" target="_blank" rel="noopener noreferrer" class="text-xs text-gray-400 hover:text-brand-red underline transition-colors">
+                        まだ入会がお済みでない方はこちら (JOYFIT APP)
+                    </a>
                 </div>
             </div>
-            <footer class="p-0 grid grid-cols-2 text-sm font-bold border-t border-gray-100">
-                <button id="tab-receipt" class="modal-tab-btn py-4 bg-gray-50 text-gray-500 hover:bg-gray-100 transition-colors border-r border-gray-100">控えを表示</button>
-                <button id="close-modal-btn" class="modal-tab-btn py-4 bg-gray-50 text-gray-500 hover:bg-gray-100 transition-colors">閉じる</button>
-            </footer>
         </div>
     </div>
 
@@ -276,50 +299,36 @@
                 showNotification(`送信失敗。ネットワークを確認してください`, 'error');
             } finally {
                 submitButton.disabled = false;
-                submitButton.textContent = '入力内容を送信する';
+                submitButton.textContent = '上記の内容で申請する';
                 submitButton.classList.remove('button-loading');
             }
         });
 
         const modal = document.getElementById('confirmation-modal');
         const receiptPanel = document.getElementById('receipt-panel');
-        const guidePanel = document.getElementById('guide-panel');
-        const tabReceipt = document.getElementById('tab-receipt');
         const closeModalBtn = document.getElementById('close-modal-btn');
 
         function showConfirmationScreen(data) {
             const submissionDate = new Date().toLocaleString('ja-JP');
             receiptPanel.innerHTML = `
-                <div class="space-y-4 text-sm text-gray-600">
-                    <div class="flex justify-between border-b border-gray-100 pb-2">
-                        <span class="text-gray-400">申請日時</span>
-                        <span class="font-medium font-mono">${submissionDate}</span>
+                <div class="space-y-3 text-sm text-gray-600">
+                    <div class="flex justify-between border-b border-gray-200 pb-2">
+                        <span class="text-gray-400 font-medium">申請日時</span>
+                        <span class="font-bold text-gray-800 font-mono">${submissionDate}</span>
                     </div>
-                    <div class="flex justify-between border-b border-gray-100 pb-2">
-                        <span class="text-gray-400">キャンペーン</span>
-                        <span class="font-medium">${data.campaignType}</span>
+                    <div class="flex justify-between border-b border-gray-200 pb-2">
+                        <span class="text-gray-400 font-medium">キャンペーン</span>
+                        <span class="font-bold text-gray-800">${data.campaignType}</span>
                     </div>
-                    <div class="flex justify-between border-b border-gray-100 pb-2">
-                        <span class="text-gray-400">お名前</span>
-                        <span class="font-medium">${data['お名前']}</span>
-                    </div>
-                    <div class="mt-6 p-3 bg-red-50 text-brand-red text-center text-xs font-bold rounded-sm">
-                        この画面をスクリーンショットして保存してください
+                    <div class="flex justify-between border-b border-gray-200 pb-2">
+                        <span class="text-gray-400 font-medium">お名前</span>
+                        <span class="font-bold text-gray-800">${data['お名前']}</span>
                     </div>
                 </div>
             `;
             modal.classList.remove('hidden');
             document.body.style.overflow = 'hidden';
-            switchTab('receipt');
         }
-        
-        function switchTab(tabName) {
-            receiptPanel.classList.toggle('hidden', tabName !== 'receipt');
-            guidePanel.classList.toggle('hidden', tabName !== 'guide');
-            tabReceipt.classList.toggle('active', tabName === 'receipt');
-        }
-
-        tabReceipt.addEventListener('click', () => switchTab('receipt'));
 
         closeModalBtn.addEventListener('click', () => {
             modal.classList.add('hidden');
@@ -333,7 +342,7 @@
             const notification = document.createElement('div');
             notification.className = 'form-notification fixed bottom-5 right-5 px-6 py-3 rounded-sm text-white z-50 transition-opacity duration-300 shadow-xl text-sm font-medium tracking-wide';
             notification.innerHTML = message; 
-            notification.style.backgroundColor = type === 'success' ? '#10B981' : '#1F2937'; /* 黒ベースのエラー表示 */
+            notification.style.backgroundColor = type === 'success' ? '#10B981' : '#1F2937';
             if (type === 'error') notification.style.borderLeft = '4px solid #D90429';
             document.body.appendChild(notification);
             setTimeout(() => { notification.style.opacity = '1'; }, 10);

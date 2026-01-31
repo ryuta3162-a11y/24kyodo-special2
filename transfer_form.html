@@ -35,7 +35,6 @@
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
         }
 
-        /* ファイルアップロード：ミニマル */
         .file-input-label { 
             transition: all 0.2s ease-in-out;
             border: 1px dashed #D1D5DB;
@@ -61,9 +60,8 @@
             box-shadow: none;
         }
         
-        /* Selectもミニマルに */
         select.minimal-input {
-            padding-right: 2rem; /* 矢印スペース */
+            padding-right: 2rem; 
             background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236B7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
             background-position: right 0 center;
             background-repeat: no-repeat;
@@ -81,7 +79,31 @@
         }
         
         .button-loading { opacity: 0.7; cursor: not-allowed; }
-        .modal-tab-btn.active { background-color: #1F2937; color: white; }
+
+        /* 閉じるボタンのスタイル */
+        .close-btn {
+            position: absolute;
+            top: -15px;
+            right: -15px;
+            width: 40px;
+            height: 40px;
+            background-color: var(--brand-red);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: bold;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+            cursor: pointer;
+            transition: transform 0.2s, background-color 0.2s;
+            z-index: 60;
+        }
+        .close-btn:hover {
+            transform: scale(1.1);
+            background-color: #b91c1c;
+        }
     </style>
 </head>
 <body class="antialiased py-16 px-4 sm:px-6">
@@ -92,7 +114,7 @@
             <h1 class="text-3xl font-bold text-white mb-2 tracking-widest">
                 JOYFIT24 <span class="text-brand-red">KYODO</span>
             </h1>
-            <p class="text-sm text-gray-400 tracking-wider uppercase">
+            <p class="text-sm text-gray-400 tracking-wider">
                 他クラブ乗り換え申請
             </p>
         </header>
@@ -144,13 +166,11 @@
             <form id="transfer-form" class="space-y-10" novalidate>
                 <input type="hidden" name="campaignType" value="乗り換え">
                 
-                <!-- Input: Name -->
                 <div>
                     <label for="name" class="block text-xs font-bold text-gray-400 uppercase tracking-wider mb-1">お名前 (フルネーム)</label>
                     <input type="text" id="name" name="お名前" placeholder="例：山田 太郎" required class="minimal-input w-full text-lg text-gray-900 placeholder-gray-300">
                 </div>
 
-                <!-- Input: Previous Club -->
                 <div>
                     <label for="previous-club-select" class="block text-xs font-bold text-gray-400 uppercase tracking-wider mb-1">移籍元クラブ</label>
                     <select id="previous-club-select" required class="minimal-input w-full text-lg text-gray-900 bg-transparent">
@@ -170,13 +190,11 @@
                     <input type="hidden" name="移籍元クラブ" id="final-previous-club-value">
                 </div>
                 
-                <!-- Input: Location -->
                 <div>
                     <label for="club-location" class="block text-xs font-bold text-gray-400 uppercase tracking-wider mb-1">移籍元クラブの地名</label>
                     <input type="text" id="club-location" name="移籍元クラブの地名" placeholder="例：経堂" required class="minimal-input w-full text-lg text-gray-900 placeholder-gray-300">
                 </div>
 
-                <!-- Input: Image Upload -->
                 <div>
                     <label class="block text-xs font-bold text-gray-400 uppercase tracking-wider mb-3">会員証明画像のアップロード</label>
                     <label for="file-upload" class="file-input-label w-full flex flex-col items-center justify-center h-32 rounded-sm cursor-pointer">
@@ -192,7 +210,7 @@
                 </div>
 
                 <div class="pt-2">
-                    <button type="submit" class="cta-button w-full bg-brand-red text-white font-medium py-4 px-6 rounded-sm shadow-lg text-sm tracking-widest uppercase hover:shadow-xl">
+                    <button type="submit" class="cta-button w-full bg-brand-red text-white font-medium py-4 px-6 rounded-sm shadow-lg text-sm tracking-widest hover:shadow-xl">
                         入力内容を送信する
                     </button>
                 </div>
@@ -200,46 +218,45 @@
         </div>
 
         <footer class="text-center py-12 opacity-50">
-            <!-- ロゴ画像を削除しました -->
             <p class="text-xs text-gray-500 mt-4">&copy; JOYFIT24 Kyodo</p>
         </footer>
 
     </div>
 
-    <!-- Modal -->
-    <div id="completion-modal" class="modal-overlay">
-        <div class="modal-container overflow-hidden bg-white rounded-sm shadow-2xl">
-            <div class="p-8 text-center bg-gray-50 border-b border-gray-100">
-                <h3 class="text-xl font-bold text-gray-900 mb-2">申請ありがとうございます</h3>
-                <p class="text-sm text-gray-500">以下の内容で受け付けました</p>
-            </div>
-            <div class="flex-grow overflow-y-auto bg-white p-8">
-                <div id="tab-receipt" class="modal-tab-content active">
-                    <div class="space-y-4 text-sm text-gray-600" id="receipt-content">
-                        <!-- JSで挿入 -->
-                    </div>
-                    <div class="mt-6 p-3 bg-red-50 text-brand-red text-center text-xs font-bold rounded-sm">
-                        この画面をスクリーンショットして保存してください
-                    </div>
+    <!-- モーダル: デザイン刷新 -->
+    <div id="completion-modal" class="hidden fixed inset-0 bg-black bg-opacity-90 backdrop-blur-sm flex items-center justify-center p-4 z-50">
+        <div class="relative bg-white rounded-lg shadow-2xl w-full max-w-lg flex flex-col p-8 overflow-visible">
+            
+            <!-- 閉じるボタン (右上にバナー風に配置) -->
+            <button id="modal-close-btn" class="close-btn" aria-label="閉じる">
+                &times;
+            </button>
+
+            <!-- コンテンツ -->
+            <div class="text-center">
+                <h3 class="text-2xl font-black text-gray-900 mb-2">申請ありがとうございます</h3>
+                <p class="text-sm text-gray-500 font-bold">申請を受け付けました</p>
+                <p class="text-sm text-gray-500 mt-1 mb-6">下記がお控えの代わりになります</p>
+
+                <!-- 控え内容 -->
+                <div id="receipt-content" class="mb-8 text-left bg-gray-50 p-6 rounded border border-gray-100 space-y-3 text-sm text-gray-600">
+                    <!-- JSで内容挿入 -->
                 </div>
-                <div id="tab-guidance" class="modal-tab-content">
-                    <div class="text-center">
-                        <p class="text-sm text-gray-600 leading-relaxed mb-6">
-                            キャンペーン特典は自動で適用されます。<br>
-                            まだ入会がお済みでない方は、以下よりお手続きください。
-                        </p>
-                        <a href="https://joyfit.jp/kyodo/app_join/" target="_blank" rel="noopener noreferrer" class="cta-button inline-block bg-brand-red text-white font-bold py-3 px-8 rounded-sm text-sm tracking-wide w-full">
-                            JOYFIT APP 入会手続き
-                        </a>
+
+                <!-- スクリーンショット保存の強調 -->
+                <div class="bg-red-50 border-2 border-brand-red rounded-lg p-4 text-brand-red shadow-md animate-pulse">
+                    <div class="flex items-center justify-center mb-1">
+                        <svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                        <span class="font-black text-lg">重要</span>
                     </div>
+                    <p class="font-bold text-sm sm:text-base">この画面をスクリーンショットして<br>必ず保存してください</p>
                 </div>
-            </div>
-            <footer class="p-0 grid grid-cols-2 text-sm font-bold border-t border-gray-100">
-                <button id="btn-show-receipt" class="modal-tab-btn py-4 bg-gray-50 text-gray-500 hover:bg-gray-100 transition-colors border-r border-gray-100">控え</button>
-                <button id="btn-show-guidance" class="modal-tab-btn py-4 bg-gray-50 text-gray-500 hover:bg-gray-100 transition-colors">案内</button>
-            </footer>
-            <div class="p-4 bg-gray-100 text-center">
-                 <button id="modal-close-btn" class="text-xs text-gray-500 hover:text-gray-800 underline">閉じる</button>
+                
+                <div class="mt-6">
+                    <a href="https://joyfit.jp/kyodo/app_join/" target="_blank" rel="noopener noreferrer" class="text-xs text-gray-400 hover:text-brand-red underline transition-colors">
+                        まだ入会がお済みでない方はこちら (JOYFIT APP)
+                    </a>
+                </div>
             </div>
         </div>
     </div>
@@ -258,10 +275,6 @@
             const modal = document.getElementById('completion-modal');
             const modalCloseBtn = document.getElementById('modal-close-btn');
             const receiptContent = document.getElementById('receipt-content');
-            const tabReceipt = document.getElementById('tab-receipt');
-            const tabGuidance = document.getElementById('tab-guidance');
-            const btnShowReceipt = document.getElementById('btn-show-receipt');
-            const btnShowGuidance = document.getElementById('btn-show-guidance');
 
             previousClubSelect.addEventListener('change', (event) => {
                 const isOther = event.target.value === 'その他';
@@ -376,28 +389,30 @@
             
             const showCompletionModal = (data) => {
                 receiptContent.innerHTML = `
-                    <div class="flex justify-between border-b border-gray-100 pb-2">
-                        <span class="text-gray-400">申請日時</span>
-                        <span class="font-medium font-mono">${new Date().toLocaleString('ja-JP')}</span>
+                    <div class="flex justify-between border-b border-gray-200 pb-2">
+                        <span class="text-gray-400 font-medium">申請日時</span>
+                        <span class="font-bold text-gray-800 font-mono">${new Date().toLocaleString('ja-JP')}</span>
                     </div>
-                    <div class="flex justify-between border-b border-gray-100 pb-2">
-                        <span class="text-gray-400">キャンペーン</span>
-                        <span class="font-medium">${data['campaignType']}</span>
+                    <div class="flex justify-between border-b border-gray-200 pb-2">
+                        <span class="text-gray-400 font-medium">キャンペーン</span>
+                        <span class="font-bold text-gray-800">${data['campaignType']}</span>
                     </div>
-                    <div class="flex justify-between border-b border-gray-100 pb-2">
-                        <span class="text-gray-400">お名前</span>
-                        <span class="font-medium">${data['お名前']}</span>
+                    <div class="flex justify-between border-b border-gray-200 pb-2">
+                        <span class="text-gray-400 font-medium">お名前</span>
+                        <span class="font-bold text-gray-800">${data['お名前']}</span>
                     </div>
-                    <div class="flex justify-between border-b border-gray-100 pb-2">
-                        <span class="text-gray-400">移籍元クラブ</span>
-                        <span class="font-medium">${data['移籍元クラブ']}</span>
+                    <div class="flex justify-between border-b border-gray-200 pb-2">
+                        <span class="text-gray-400 font-medium">移籍元クラブ</span>
+                        <span class="font-bold text-gray-800">${data['移籍元クラブ']}</span>
                     </div>
                 `;
-                modal.classList.add('active');
+                modal.classList.remove('hidden');
+                document.body.style.overflow = 'hidden';
             };
 
-            const hideModal = () => {
-                modal.classList.remove('active');
+            modalCloseBtn.addEventListener('click', () => {
+                modal.classList.add('hidden');
+                document.body.style.overflow = '';
                 form.reset();
                 otherClubWrapper.classList.add('hidden');
                 otherClubInput.required = false;
@@ -405,29 +420,7 @@
                 filePreview.textContent = '';
                 base64Fields.innerHTML = '';
                 fileUpload.required = true;
-                switchTab('receipt');
-            };
-
-            const switchTab = (tabName) => {
-                tabReceipt.classList.toggle('active', tabName === 'receipt');
-                tabGuidance.classList.toggle('active', tabName !== 'guidance');
-                
-                // タブのスタイル切り替え
-                const activeClass = ['bg-gray-800', 'text-white'];
-                const inactiveClass = ['bg-gray-50', 'text-gray-500'];
-                
-                if (tabName === 'receipt') {
-                    btnShowReceipt.className = `modal-tab-btn py-4 w-full transition-colors ${activeClass.join(' ')}`;
-                    btnShowGuidance.className = `modal-tab-btn py-4 w-full transition-colors ${inactiveClass.join(' ')}`;
-                } else {
-                    btnShowGuidance.className = `modal-tab-btn py-4 w-full transition-colors ${activeClass.join(' ')}`;
-                    btnShowReceipt.className = `modal-tab-btn py-4 w-full transition-colors ${inactiveClass.join(' ')}`;
-                }
-            };
-            
-            modalCloseBtn.addEventListener('click', hideModal);
-            btnShowReceipt.addEventListener('click', () => switchTab('receipt'));
-            btnShowGuidance.addEventListener('click', () => switchTab('guidance'));
+            });
 
              function showNotification(message, type = 'error') {
                 const existingNotification = document.querySelector('.form-notification');
