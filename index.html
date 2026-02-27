@@ -87,7 +87,7 @@
             border: 1px solid #D1D5DB;
             border-radius: 0.75rem;
             box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, 0.05);
-            padding: 1.5rem;
+            padding: 1.5rem 0.5rem;
             text-align: center;
         }
 
@@ -163,17 +163,23 @@
                     <!-- 統一されたジム風パネル -->
                     <div class="gym-panel">
                         <div class="grid grid-cols-2 divide-x divide-gray-300">
-                            <div class="px-2 border-r border-gray-300">
-                                <p class="text-sm font-bold text-gray-600">学生</p>
-                                <p class="text-2xl font-bold my-1 text-brand-red">
-                                    7,150<span class="text-sm ml-1">円(税込)</span>
-                                </p>
-                                <p class="text-xs text-gray-500">2,200円引</p>
+                            <!-- 学生 -->
+                            <div class="px-1 border-r border-gray-300">
+                                <p class="text-xs font-bold text-gray-600">学生</p>
+                                <div class="my-1">
+                                    <p class="text-xl font-bold text-brand-red leading-tight">7,150円</p>
+                                    <p class="text-[10px] text-brand-red font-bold">(税込)</p>
+                                </div>
+                                <p class="text-[10px] text-gray-500 font-bold">2,200円引</p>
                             </div>
-                            <div class="px-2">
-                                <p class="text-sm font-bold text-gray-600">教職員</p>
-                                <p class="text-2xl font-bold my-1 text-gray-700">8,250<span class="text-sm ml-1 text-gray-600">円(税込)</span></p>
-                                <p class="text-xs text-gray-500">1,100円引</p>
+                            <!-- 教職員 -->
+                            <div class="px-1">
+                                <p class="text-xs font-bold text-gray-600">教職員</p>
+                                <div class="my-1">
+                                    <p class="text-xl font-bold text-gray-700 leading-tight">8,250円</p>
+                                    <p class="text-[10px] text-gray-600 font-bold">(税込)</p>
+                                </div>
+                                <p class="text-[10px] text-gray-500 font-bold">1,100円引</p>
                             </div>
                         </div>
                         <p class="text-xs text-gray-500 font-bold mt-3">※新規入会者限定</p>
@@ -213,7 +219,6 @@
     <!-- Footer -->
     <footer class="bg-black/50 border-t border-gray-700 backdrop-blur-sm">
         <div class="container mx-auto px-6 py-8 text-center text-gray-400">
-            <!-- コピーライト削除済み -->
         </div>
     </footer>
 
