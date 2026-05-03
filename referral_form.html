@@ -9,7 +9,21 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
+        :root { --brand-red: #D90429; }
         body { font-family: 'Noto Sans JP', sans-serif; }
+        .logo-joyfit-wrap {
+            display: inline-block;
+            background-color: var(--brand-red);
+            padding: 0.5rem 1.25rem;
+            border-radius: 0.125rem;
+            line-height: 0;
+            box-shadow: inset 0 0 0 1px rgba(0,0,0,0.06);
+        }
+        .logo-joyfit-wrap img {
+            height: 2rem;
+            width: auto;
+            display: block;
+        }
         .button-loading { opacity: 0.7; cursor: not-allowed; }
         .required-mark::after { content: '*'; color: #dc2626; margin-left: 0.25rem; }
         input[type="radio"]:checked + .radio-label { border-color: #dc2626; background-color: #fef2f2; box-shadow: 0 0 0 2px #dc2626; }
@@ -124,8 +138,10 @@
         </form>
     </div>
 
-    <footer class="text-center py-8">
-        <img src="joyfit_logo.png" alt="JOYFIT24 ロゴ" class="mx-auto h-12 w-auto">
+    <footer class="text-center py-8 border-t-2 border-solid" style="border-color: #D90429;">
+        <div class="logo-joyfit-wrap mx-auto">
+            <img src="joyfit_logo.png" alt="JOYFIT24 ロゴ">
+        </div>
     </footer>
 
     <!-- 申し込み完了モーダル -->
