@@ -94,18 +94,17 @@
             transform: scale(1.1);
             background-color: #b91c1c;
         }
-        .logo-joyfit-wrap {
-            display: inline-block;
+        .site-footer-bar {
             background-color: var(--brand-red);
-            padding: 0.5rem 1.25rem;
-            border-radius: 0.125rem;
-            line-height: 0;
-            box-shadow: inset 0 0 0 1px rgba(0,0,0,0.06);
+            padding: 1.25rem 1rem;
         }
-        .logo-joyfit-wrap img {
+        .site-footer-bar .footer-logo-img {
             height: 2rem;
             width: auto;
+            max-width: min(100%, 220px);
             display: block;
+            margin-left: auto;
+            margin-right: auto;
         }
         .link-brand {
             color: var(--brand-red);
@@ -140,10 +139,10 @@
                 <div class="mb-8 rounded-lg border-2 border-brand-red bg-red-50 p-5 text-center text-sm text-gray-800 space-y-3 leading-relaxed">
                     <p class="font-bold text-gray-900">こちら専用ページ申請 ＋ JOYFITアプリから入会</p>
                     <p>割引適用は上記2点を完了していただく必要があります</p>
-                    <p class="font-bold text-brand-red">【2点当月末日までに申請】</p>
+                    <p class="text-xs sm:text-sm text-gray-600">※キャンペーン内容は随時更新されますので必ず店舗HPをご確認ください。</p>
                     <p>いずれか一方のみでは適用されません。</p>
                     <p class="pt-1">
-                        JOYFITアプリは<a href="https://joyfit.jp/pr_app/" target="_blank" rel="noopener noreferrer" class="link-brand">コチラ</a>からDL
+                        店舗HPは<a href="https://joyfit.jp/kyodo/" target="_blank" rel="noopener noreferrer" class="link-brand">こちら</a>から
                     </p>
                 </div>
 
@@ -187,12 +186,9 @@
         </div>
     </main>
 
-    <footer class="bg-black/50 border-t-2 border-brand-red backdrop-blur-sm">
-        <div class="container mx-auto px-6 py-8 text-center text-gray-400 text-xs space-y-4">
-            <div class="logo-joyfit-wrap mx-auto">
-                <img src="joyfit_logo.png" alt="JOYFIT24">
-            </div>
-            <p>&copy; JOYFIT24 Kyodo</p>
+    <footer class="site-footer-bar border-t border-black/15">
+        <div class="container mx-auto text-center">
+            <img src="joyfit_logo.png" alt="JOYFIT24" class="footer-logo-img">
         </div>
     </footer>
 
