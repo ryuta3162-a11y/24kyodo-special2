@@ -11,18 +11,17 @@
     <style>
         :root { --brand-red: #D90429; }
         body { font-family: 'Noto Sans JP', sans-serif; }
-        .logo-joyfit-wrap {
-            display: inline-block;
+        .site-footer-bar {
             background-color: var(--brand-red);
-            padding: 0.5rem 1.25rem;
-            border-radius: 0.125rem;
-            line-height: 0;
-            box-shadow: inset 0 0 0 1px rgba(0,0,0,0.06);
+            padding: 1.25rem 1rem;
         }
-        .logo-joyfit-wrap img {
+        .site-footer-bar .footer-logo-img {
             height: 2rem;
             width: auto;
+            max-width: min(100%, 220px);
             display: block;
+            margin-left: auto;
+            margin-right: auto;
         }
         .button-loading { opacity: 0.7; cursor: not-allowed; }
         .required-mark::after { content: '*'; color: #dc2626; margin-left: 0.25rem; }
@@ -138,9 +137,9 @@
         </form>
     </div>
 
-    <footer class="text-center py-8 border-t-2 border-solid" style="border-color: #D90429;">
-        <div class="logo-joyfit-wrap mx-auto">
-            <img src="joyfit_logo.png" alt="JOYFIT24 ロゴ">
+    <footer class="site-footer-bar border-t border-black/15">
+        <div class="container mx-auto text-center">
+            <img src="joyfit_logo.png" alt="JOYFIT24 ロゴ" class="footer-logo-img">
         </div>
     </footer>
 
