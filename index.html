@@ -103,6 +103,19 @@
             transform: translateY(-2px);
             box-shadow: 0 10px 15px -3px rgba(217, 4, 41, 0.2), 0 4px 6px -2px rgba(217, 4, 41, 0.15);
         }
+
+        .site-footer-bar {
+            background-color: var(--brand-red);
+            padding: 1.25rem 1rem;
+        }
+        .site-footer-bar .footer-logo-img {
+            height: 2rem;
+            width: auto;
+            max-width: min(100%, 220px);
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
     </style>
 </head>
 <body class="antialiased">
@@ -216,9 +229,9 @@
         </div>
     </main>
 
-    <!-- Footer -->
-    <footer class="bg-black/50 border-t border-gray-700 backdrop-blur-sm">
-        <div class="container mx-auto px-6 py-8 text-center text-gray-400">
+    <footer class="site-footer-bar border-t border-black/15">
+        <div class="container mx-auto text-center">
+            <img src="joyfit_logo.png" alt="JOYFIT24" class="footer-logo-img">
         </div>
     </footer>
 
