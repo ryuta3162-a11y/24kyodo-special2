@@ -12,11 +12,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --logo-wine-bg: #A93D4D;
-            --brand-red: #E60012;
-            --brand-red-dark: #B8000E;
-            --brand-burgundy: #A93D4D;
-            --brand-red-soft: rgba(230, 0, 18, 0.14);
+            --logo-wine-bg: #A63646;
+            --brand-red: #A63646;
+            --brand-red-dark: #852c38;
+            --brand-burgundy: #8E3545;
+            --brand-red-soft: rgba(166, 54, 70, 0.18);
             --ink: #111827;
             --muted: #6B7280;
             --line: #E5E7EB;
@@ -94,16 +94,16 @@
             cursor: pointer;
             letter-spacing: 0.04em;
             transition: background-color 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
-            box-shadow: 0 4px 14px rgba(230, 0, 18, 0.28);
+            box-shadow: 0 4px 14px rgba(166, 54, 70, 0.3);
         }
         .joy-submit:hover:not(:disabled) {
             background-color: var(--brand-red-dark);
             transform: translateY(-1px);
-            box-shadow: 0 8px 20px rgba(230, 0, 18, 0.35);
+            box-shadow: 0 8px 20px rgba(166, 54, 70, 0.38);
         }
         .joy-submit:focus-visible {
             outline: none;
-            box-shadow: 0 0 0 3px var(--brand-red-soft), 0 4px 14px rgba(230, 0, 18, 0.28);
+            box-shadow: 0 0 0 3px var(--brand-red-soft), 0 4px 14px rgba(166, 54, 70, 0.3);
         }
         .joy-inset-notice {
             border-radius: var(--radius);
@@ -158,6 +158,7 @@
         .link-brand:hover {
             opacity: 0.88;
         }
+        .bg-brand-tint { background-color: rgba(166, 54, 70, 0.09); }
     </style>
 </head>
 <body class="antialiased">
@@ -240,7 +241,7 @@
                 <h3 class="text-2xl font-bold text-gray-900 mb-2">申請ありがとうございます</h3>
                 <p class="text-sm text-gray-500 font-bold mb-6">申請を受け付けました</p>
                 <div id="receipt-content" class="mb-8 text-left bg-gray-50 p-6 rounded border border-gray-100 space-y-3 text-sm text-gray-600"></div>
-                <div class="bg-red-50 border-2 border-brand-red rounded-lg p-4 text-brand-red shadow-md animate-pulse">
+                <div class="bg-brand-tint border-2 border-brand-red rounded-lg p-4 text-brand-red shadow-md animate-pulse">
                     <div class="flex items-center justify-center mb-1">
                         <svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
                         <span class="font-black text-lg">重要</span>

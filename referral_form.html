@@ -10,10 +10,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --brand-red: #E60012;
-            --brand-red-dark: #B8000E;
-            --brand-burgundy: #9E1F26;
-            --brand-red-soft: rgba(230, 0, 18, 0.14);
+            --brand-red: #A63646;
+            --brand-red-dark: #852c38;
+            --brand-burgundy: #8E3545;
+            --brand-red-soft: rgba(166, 54, 70, 0.18);
             --ink: #111827;
             --muted: #6B7280;
             --line: #E5E7EB;
@@ -102,16 +102,16 @@
             border: none;
             cursor: pointer;
             transition: background-color 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
-            box-shadow: 0 4px 14px rgba(230, 0, 18, 0.28);
+            box-shadow: 0 4px 14px rgba(166, 54, 70, 0.3);
         }
         .joy-submit:hover:not(:disabled) {
             background-color: var(--brand-red-dark);
             transform: translateY(-1px);
-            box-shadow: 0 8px 20px rgba(230, 0, 18, 0.35);
+            box-shadow: 0 8px 20px rgba(166, 54, 70, 0.38);
         }
         .joy-submit:focus-visible {
             outline: none;
-            box-shadow: 0 0 0 3px var(--brand-red-soft), 0 4px 14px rgba(230, 0, 18, 0.28);
+            box-shadow: 0 0 0 3px var(--brand-red-soft), 0 4px 14px rgba(166, 54, 70, 0.3);
         }
         .joy-notice-card {
             border-top: 3px solid var(--brand-red);
@@ -120,6 +120,7 @@
         .bg-brand-red { background-color: var(--brand-red); }
         .hover\:bg-brand-red-dark:hover { background-color: var(--brand-red-dark); }
         .border-brand-red { border-color: var(--brand-red); }
+        .bg-brand-tint { background-color: rgba(166, 54, 70, 0.09); }
     </style>
 </head>
 <body>
@@ -133,11 +134,11 @@
 
         <div class="joy-notice-card bg-white border border-gray-200/80 rounded-2xl shadow-sm mb-8 p-6">
             <div class="text-center">
-                <p class="text-lg font-bold text-red-700">
+                <p class="text-lg font-bold text-brand-red">
                     こちらは経堂限定のキャンペーンです。
                 </p>
             </div>
-            <div class="mt-6 border-t border-red-200 pt-6 space-y-4 text-gray-700 text-sm">
+            <div class="mt-6 border-t border-gray-200 pt-6 space-y-4 text-gray-700 text-sm">
                 <div class="flex items-start">
                     <svg class="w-5 h-5 text-brand-red mr-3 mt-0.5 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
                         <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
@@ -246,9 +247,9 @@
                 </div>
                 <!-- Panel 2: App Join Guide -->
                 <div id="guide-panel" class="hidden">
-                    <div class="bg-red-50 border-l-4 border-brand-red p-4 rounded-r-lg">
-                        <h3 class="font-bold text-red-800 text-lg">【重要】ご入会手続きについて</h3>
-                        <p class="text-sm text-red-700 mt-2">
+                    <div class="bg-brand-tint border-l-4 border-brand-red p-4 rounded-r-lg">
+                        <h3 class="font-bold text-brand-red text-lg">【重要】ご入会手続きについて</h3>
+                        <p class="text-sm text-gray-800 mt-2">
                             キャンペーン申請ありがとうございます。<br>特典は自動で適用されます。<br><br>
                             こちらは<strong class="font-semibold">キャンペーン専用の申請フォーム</strong>です。<br>まだ入会がお済みでない方は、下記ボタンよりご入会手続きをお願いいたします。
                         </p>
@@ -348,7 +349,7 @@
                 <div class="text-center">
                     <h3 class="text-lg font-bold text-gray-800">ご紹介ありがとうございます！</h3>
                     <p class="text-sm text-gray-600 mt-2 mb-4">以下の内容で申請を受け付けました。</p>
-                    <p class="text-brand-red font-semibold p-2 bg-red-50 rounded-md">
+                    <p class="text-brand-red font-semibold p-2 bg-brand-tint rounded-md">
                         この画面をスクリーンショットし、<br>控えとして大切に保管してください。
                     </p>
                 </div>
@@ -401,7 +402,7 @@
             const notification = document.createElement('div');
             notification.className = 'form-notification fixed bottom-5 right-5 p-4 rounded-lg text-white z-50 transition-opacity duration-300 shadow-lg';
             notification.innerHTML = message; 
-            notification.style.backgroundColor = type === 'success' ? '#16a34a' : '#E60012';
+            notification.style.backgroundColor = type === 'success' ? '#16a34a' : '#A63646';
             document.body.appendChild(notification);
             setTimeout(() => { notification.style.opacity = '1'; }, 10);
             setTimeout(() => {

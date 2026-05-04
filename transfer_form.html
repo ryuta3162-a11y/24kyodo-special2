@@ -17,10 +17,10 @@
         }
 
         :root {
-            --logo-wine-bg: #A93D4D;
-            --brand-red: #E60012;
-            --brand-red-dark: #B8000E;
-            --brand-burgundy: #A93D4D;
+            --logo-wine-bg: #A63646;
+            --brand-red: #A63646;
+            --brand-red-dark: #852c38;
+            --brand-burgundy: #8E3545;
         }
         .text-brand-red { color: var(--brand-red); } 
         .bg-brand-red { background-color: var(--brand-red); }
@@ -100,8 +100,9 @@
         }
         .close-btn:hover {
             transform: scale(1.1);
-            background-color: #b91c1c;
+            background-color: var(--brand-red-dark);
         }
+        .bg-brand-tint { background-color: rgba(166, 54, 70, 0.09); }
     </style>
 </head>
 <body class="antialiased py-16 px-4 sm:px-6">
@@ -242,7 +243,7 @@
                 </div>
 
                 <!-- スクリーンショット保存の強調 -->
-                <div class="bg-red-50 border-2 border-brand-red rounded-lg p-4 text-brand-red shadow-md animate-pulse">
+                <div class="bg-brand-tint border-2 border-brand-red rounded-lg p-4 text-brand-red shadow-md animate-pulse">
                     <div class="flex items-center justify-center mb-1">
                         <svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
                         <span class="font-black text-lg">重要</span>
@@ -427,7 +428,7 @@
                 notification.className = 'form-notification fixed bottom-5 right-5 px-6 py-3 rounded-sm text-white z-50 transition-opacity duration-300 shadow-xl text-sm font-medium tracking-wide';
                 notification.innerHTML = message; 
                 notification.style.backgroundColor = type === 'success' ? '#10B981' : '#1F2937';
-                if (type === 'error') notification.style.borderLeft = '4px solid #E60012';
+                if (type === 'error') notification.style.borderLeft = '4px solid #A63646';
                 document.body.appendChild(notification);
                 setTimeout(() => { notification.style.opacity = '1'; }, 10);
                 setTimeout(() => {
