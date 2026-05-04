@@ -9,8 +9,64 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
-        :root { --brand-red: #D90429; }
-        body { font-family: 'Noto Sans JP', sans-serif; }
+        :root {
+            --brand-red: #D90429;
+            --brand-red-dark: #B30021;
+            --brand-red-soft: rgba(217, 4, 41, 0.14);
+            --ink: #111827;
+            --muted: #6B7280;
+            --line: #E5E7EB;
+            --surface: #FFFFFF;
+            --radius: 0.75rem;
+        }
+        body {
+            font-family: 'Noto Sans JP', system-ui, sans-serif;
+            color: var(--ink);
+            min-height: 100vh;
+            background: linear-gradient(165deg, #f4f5f7 0%, #eceef1 48%, #e6e8ec 100%);
+        }
+        .joy-field-label {
+            display: block;
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: #374151;
+            margin-bottom: 0.5rem;
+            letter-spacing: 0.02em;
+        }
+        .joy-input,
+        select.joy-input {
+            width: 100%;
+            box-sizing: border-box;
+            padding: 0.75rem 1rem;
+            font-size: 1rem;
+            line-height: 1.5;
+            color: var(--ink);
+            background-color: #FAFBFC;
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
+            transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+        }
+        .joy-input::placeholder { color: #9CA3AF; }
+        .joy-input:hover:not(:focus):not(:disabled),
+        select.joy-input:hover:not(:focus):not(:disabled) {
+            border-color: #D1D5DB;
+        }
+        .joy-input:focus,
+        select.joy-input:focus {
+            outline: none;
+            border-color: var(--brand-red);
+            background-color: var(--surface);
+            box-shadow: 0 0 0 3px var(--brand-red-soft);
+        }
+        select.joy-input {
+            padding-right: 2.5rem;
+            cursor: pointer;
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236B7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
+            background-position: right 0.75rem center;
+            background-repeat: no-repeat;
+            background-size: 1.25em 1.25em;
+        }
         .site-footer-bar {
             background-color: var(--brand-red);
             padding: 1.25rem 1rem;
@@ -24,12 +80,44 @@
             margin-right: auto;
         }
         .button-loading { opacity: 0.7; cursor: not-allowed; }
-        .required-mark::after { content: '*'; color: #dc2626; margin-left: 0.25rem; }
-        input[type="radio"]:checked + .radio-label { border-color: #dc2626; background-color: #fef2f2; box-shadow: 0 0 0 2px #dc2626; }
-        .modal-tab-btn.active { background-color: #dc2626; color: white; }
+        .required-mark::after { content: '*'; color: var(--brand-red); margin-left: 0.25rem; }
+        input[type="radio"]:checked + .radio-label {
+            border-color: var(--brand-red);
+            background-color: #FEF2F2;
+            box-shadow: 0 0 0 2px var(--brand-red);
+        }
+        .radio-label {
+            border-radius: var(--radius);
+            border: 2px solid var(--line);
+        }
+        .modal-tab-btn.active { background-color: var(--brand-red); color: white; }
+        .joy-submit {
+            width: 100%;
+            background-color: var(--brand-red);
+            color: #fff;
+            font-weight: 700;
+            padding: 0.875rem 1rem;
+            border-radius: var(--radius);
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+            box-shadow: 0 4px 14px rgba(217, 4, 41, 0.28);
+        }
+        .joy-submit:hover:not(:disabled) {
+            background-color: var(--brand-red-dark);
+            transform: translateY(-1px);
+            box-shadow: 0 8px 20px rgba(217, 4, 41, 0.35);
+        }
+        .joy-submit:focus-visible {
+            outline: none;
+            box-shadow: 0 0 0 3px var(--brand-red-soft), 0 4px 14px rgba(217, 4, 41, 0.28);
+        }
+        .joy-notice-card {
+            border-top: 3px solid var(--brand-red);
+        }
     </style>
 </head>
-<body class="bg-gray-100">
+<body>
 
     <div class="container mx-auto max-w-3xl px-4 py-8 sm:py-12">
         
@@ -38,7 +126,7 @@
             <p class="text-xl sm:text-2xl font-semibold text-red-600">紹介・ペア入会申請</p>
         </header>
 
-        <div class="bg-gradient-to-br from-red-50 to-white border-2 border-red-200 rounded-xl shadow-lg mb-8 p-6">
+        <div class="joy-notice-card bg-white border border-gray-200/80 rounded-2xl shadow-sm mb-8 p-6">
             <div class="text-center">
                 <p class="text-lg font-bold text-red-700">
                     こちらは経堂限定のキャンペーンです。
@@ -76,53 +164,53 @@
             </div>
         </div>
 
-        <form id="referral-form" class="bg-white p-6 sm:p-8 rounded-lg shadow-xl" novalidate>
+        <form id="referral-form" class="bg-white p-6 sm:p-8 rounded-2xl shadow-sm border border-gray-200/80" novalidate>
             <input type="hidden" name="campaignType" value="紹介・ペア入会">
 
             <fieldset class="mb-10">
-                <legend class="text-xl font-bold text-gray-800 border-b border-red-200 pb-2 mb-6 w-full">ご紹介者様（あなた）の情報</legend>
+                <legend class="text-xl font-bold text-gray-900 border-b border-gray-200 pb-2 mb-6 w-full">ご紹介者様（あなた）の情報</legend>
                 <div class="space-y-6">
                     <div class="sm:grid sm:grid-cols-2 sm:gap-6 space-y-6 sm:space-y-0">
                         <div>
-                            <label for="referrer-name" class="block text-sm font-bold text-gray-700 mb-2 required-mark">お名前（フルネーム）</label>
-                            <input type="text" id="referrer-name" name="ご紹介者様のお名前" placeholder="例：佐藤太郎" required class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-red-500">
+                            <label for="referrer-name" class="joy-field-label required-mark">お名前（フルネーム）</label>
+                            <input type="text" id="referrer-name" name="ご紹介者様のお名前" placeholder="例：佐藤太郎" required class="joy-input">
                         </div>
                         <div>
-                            <label for="referrer-phone" class="block text-sm font-bold text-gray-700 mb-2 required-mark">お電話番号</label>
-                            <input type="tel" id="referrer-phone" name="ご紹介者様のお電話番号" placeholder="09012345678" required class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-red-500" pattern="[0-9]{10,11}" title="ハイフン不要・半角数字で入力してください。">
+                            <label for="referrer-phone" class="joy-field-label required-mark">お電話番号</label>
+                            <input type="tel" id="referrer-phone" name="ご紹介者様のお電話番号" placeholder="09012345678" required class="joy-input" pattern="[0-9]{10,11}" title="ハイフン不要・半角数字で入力してください。">
                         </div>
                     </div>
                 </div>
             </fieldset>
 
             <fieldset>
-                <legend class="text-xl font-bold text-gray-800 border-b border-red-200 pb-2 mb-6 w-full">紹介したい方（ご友人）の情報</legend>
+                <legend class="text-xl font-bold text-gray-900 border-b border-gray-200 pb-2 mb-6 w-full">紹介したい方（ご友人）の情報</legend>
                 <div class="space-y-6">
                      <div class="sm:grid sm:grid-cols-2 sm:gap-6 space-y-6 sm:space-y-0">
                         <div>
-                            <label for="friend-name" class="block text-sm font-bold text-gray-700 mb-2 required-mark">お名前（フルネーム）</label>
-                            <input type="text" id="friend-name" name="ご友人のお名前" placeholder="例：鈴木花子" required class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-red-500">
+                            <label for="friend-name" class="joy-field-label required-mark">お名前（フルネーム）</label>
+                            <input type="text" id="friend-name" name="ご友人のお名前" placeholder="例：鈴木花子" required class="joy-input">
                         </div>
                         <div>
-                            <label for="friend-phone" class="block text-sm font-bold text-gray-700 mb-2 required-mark">お電話番号</label>
-                            <input type="tel" id="friend-phone" name="ご友人のお電話番号" placeholder="09012345678" required class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-red-500" pattern="[0-9]{10,11}" title="ハイフン不要・半角数字で入力してください。">
+                            <label for="friend-phone" class="joy-field-label required-mark">お電話番号</label>
+                            <input type="tel" id="friend-phone" name="ご友人のお電話番号" placeholder="09012345678" required class="joy-input" pattern="[0-9]{10,11}" title="ハイフン不要・半角数字で入力してください。">
                         </div>
                     </div>
                     <div>
-                        <label class="block text-sm font-bold text-gray-700 mb-2 required-mark">ご入会予定店舗</label>
+                        <label class="joy-field-label required-mark">ご入会予定店舗</label>
                         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-2">
                              <label>
                                  <input type="radio" name="store-choice" value="JOYFIT24 経堂" class="hidden" checked>
-                                 <div class="radio-label border border-gray-300 rounded-md p-4 text-center cursor-pointer font-semibold transition">JOYFIT24 経堂</div>
+                                 <div class="radio-label p-4 text-center cursor-pointer font-semibold transition">JOYFIT24 経堂</div>
                              </label>
                              <label>
                                  <input type="radio" name="store-choice" value="その他" class="hidden">
-                                 <div class="radio-label border border-gray-300 rounded-md p-4 text-center cursor-pointer font-semibold transition">その他 (他店舗の場合)</div>
+                                 <div class="radio-label p-4 text-center cursor-pointer font-semibold transition">その他 (他店舗の場合)</div>
                              </label>
                         </div>
                         <div id="other-store-wrapper" class="hidden mt-4">
-                            <label for="other-store-input" class="block text-sm font-semibold text-gray-600 mb-2">他店舗名をご記入ください</label>
-                            <input type="text" id="other-store-input" placeholder="例：JOYFIT24 麻布十番" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-red-500">
+                            <label for="other-store-input" class="joy-field-label">他店舗名をご記入ください</label>
+                            <input type="text" id="other-store-input" placeholder="例：JOYFIT24 麻布十番" class="joy-input">
                         </div>
                          <input type="hidden" id="final-store-name" name="入会予定店舗">
                     </div>
@@ -130,7 +218,7 @@
             </fieldset>
 
             <div class="mt-10 pt-6 border-t">
-                <button type="submit" class="w-full bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-4 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 transition-transform transform hover:scale-105">
+                <button type="submit" class="joy-submit">
                     この内容で紹介する
                 </button>
             </div>

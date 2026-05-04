@@ -9,66 +9,111 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --brand-red: #D90429;
+            --brand-red-dark: #B30021;
+            --brand-red-soft: rgba(217, 4, 41, 0.14);
+            --ink: #111827;
+            --muted: #6B7280;
+            --line: #E5E7EB;
+            --surface: #FFFFFF;
+            --radius: 0.75rem;
+        }
         body {
-            font-family: 'Noto Sans JP', sans-serif;
-            color: #F3F4F6;
+            font-family: 'Noto Sans JP', system-ui, sans-serif;
+            color: #E5E7EB;
+            background-color: #0f172a;
             background-image:
-                linear-gradient(rgba(17, 24, 39, 0.88), rgba(17, 24, 39, 0.92)),
+                linear-gradient(165deg, rgba(15, 23, 42, 0.88) 0%, rgba(15, 23, 42, 0.94) 55%, rgba(17, 24, 39, 0.97) 100%),
                 url('https://images.unsplash.com/photo-1571902943202-507ec2618e8f?q=80&w=1975&auto=format&fit=crop');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
             min-height: 100vh;
         }
-        :root {
-            --brand-red: #D90429;
-            --brand-red-dark: #B30021;
-        }
         .text-brand-red { color: var(--brand-red); }
         .bg-brand-red { background-color: var(--brand-red); }
         .hover\:bg-brand-red-dark:hover { background-color: var(--brand-red-dark); }
         .border-brand-red { border-color: var(--brand-red); }
         .lp-card {
-            background-color: #FFFFFF;
-            border: 4px solid transparent;
-            background-image: linear-gradient(#fff, #fff), linear-gradient(135deg, #ff8a9e 0%, #D90429 50%, #8a001a 100%);
-            background-origin: border-box;
-            background-clip: padding-box, border-box;
-            border-radius: 1.5rem;
-            color: #1F2937;
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.5), 0 4px 6px -2px rgba(0, 0, 0, 0.3);
+            background: var(--surface);
+            color: var(--ink);
+            border: 1px solid var(--line);
+            border-radius: 1.25rem;
+            border-top: 3px solid var(--brand-red);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.45);
         }
-        .cta-button {
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        .joy-field-label {
+            display: block;
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: #374151;
+            margin-bottom: 0.5rem;
+            letter-spacing: 0.02em;
         }
-        .cta-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 15px -3px rgba(217, 4, 41, 0.25), 0 4px 6px -2px rgba(217, 4, 41, 0.15);
+        .joy-input,
+        select.joy-input {
+            width: 100%;
+            box-sizing: border-box;
+            padding: 0.75rem 1rem;
+            font-size: 1rem;
+            line-height: 1.5;
+            color: var(--ink);
+            background-color: #FAFBFC;
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
+            transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
         }
-        .minimal-input {
-            border: none;
-            border-bottom: 2px solid rgba(217, 4, 41, 0.35);
-            border-radius: 0;
-            padding: 0.75rem 0;
-            background-color: transparent;
-            transition: border-color 0.3s;
-            color: #111827;
+        .joy-input::placeholder { color: #9CA3AF; }
+        .joy-input:hover:not(:focus):not(:disabled),
+        select.joy-input:hover:not(:focus):not(:disabled) {
+            border-color: #D1D5DB;
         }
-        .minimal-input:focus {
+        .joy-input:focus,
+        select.joy-input:focus {
             outline: none;
-            border-bottom-color: var(--brand-red);
-            box-shadow: none;
+            border-color: var(--brand-red);
+            background-color: var(--surface);
+            box-shadow: 0 0 0 3px var(--brand-red-soft);
         }
-        select.minimal-input {
-            padding-right: 2rem;
-            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236B7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
-            background-position: right 0 center;
-            background-repeat: no-repeat;
-            background-size: 1.5em 1.5em;
+        select.joy-input {
+            padding-right: 2.5rem;
+            cursor: pointer;
             appearance: none;
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236B7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
+            background-position: right 0.75rem center;
+            background-repeat: no-repeat;
+            background-size: 1.25em 1.25em;
+        }
+        .joy-submit {
+            width: 100%;
+            background-color: var(--brand-red);
+            color: #fff;
+            font-weight: 700;
+            padding: 0.875rem 1rem;
+            border-radius: var(--radius);
+            border: none;
+            cursor: pointer;
+            letter-spacing: 0.04em;
+            transition: background-color 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+            box-shadow: 0 4px 14px rgba(217, 4, 41, 0.28);
+        }
+        .joy-submit:hover:not(:disabled) {
+            background-color: var(--brand-red-dark);
+            transform: translateY(-1px);
+            box-shadow: 0 8px 20px rgba(217, 4, 41, 0.35);
+        }
+        .joy-submit:focus-visible {
+            outline: none;
+            box-shadow: 0 0 0 3px var(--brand-red-soft), 0 4px 14px rgba(217, 4, 41, 0.28);
+        }
+        .joy-inset-notice {
+            border-radius: var(--radius);
+            border: 1px solid var(--line);
+            background: #FAFBFC;
+            border-top: 3px solid var(--brand-red);
         }
         .button-loading { opacity: 0.7; cursor: not-allowed; }
         .close-btn {
@@ -124,7 +169,7 @@
     <header class="w-full">
         <div class="container mx-auto px-6 pt-12 pb-6 md:pt-16 text-center max-w-3xl">
             <p class="text-sm md:text-base font-bold text-gray-300 tracking-widest mb-3">東京農業大学 ラグビー部 部員様限定</p>
-            <h1 class="text-3xl md:text-5xl font-black text-white leading-tight drop-shadow-lg">
+            <h1 class="text-3xl md:text-5xl font-bold text-white leading-tight drop-shadow-lg">
                 JOYFIT24 <span class="text-brand-red">経堂</span>
             </h1>
             <h2 class="mt-6 text-2xl md:text-4xl font-bold text-white drop-shadow-lg">
@@ -136,7 +181,7 @@
     <main class="pb-20 sm:pb-24 px-6">
         <div class="container mx-auto max-w-lg">
             <div class="lp-card p-8 md:p-10 relative">
-                <div class="mb-8 rounded-lg border-2 border-brand-red bg-red-50 p-5 text-center text-sm text-gray-800 space-y-3 leading-relaxed">
+                <div class="joy-inset-notice mb-8 p-5 text-center text-sm text-gray-800 space-y-3 leading-relaxed">
                     <p class="font-bold text-gray-900">こちら専用ページ申請 ＋ JOYFITアプリから入会</p>
                     <p>割引適用は上記2点を完了していただく必要があります</p>
                     <p class="text-xs sm:text-sm text-gray-600">※キャンペーン内容は随時更新されますので必ず店舗HPをご確認ください。</p>
@@ -150,18 +195,18 @@
                     <input type="hidden" name="campaignType" value="ラグビー割">
 
                     <div>
-                        <label for="name" class="block text-xs font-bold text-gray-400 uppercase tracking-wider mb-1">お名前（漢字）</label>
-                        <input type="text" id="name" name="お名前" placeholder="例：山田 太郎" required autocomplete="name" class="minimal-input w-full text-lg placeholder-gray-300">
+                        <label for="name" class="joy-field-label">お名前（漢字）</label>
+                        <input type="text" id="name" name="お名前" placeholder="例：山田 太郎" required autocomplete="name" class="joy-input">
                     </div>
 
                     <div>
-                        <label for="furigana" class="block text-xs font-bold text-gray-400 uppercase tracking-wider mb-1">フリガナ（カタカナ）</label>
-                        <input type="text" id="furigana" name="フリガナ" placeholder="例：ヤマダ タロウ" required class="minimal-input w-full text-lg placeholder-gray-300">
+                        <label for="furigana" class="joy-field-label">フリガナ（カタカナ）</label>
+                        <input type="text" id="furigana" name="フリガナ" placeholder="例：ヤマダ タロウ" required class="joy-input">
                     </div>
 
                     <div>
-                        <label for="grade" class="block text-xs font-bold text-gray-400 uppercase tracking-wider mb-1">現在の学年</label>
-                        <select id="grade" name="学年" required class="minimal-input w-full text-lg bg-transparent">
+                        <label for="grade" class="joy-field-label">現在の学年</label>
+                        <select id="grade" name="学年" required class="joy-input">
                             <option value="" disabled selected class="text-gray-400">選択してください</option>
                             <option value="１年生">１年生</option>
                             <option value="２年生">２年生</option>
@@ -172,12 +217,12 @@
                     </div>
 
                     <div>
-                        <label for="grad-month" class="block text-xs font-bold text-gray-400 uppercase tracking-wider mb-1">卒業予定年月</label>
-                        <input type="month" id="grad-month" name="卒業予定年月" required class="minimal-input w-full text-lg">
+                        <label for="grad-month" class="joy-field-label">卒業予定年月</label>
+                        <input type="month" id="grad-month" name="卒業予定年月" required class="joy-input">
                     </div>
 
                     <div class="pt-2">
-                        <button type="submit" class="cta-button w-full bg-brand-red text-white font-bold py-4 px-6 rounded-lg hover:bg-brand-red-dark text-base tracking-wide">
+                        <button type="submit" class="joy-submit py-4 text-base">
                             入力内容を送信する
                         </button>
                     </div>
@@ -196,7 +241,7 @@
         <div class="relative bg-white rounded-lg shadow-2xl w-full max-w-lg flex flex-col p-8 overflow-visible">
             <button type="button" id="modal-close-btn" class="close-btn" aria-label="閉じる">&times;</button>
             <div class="text-center">
-                <h3 class="text-2xl font-black text-gray-900 mb-2">申請ありがとうございます</h3>
+                <h3 class="text-2xl font-bold text-gray-900 mb-2">申請ありがとうございます</h3>
                 <p class="text-sm text-gray-500 font-bold mb-6">申請を受け付けました</p>
                 <div id="receipt-content" class="mb-8 text-left bg-gray-50 p-6 rounded border border-gray-100 space-y-3 text-sm text-gray-600"></div>
                 <div class="bg-red-50 border-2 border-brand-red rounded-lg p-4 text-brand-red shadow-md animate-pulse">
