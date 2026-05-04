@@ -10,9 +10,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --brand-red: #D90429;
-            --brand-red-dark: #B30021;
-            --brand-red-soft: rgba(217, 4, 41, 0.14);
+            --brand-red: #E60012;
+            --brand-red-dark: #B8000E;
+            --brand-burgundy: #9E1F26;
+            --brand-red-soft: rgba(230, 0, 18, 0.14);
             --ink: #111827;
             --muted: #6B7280;
             --line: #E5E7EB;
@@ -101,20 +102,24 @@
             border: none;
             cursor: pointer;
             transition: background-color 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
-            box-shadow: 0 4px 14px rgba(217, 4, 41, 0.28);
+            box-shadow: 0 4px 14px rgba(230, 0, 18, 0.28);
         }
         .joy-submit:hover:not(:disabled) {
             background-color: var(--brand-red-dark);
             transform: translateY(-1px);
-            box-shadow: 0 8px 20px rgba(217, 4, 41, 0.35);
+            box-shadow: 0 8px 20px rgba(230, 0, 18, 0.35);
         }
         .joy-submit:focus-visible {
             outline: none;
-            box-shadow: 0 0 0 3px var(--brand-red-soft), 0 4px 14px rgba(217, 4, 41, 0.28);
+            box-shadow: 0 0 0 3px var(--brand-red-soft), 0 4px 14px rgba(230, 0, 18, 0.28);
         }
         .joy-notice-card {
             border-top: 3px solid var(--brand-red);
         }
+        .text-brand-red { color: var(--brand-red); }
+        .bg-brand-red { background-color: var(--brand-red); }
+        .hover\:bg-brand-red-dark:hover { background-color: var(--brand-red-dark); }
+        .border-brand-red { border-color: var(--brand-red); }
     </style>
 </head>
 <body>
@@ -123,7 +128,7 @@
         
         <header class="text-center mb-8">
             <h1 class="text-3xl sm:text-4xl font-bold text-gray-800 mb-2">JOYFIT24経堂</h1>
-            <p class="text-xl sm:text-2xl font-semibold text-red-600">紹介・ペア入会申請</p>
+            <p class="text-xl sm:text-2xl font-semibold text-brand-red">紹介・ペア入会申請</p>
         </header>
 
         <div class="joy-notice-card bg-white border border-gray-200/80 rounded-2xl shadow-sm mb-8 p-6">
@@ -134,7 +139,7 @@
             </div>
             <div class="mt-6 border-t border-red-200 pt-6 space-y-4 text-gray-700 text-sm">
                 <div class="flex items-start">
-                    <svg class="w-5 h-5 text-red-500 mr-3 mt-0.5 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                    <svg class="w-5 h-5 text-brand-red mr-3 mt-0.5 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
                         <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
                     </svg>
                     <div>
@@ -143,7 +148,7 @@
                     </div>
                 </div>
                 <div class="flex items-start">
-                    <svg class="w-5 h-5 text-red-500 mr-3 mt-0.5 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                    <svg class="w-5 h-5 text-brand-red mr-3 mt-0.5 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
                         <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.28 7.22a.75.75 0 00-1.06 1.06L8.94 10l-1.72 1.72a.75.75 0 101.06 1.06L10 11.06l1.72 1.72a.75.75 0 101.06-1.06L11.06 10l1.72-1.72a.75.75 0 00-1.06-1.06L10 8.94 8.28 7.22z" clip-rule="evenodd" />
                     </svg>
                     <div>
@@ -152,7 +157,7 @@
                     </div>
                 </div>
                 <div class="flex items-start">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-red-500 mr-3 mt-0.5 flex-shrink-0" viewBox="0 0 20 20" fill="currentColor">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-brand-red mr-3 mt-0.5 flex-shrink-0" viewBox="0 0 20 20" fill="currentColor">
                         <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd" />
                     </svg>
                     <div>
@@ -241,13 +246,13 @@
                 </div>
                 <!-- Panel 2: App Join Guide -->
                 <div id="guide-panel" class="hidden">
-                    <div class="bg-red-50 border-l-4 border-red-500 p-4 rounded-r-lg">
+                    <div class="bg-red-50 border-l-4 border-brand-red p-4 rounded-r-lg">
                         <h3 class="font-bold text-red-800 text-lg">【重要】ご入会手続きについて</h3>
                         <p class="text-sm text-red-700 mt-2">
                             キャンペーン申請ありがとうございます。<br>特典は自動で適用されます。<br><br>
                             こちらは<strong class="font-semibold">キャンペーン専用の申請フォーム</strong>です。<br>まだ入会がお済みでない方は、下記ボタンよりご入会手続きをお願いいたします。
                         </p>
-                        <a href="https://joyfit.jp/kyodo/app_join/" target="_blank" rel="noopener noreferrer" class="inline-block bg-red-600 text-white font-bold py-2 px-4 rounded-lg mt-4 hover:bg-red-700 transition-colors">
+                        <a href="https://joyfit.jp/kyodo/app_join/" target="_blank" rel="noopener noreferrer" class="inline-block bg-brand-red text-white font-bold py-2 px-4 rounded-lg mt-4 hover:bg-brand-red-dark transition-colors">
                             JOYFIT APPから入会手続きへ
                         </a>
                     </div>
@@ -343,7 +348,7 @@
                 <div class="text-center">
                     <h3 class="text-lg font-bold text-gray-800">ご紹介ありがとうございます！</h3>
                     <p class="text-sm text-gray-600 mt-2 mb-4">以下の内容で申請を受け付けました。</p>
-                    <p class="text-red-600 font-semibold p-2 bg-red-50 rounded-md">
+                    <p class="text-brand-red font-semibold p-2 bg-red-50 rounded-md">
                         この画面をスクリーンショットし、<br>控えとして大切に保管してください。
                     </p>
                 </div>
@@ -396,7 +401,7 @@
             const notification = document.createElement('div');
             notification.className = 'form-notification fixed bottom-5 right-5 p-4 rounded-lg text-white z-50 transition-opacity duration-300 shadow-lg';
             notification.innerHTML = message; 
-            notification.style.backgroundColor = type === 'success' ? '#16a34a' : '#dc2626';
+            notification.style.backgroundColor = type === 'success' ? '#16a34a' : '#E60012';
             document.body.appendChild(notification);
             setTimeout(() => { notification.style.opacity = '1'; }, 10);
             setTimeout(() => {

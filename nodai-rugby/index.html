@@ -12,10 +12,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --brand-red: #D90429;
-            --brand-red-dark: #B30021;
-            --brand-burgundy: #9B2D3C;
-            --brand-red-soft: rgba(217, 4, 41, 0.14);
+            --brand-red: #E60012;
+            --brand-red-dark: #B8000E;
+            --brand-burgundy: #9E1F26;
+            --brand-red-soft: rgba(230, 0, 18, 0.14);
             --ink: #111827;
             --muted: #6B7280;
             --line: #E5E7EB;
@@ -25,14 +25,14 @@
         body {
             font-family: 'Noto Sans JP', system-ui, sans-serif;
             color: #F3F4F6;
-            /* index.html と同系の濃いワインレッド背景 */
-            background-color: #3a121c;
+            /* index.html と同系（ロゴの濃い赤 #9E1F26） */
+            background-color: #2a0d11;
             background-image:
                 linear-gradient(
                     165deg,
-                    rgba(130, 40, 58, 0.88) 0%,
-                    rgba(88, 28, 42, 0.93) 45%,
-                    rgba(48, 14, 24, 0.96) 100%
+                    rgba(158, 31, 38, 0.88) 0%,
+                    rgba(105, 20, 26, 0.93) 45%,
+                    rgba(55, 10, 14, 0.96) 100%
                 ),
                 url('https://images.unsplash.com/photo-1571902943202-507ec2618e8f?q=80&w=1975&auto=format&fit=crop');
             background-size: cover;
@@ -105,16 +105,16 @@
             cursor: pointer;
             letter-spacing: 0.04em;
             transition: background-color 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
-            box-shadow: 0 4px 14px rgba(217, 4, 41, 0.28);
+            box-shadow: 0 4px 14px rgba(230, 0, 18, 0.28);
         }
         .joy-submit:hover:not(:disabled) {
             background-color: var(--brand-red-dark);
             transform: translateY(-1px);
-            box-shadow: 0 8px 20px rgba(217, 4, 41, 0.35);
+            box-shadow: 0 8px 20px rgba(230, 0, 18, 0.35);
         }
         .joy-submit:focus-visible {
             outline: none;
-            box-shadow: 0 0 0 3px var(--brand-red-soft), 0 4px 14px rgba(217, 4, 41, 0.28);
+            box-shadow: 0 0 0 3px var(--brand-red-soft), 0 4px 14px rgba(230, 0, 18, 0.28);
         }
         .joy-inset-notice {
             border-radius: var(--radius);
@@ -144,7 +144,7 @@
         }
         .close-btn:hover {
             transform: scale(1.1);
-            background-color: #b91c1c;
+            background-color: var(--brand-red-dark);
         }
         .site-footer-bar {
             background-color: var(--brand-red);
@@ -365,7 +365,7 @@
                 notification.className = 'form-notification fixed bottom-5 right-5 px-6 py-3 rounded-sm text-white z-[60] transition-opacity duration-300 shadow-xl text-sm font-medium';
                 notification.textContent = message;
                 notification.style.backgroundColor = type === 'success' ? '#10B981' : '#1F2937';
-                if (type === 'error') notification.style.borderLeft = '4px solid #D90429';
+                if (type === 'error') notification.style.borderLeft = '4px solid var(--brand-red)';
                 document.body.appendChild(notification);
                 setTimeout(() => { notification.style.opacity = '1'; }, 10);
                 setTimeout(() => {

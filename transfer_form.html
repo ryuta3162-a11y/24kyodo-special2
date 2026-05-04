@@ -12,8 +12,14 @@
         body {
             font-family: 'Noto Sans JP', sans-serif;
             color: #333;
-            background-image: 
-                linear-gradient(rgba(20, 20, 20, 0.9), rgba(20, 20, 20, 0.95)),
+            background-color: #2a0d11;
+            background-image:
+                linear-gradient(
+                    165deg,
+                    rgba(158, 31, 38, 0.88) 0%,
+                    rgba(105, 20, 26, 0.93) 45%,
+                    rgba(55, 10, 14, 0.96) 100%
+                ),
                 url('https://images.unsplash.com/photo-1571902943202-507ec2618e8f?q=80&w=1975&auto=format&fit=crop');
             background-size: cover;
             background-position: center;
@@ -22,7 +28,9 @@
         }
 
         :root {
-            --brand-red: #D90429;
+            --brand-red: #E60012;
+            --brand-red-dark: #B8000E;
+            --brand-burgundy: #9E1F26;
         }
         .text-brand-red { color: var(--brand-red); } 
         .bg-brand-red { background-color: var(--brand-red); }
@@ -429,7 +437,7 @@
                 notification.className = 'form-notification fixed bottom-5 right-5 px-6 py-3 rounded-sm text-white z-50 transition-opacity duration-300 shadow-xl text-sm font-medium tracking-wide';
                 notification.innerHTML = message; 
                 notification.style.backgroundColor = type === 'success' ? '#10B981' : '#1F2937';
-                if (type === 'error') notification.style.borderLeft = '4px solid #D90429';
+                if (type === 'error') notification.style.borderLeft = '4px solid #E60012';
                 document.body.appendChild(notification);
                 setTimeout(() => { notification.style.opacity = '1'; }, 10);
                 setTimeout(() => {
