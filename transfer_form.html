@@ -265,7 +265,7 @@
                 <p class="text-sm text-gray-700 mt-1 mb-6">下記がお控えの代わりになります</p>
 
                 <!-- 控え内容 -->
-                <div id="receipt-content" class="mb-8 text-left bg-gray-50 p-6 rounded border border-gray-100 space-y-3 text-sm text-gray-600">
+                <div id="receipt-content" class="mb-8 text-left bg-gray-50 p-6 rounded border border-gray-100 space-y-3 text-sm text-gray-900">
                     <!-- JSで内容挿入 -->
                 </div>
 
@@ -273,7 +273,7 @@
                 <div class="bg-brand-tint border-2 border-brand-red rounded-lg p-4 text-brand-red shadow-md animate-pulse">
                     <div class="flex items-center justify-center mb-1">
                         <svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
-                        <span class="font-black text-lg">重要</span>
+                        <span class="font-bold text-lg">重要</span>
                     </div>
                     <p class="font-bold text-sm sm:text-base">この画面をスクリーンショットして<br>必ず保存してください</p>
                 </div>
@@ -416,20 +416,20 @@
             const showCompletionModal = (data) => {
                 receiptContent.innerHTML = `
                     <div class="flex justify-between border-b border-gray-200 pb-2">
-                        <span class="text-gray-400 font-medium">申請日時</span>
-                        <span class="font-bold text-gray-800 font-mono">${new Date().toLocaleString('ja-JP')}</span>
+                        <span class="text-gray-600 font-medium">申請日時</span>
+                        <span class="font-bold text-gray-900 font-mono">${new Date().toLocaleString('ja-JP')}</span>
                     </div>
                     <div class="flex justify-between border-b border-gray-200 pb-2">
-                        <span class="text-gray-400 font-medium">キャンペーン</span>
-                        <span class="font-bold text-gray-800">${data['campaignType']}</span>
+                        <span class="text-gray-600 font-medium">キャンペーン</span>
+                        <span class="font-bold text-gray-900">${data['campaignType']}</span>
                     </div>
                     <div class="flex justify-between border-b border-gray-200 pb-2">
-                        <span class="text-gray-400 font-medium">お名前</span>
-                        <span class="font-bold text-gray-800">${data['お名前']}</span>
+                        <span class="text-gray-600 font-medium">お名前</span>
+                        <span class="font-bold text-gray-900">${data['お名前']}</span>
                     </div>
                     <div class="flex justify-between border-b border-gray-200 pb-2">
-                        <span class="text-gray-400 font-medium">移籍元クラブ</span>
-                        <span class="font-bold text-gray-800">${data['移籍元クラブ']}</span>
+                        <span class="text-gray-600 font-medium">移籍元クラブ</span>
+                        <span class="font-bold text-gray-900">${data['移籍元クラブ']}</span>
                     </div>
                 `;
                 modal.classList.remove('hidden');
