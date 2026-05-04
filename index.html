@@ -12,7 +12,9 @@
     
     <style>
         :root {
-            /* ロゴで「JOYFIT24」の白文字のすぐ後ろの長方形＝ページ背景の色 */
+            /* ページ背景：赤は使わずシンプルな暗色 */
+            --page-bg-dark: #141416;
+            /* ロゴ「JOY」文字下のライン／内ボックスのワインレッド＝フッター帯のみ */
             --logo-wine-bg: #9B3D51;
             --brand-red: #E60012;
             --brand-red-dark: #B8000E;
@@ -21,7 +23,7 @@
         body {
             font-family: 'Noto Sans JP', sans-serif;
             color: #F3F4F6;
-            background-color: var(--logo-wine-bg);
+            background-color: var(--page-bg-dark);
             min-height: 100vh;
         }
         .text-brand-red { color: var(--brand-red); } 
@@ -102,7 +104,7 @@
         }
 
         .site-footer-bar {
-            background-color: var(--brand-red);
+            background-color: var(--logo-wine-bg);
             padding: 1.25rem 1rem;
         }
         .site-footer-bar .footer-logo-img {
@@ -226,7 +228,7 @@
         </div>
     </main>
 
-    <footer class="site-footer-bar border-t border-black/15">
+    <footer class="site-footer-bar border-t border-white/10">
         <div class="container mx-auto text-center">
             <img src="joyfit_logo.png" alt="JOYFIT24" class="footer-logo-img">
         </div>
