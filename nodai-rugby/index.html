@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="robots" content="noindex, nofollow">
-    <title>JOYFIT24経堂 | 東京農業大学ラグビー部様 特別割引</title>
-    <meta name="description" content="JOYFIT24経堂｜東京農業大学ラグビー部様 特別割引お申込">
+    <title>JOYFIT24経堂 | 東京農業大学ラグビー部 特別割引申請ページ</title>
+    <meta name="description" content="JOYFIT24経堂｜東京農業大学ラグビー部員様向け 特別割引申請ページ">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -62,7 +62,7 @@
             border-radius: var(--radius);
             transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
         }
-        .joy-input::placeholder { color: #9CA3AF; }
+        .joy-input::placeholder { color: #6B7280; }
         .joy-input:hover:not(:focus):not(:disabled),
         select.joy-input:hover:not(:focus):not(:disabled) {
             border-color: #D1D5DB;
@@ -159,18 +159,19 @@
             opacity: 0.88;
         }
         .bg-brand-tint { background-color: rgba(166, 54, 70, 0.09); }
+        .required-mark::after { content: '*'; color: var(--brand-red); margin-left: 0.25rem; }
     </style>
 </head>
 <body class="antialiased">
 
     <header class="w-full">
         <div class="container mx-auto px-6 pt-12 pb-6 md:pt-16 text-center max-w-3xl">
-            <p class="text-sm md:text-base font-bold text-gray-300 tracking-widest mb-3">東京農業大学 ラグビー部 部員様限定</p>
+            <p class="text-sm md:text-base font-bold text-white tracking-widest mb-4 drop-shadow-md">東京農業大学 ラグビー部 部員様限定</p>
             <h1 class="text-3xl md:text-5xl font-bold text-white leading-tight drop-shadow-lg">
-                JOYFIT24 <span class="text-brand-red">経堂</span>
+                JOYFIT24 経堂
             </h1>
-            <h2 class="mt-6 text-2xl md:text-4xl font-bold text-white drop-shadow-lg">
-                特別割引 <span class="text-brand-red">お申込</span>
+            <h2 class="mt-5 text-2xl md:text-4xl font-bold text-white drop-shadow-lg">
+                特別割引申請ページ
             </h2>
         </div>
     </header>
@@ -181,7 +182,7 @@
                 <div class="joy-inset-notice mb-8 p-5 text-center text-sm text-gray-800 space-y-3 leading-relaxed">
                     <p class="font-bold text-gray-900">こちら専用ページ申請 ＋ JOYFITアプリから入会</p>
                     <p>割引適用は上記2点を完了していただく必要があります</p>
-                    <p class="text-xs sm:text-sm text-gray-600">※キャンペーン内容は随時更新されますので必ず店舗HPをご確認ください。</p>
+                    <p class="text-xs sm:text-sm text-gray-800">※キャンペーン内容は随時更新されますので必ず店舗HPをご確認ください。</p>
                     <p>いずれか一方のみでは適用されません。</p>
                     <p class="pt-1">
                         店舗HPは<a href="https://joyfit.jp/kyodo/" target="_blank" rel="noopener noreferrer" class="link-brand">こちら</a>から
@@ -199,6 +200,16 @@
                     <div>
                         <label for="furigana" class="joy-field-label">フリガナ（カタカナ）</label>
                         <input type="text" id="furigana" name="フリガナ" placeholder="例：ヤマダ タロウ" required class="joy-input">
+                    </div>
+
+                    <div>
+                        <label for="phone" class="joy-field-label required-mark">お電話番号（本人）</label>
+                        <input type="tel" id="phone" name="お電話番号" placeholder="09012345678" required class="joy-input" autocomplete="tel" pattern="[0-9]{10,11}" title="ハイフン不要・半角数字で入力してください。">
+                    </div>
+
+                    <div>
+                        <label for="email" class="joy-field-label required-mark">メールアドレス（本人）</label>
+                        <input type="email" id="email" name="メールアドレス" placeholder="例：taro@example.com" required class="joy-input" autocomplete="email" inputmode="email">
                     </div>
 
                     <div>
@@ -239,12 +250,12 @@
             <button type="button" id="modal-close-btn" class="close-btn" aria-label="閉じる">&times;</button>
             <div class="text-center">
                 <h3 class="text-2xl font-bold text-gray-900 mb-2">申請ありがとうございます</h3>
-                <p class="text-sm text-gray-500 font-bold mb-6">申請を受け付けました</p>
-                <div id="receipt-content" class="mb-8 text-left bg-gray-50 p-6 rounded border border-gray-100 space-y-3 text-sm text-gray-600"></div>
+                <p class="text-sm text-gray-700 font-bold mb-6">申請を受け付けました</p>
+                <div id="receipt-content" class="mb-8 text-left bg-gray-50 p-6 rounded border border-gray-100 space-y-3 text-sm text-gray-900"></div>
                 <div class="bg-brand-tint border-2 border-brand-red rounded-lg p-4 text-brand-red shadow-md animate-pulse">
                     <div class="flex items-center justify-center mb-1">
                         <svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
-                        <span class="font-black text-lg">重要</span>
+                        <span class="font-bold text-lg">重要</span>
                     </div>
                     <p class="font-bold text-sm sm:text-base">この画面をスクリーンショットして<br>必ず保存してください</p>
                 </div>
@@ -314,28 +325,36 @@
                 const t = new Date().toLocaleString('ja-JP');
                 receiptContent.innerHTML = `
                     <div class="flex justify-between border-b border-gray-200 pb-2">
-                        <span class="text-gray-400 font-medium">申請日時</span>
-                        <span class="font-bold text-gray-800 font-mono">${escapeHtml(t)}</span>
+                        <span class="text-gray-600 font-medium">申請日時</span>
+                        <span class="font-bold text-gray-900 font-mono">${escapeHtml(t)}</span>
                     </div>
                     <div class="flex justify-between border-b border-gray-200 pb-2">
-                        <span class="text-gray-400 font-medium">キャンペーン</span>
-                        <span class="font-bold text-gray-800">${escapeHtml(data['campaignType'])}</span>
+                        <span class="text-gray-600 font-medium">キャンペーン</span>
+                        <span class="font-bold text-gray-900">${escapeHtml(data['campaignType'])}</span>
                     </div>
                     <div class="flex justify-between border-b border-gray-200 pb-2">
-                        <span class="text-gray-400 font-medium">お名前</span>
-                        <span class="font-bold text-gray-800">${escapeHtml(data['お名前'])}</span>
+                        <span class="text-gray-600 font-medium">お名前</span>
+                        <span class="font-bold text-gray-900">${escapeHtml(data['お名前'])}</span>
                     </div>
                     <div class="flex justify-between border-b border-gray-200 pb-2">
-                        <span class="text-gray-400 font-medium">フリガナ</span>
-                        <span class="font-bold text-gray-800">${escapeHtml(data['フリガナ'])}</span>
+                        <span class="text-gray-600 font-medium">フリガナ</span>
+                        <span class="font-bold text-gray-900">${escapeHtml(data['フリガナ'])}</span>
                     </div>
                     <div class="flex justify-between border-b border-gray-200 pb-2">
-                        <span class="text-gray-400 font-medium">学年</span>
-                        <span class="font-bold text-gray-800">${escapeHtml(data['学年'])}</span>
+                        <span class="text-gray-600 font-medium">お電話番号</span>
+                        <span class="font-bold text-gray-900">${escapeHtml(data['お電話番号'])}</span>
                     </div>
                     <div class="flex justify-between border-b border-gray-200 pb-2">
-                        <span class="text-gray-400 font-medium">卒業予定年月</span>
-                        <span class="font-bold text-gray-800">${escapeHtml(data['卒業予定年月'])}</span>
+                        <span class="text-gray-600 font-medium">メールアドレス</span>
+                        <span class="font-bold text-gray-900 break-all">${escapeHtml(data['メールアドレス'])}</span>
+                    </div>
+                    <div class="flex justify-between border-b border-gray-200 pb-2">
+                        <span class="text-gray-600 font-medium">学年</span>
+                        <span class="font-bold text-gray-900">${escapeHtml(data['学年'])}</span>
+                    </div>
+                    <div class="flex justify-between border-b border-gray-200 pb-2">
+                        <span class="text-gray-600 font-medium">卒業予定年月</span>
+                        <span class="font-bold text-gray-900">${escapeHtml(data['卒業予定年月'])}</span>
                     </div>
                 `;
                 modal.classList.remove('hidden');
