@@ -12,21 +12,68 @@
     
     <style>
         :root {
-            /* ページ背景：赤は使わずシンプルな暗色 */
-            --page-bg-dark: #141416;
-            /* ロゴ「JOY」文字下のライン／内ボックスのワインレッド＝フッター帯のみ */
-            /* ブランド統一色（ロゴワインと同一トーン） */
+            --page-bg: #F3F4F6;
             --logo-wine-bg: #A63646;
             --brand-red: #A63646;
             --brand-red-dark: #852c38;
             --brand-burgundy: #8E3545;
-            --brand-red-soft: rgba(166, 54, 70, 0.18);
+            --brand-red-soft: rgba(166, 54, 70, 0.14);
+            --ink: #111827;
+            --muted: #6B7280;
         }
         body {
             font-family: 'Noto Sans JP', sans-serif;
-            color: #F3F4F6;
-            background-color: var(--page-bg-dark);
+            color: var(--ink);
+            background-color: var(--page-bg);
             min-height: 100vh;
+            position: relative;
+            overflow-x: hidden;
+        }
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            z-index: 0;
+            pointer-events: none;
+            background:
+                radial-gradient(1200px 600px at 50% -10%, rgba(166, 54, 70, 0.07), transparent 60%),
+                radial-gradient(900px 500px at 10% 20%, rgba(255, 255, 255, 0.9), transparent 55%),
+                radial-gradient(900px 500px at 90% 20%, rgba(255, 255, 255, 0.7), transparent 55%);
+        }
+        main, header { position: relative; z-index: 1; }
+        .hero-brand-line {
+            display: inline-flex;
+            align-items: baseline;
+            justify-content: center;
+            gap: 0.45rem;
+            color: var(--ink);
+            line-height: 1.1;
+        }
+        .hero-brand-main {
+            font-weight: 900;
+            letter-spacing: 0.04em;
+            font-size: clamp(2rem, 5vw, 3.5rem);
+        }
+        .hero-brand-sub {
+            font-weight: 800;
+            color: var(--brand-red);
+            letter-spacing: 0.12em;
+            font-size: clamp(1.4rem, 4vw, 2.5rem);
+        }
+        .hero-subtitle {
+            margin-top: 1.25rem;
+            color: #374151;
+            font-size: clamp(1rem, 2.5vw, 1.25rem);
+            font-weight: 700;
+            letter-spacing: 0.03em;
+        }
+        .page-title-card {
+            margin-top: 1.5rem;
+            background: #FFFFFF;
+            border: 1px solid rgba(17, 24, 39, 0.10);
+            border-radius: 1rem;
+            padding: 1rem 1.5rem;
+            box-shadow: 0 10px 22px rgba(17, 24, 39, 0.08);
         }
         .text-brand-red { color: var(--brand-red); } 
         .bg-brand-red { background-color: var(--brand-red); }
@@ -48,7 +95,7 @@
             border-radius: 1.5rem;
             color: #1F2937;
             
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.5), 0 4px 6px -2px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 10px 15px -3px rgba(17, 24, 39, 0.10), 0 4px 6px -2px rgba(17, 24, 39, 0.06);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             
             margin-top: 2rem; 
@@ -124,16 +171,18 @@
     <!-- Header Section -->
     <header class="w-full">
         <div class="container mx-auto px-6 pt-16 pb-4 flex flex-col justify-center items-center text-center">
-            
-            <h1 class="text-4xl md:text-6xl font-black text-white leading-tight tracking-tight drop-shadow-lg">
-                JOYFIT24 <span class="text-brand-red">経堂</span>
+            <h1 class="hero-brand-line">
+                <span class="hero-brand-main">JOYFIT24</span>
+                <span class="hero-brand-sub">経堂</span>
             </h1>
-            <h2 class="mt-8 text-3xl md:text-5xl font-bold text-white drop-shadow-lg">
-                SPECIAL CAMPAIGN
-            </h2>
-            <p class="mt-4 text-lg md:text-xl font-bold text-white max-w-2xl drop-shadow-md">
-                追加特典はこちらから
-            </p>
+            <div class="page-title-card max-w-2xl w-full">
+                <h2 class="text-2xl md:text-3xl font-black text-brand-red leading-tight">
+                    SPECIAL CAMPAIGN
+                </h2>
+                <p class="hero-subtitle mt-2 mb-0">
+                    追加特典はこちらから
+                </p>
+            </div>
         </div>
     </header>
 
