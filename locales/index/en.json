@@ -1,0 +1,31 @@
+{
+  "meta": { "title": "JOYFIT24 Kyodo | Special Membership Campaign" },
+  "hero": { "subtitle": "View bonus benefits here" },
+  "card1": {
+    "badge": "Bonus 01",
+    "title": "Friend Referral Campaign",
+    "lead": "Both referrer and new member receive",
+    "points": "Enjoy points gift",
+    "note": "*New members only",
+    "cta": "Apply via dedicated form"
+  },
+  "card2": {
+    "badge": "Bonus 02",
+    "title": "School Staff & Student Discount",
+    "student": "Student",
+    "faculty": "Faculty/Staff",
+    "tax": "(tax incl.)",
+    "studentDiscount": "¥2,200 off",
+    "facultyDiscount": "¥1,100 off",
+    "note": "*New members only",
+    "cta": "Apply via dedicated form"
+  },
+  "card3": {
+    "badge": "Bonus 03",
+    "title": "Gym Transfer Campaign",
+    "nextMonth": "Next month's fee",
+    "yen": "yen!",
+    "note": "*New members only",
+    "cta": "Apply via dedicated form"
+  }
+}

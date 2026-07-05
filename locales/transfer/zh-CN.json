@@ -1,0 +1,48 @@
+{
+  "meta": { "title": "JOYFIT24经堂 其他健身房转籍申请" },
+  "header": { "title": "其他健身房转籍申请" },
+  "notice": {
+    "stepLine": "JOYFIT APP入会 <span class=\"text-gray-500 mx-2\">|</span> <span class=\"text-brand-red font-bold\">本表单申请</span>",
+    "stepSub": "完成以上2项即可适用活动",
+    "item1": "<span class=\"font-bold text-brand-red\">限新入会者</span>的活动。",
+    "item2": "请于<span class=\"font-bold text-brand-red\">当月末</span>前完成申请。",
+    "item3": "法人会员不适用本活动。"
+  },
+  "form": {
+    "name": "姓名（全名）",
+    "namePlaceholder": "例：山田 太郎",
+    "previousClub": "原属健身房",
+    "selectPlaceholder": "请选择",
+    "otherOption": "其他",
+    "otherClubLabel": "原属健身房名称",
+    "otherClubPlaceholder": "输入健身房名称",
+    "clubLocation": "原属健身房所在地",
+    "clubLocationPlaceholder": "例：经堂",
+    "uploadLabel": "会员证明图片上传",
+    "selectFile": "选择文件",
+    "uploadHint": "能看清姓名与店铺名的图片（最多5张）",
+    "filesSelected": "个文件已选择",
+    "imagesSelected": "张图片已选择",
+    "submit": "提交申请内容"
+  },
+  "modal": {
+    "title": "感谢您的申请",
+    "sub": "我们已受理您的申请",
+    "receiptNote": "以下内容可作为凭证",
+    "important": "重要",
+    "screenshot": "请截图保存此画面",
+    "appLink": "尚未入会请点击此处（JOYFIT APP）",
+    "closeLabel": "关闭",
+    "labelDate": "申请日期",
+    "labelCampaign": "活动",
+    "labelName": "姓名",
+    "labelClub": "原属健身房"
+  },
+  "js": {
+    "submitting": "发送中...",
+    "errorRequired": "请填写必填项",
+    "errorNetwork": "发送失败，请检查网络",
+    "errorMaxFiles": "最多只能上传5个文件。",
+    "errorFileSize": "文件过大"
+  }
+}

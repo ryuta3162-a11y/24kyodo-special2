@@ -1,0 +1,48 @@
+{
+  "meta": { "title": "JOYFIT24經堂 其他健身房轉籍申請" },
+  "header": { "title": "其他健身房轉籍申請" },
+  "notice": {
+    "stepLine": "JOYFIT APP入會 <span class=\"text-gray-500 mx-2\">|</span> <span class=\"text-brand-red font-bold\">本表單申請</span>",
+    "stepSub": "完成以上2項即可適用活動",
+    "item1": "<span class=\"font-bold text-brand-red\">限新入會者</span>的活動。",
+    "item2": "請於<span class=\"font-bold text-brand-red\">當月末</span>前完成申請。",
+    "item3": "法人會員不適用本活動。"
+  },
+  "form": {
+    "name": "姓名（全名）",
+    "namePlaceholder": "例：山田 太郎",
+    "previousClub": "原屬健身房",
+    "selectPlaceholder": "請選擇",
+    "otherOption": "其他",
+    "otherClubLabel": "原屬健身房名稱",
+    "otherClubPlaceholder": "輸入健身房名稱",
+    "clubLocation": "原屬健身房所在地",
+    "clubLocationPlaceholder": "例：經堂",
+    "uploadLabel": "會員證明圖片上傳",
+    "selectFile": "選擇檔案",
+    "uploadHint": "能看清姓名與店舖名的圖片（最多5張）",
+    "filesSelected": "個檔案已選擇",
+    "imagesSelected": "張圖片已選擇",
+    "submit": "提交申請內容"
+  },
+  "modal": {
+    "title": "感謝您的申請",
+    "sub": "我們已受理您的申請",
+    "receiptNote": "以下內容可作為憑證",
+    "important": "重要",
+    "screenshot": "請截圖保存此畫面",
+    "appLink": "尚未入會請點此處（JOYFIT APP）",
+    "closeLabel": "關閉",
+    "labelDate": "申請日期",
+    "labelCampaign": "活動",
+    "labelName": "姓名",
+    "labelClub": "原屬健身房"
+  },
+  "js": {
+    "submitting": "傳送中...",
+    "errorRequired": "請填寫必填項",
+    "errorNetwork": "傳送失敗，請檢查網路",
+    "errorMaxFiles": "最多只能上傳5個檔案。",
+    "errorFileSize": "檔案過大"
+  }
+}

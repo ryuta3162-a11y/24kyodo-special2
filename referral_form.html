@@ -7,7 +7,8 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Noto+Sans+SC:wght@400;500;700&family=Noto+Sans+TC:wght@400;500;700&family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="i18n.css">
     <style>
         :root {
             --brand-red: #DC2626;
@@ -126,16 +127,33 @@
 </head>
 <body>
 
+    <div class="lang-switcher" id="lang-switcher">
+        <button type="button" class="lang-switcher__btn" id="lang-toggle" aria-expanded="false" aria-haspopup="listbox">
+            <span class="lang-switcher__icon" aria-hidden="true">🌐</span>
+            <span class="lang-switcher__label">Language</span>
+            <span class="lang-switcher__sep" aria-hidden="true">|</span>
+            <span class="lang-switcher__current" id="lang-current">日本語</span>
+            <span class="lang-switcher__caret" aria-hidden="true">▼</span>
+        </button>
+        <div class="lang-switcher__menu" id="lang-menu" role="listbox" aria-label="Language">
+            <button type="button" class="lang-switcher__item is-active" data-lang="ja" role="option">日本語</button>
+            <button type="button" class="lang-switcher__item" data-lang="en" role="option">English</button>
+            <button type="button" class="lang-switcher__item" data-lang="zh-CN" role="option">简体中文</button>
+            <button type="button" class="lang-switcher__item" data-lang="zh-TW" role="option">繁體中文</button>
+            <button type="button" class="lang-switcher__item" data-lang="ko" role="option">한국어</button>
+        </div>
+    </div>
+
     <div class="container mx-auto max-w-3xl px-4 py-8 sm:py-12">
         
         <header class="text-center mb-8">
             <h1 class="text-3xl sm:text-4xl font-bold text-gray-800 mb-2">JOYFIT24経堂</h1>
-            <p class="text-xl sm:text-2xl font-semibold text-brand-red">紹介・ペア入会申請</p>
+            <p class="text-xl sm:text-2xl font-semibold text-brand-red" data-i18n="header.title">紹介・ペア入会申請</p>
         </header>
 
         <div class="joy-notice-card bg-white border border-gray-200/80 rounded-2xl shadow-sm mb-8 p-6">
             <div class="text-center">
-                <p class="text-lg font-bold text-brand-red">
+                <p class="text-lg font-bold text-brand-red" data-i18n="notice.headline">
                     こちらは経堂限定のキャンペーンです。
                 </p>
             </div>
@@ -144,7 +162,7 @@
                     <svg class="w-5 h-5 text-brand-red mr-3 mt-0.5 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
                         <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
                     </svg>
-                    <div>
+                    <div data-i18n-html="notice.item1">
                         紹介者とご友人の双方の入会が完了した場合、<br>
                         特典が付与されます。
                     </div>
@@ -153,7 +171,7 @@
                     <svg class="w-5 h-5 text-brand-red mr-3 mt-0.5 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
                         <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.28 7.22a.75.75 0 00-1.06 1.06L8.94 10l-1.72 1.72a.75.75 0 101.06 1.06L10 11.06l1.72 1.72a.75.75 0 101.06-1.06L11.06 10l1.72-1.72a.75.75 0 00-1.06-1.06L10 8.94 8.28 7.22z" clip-rule="evenodd" />
                     </svg>
-                    <div>
+                    <div data-i18n-html="notice.item2">
                         申請月までにアプリから未入会の場合、<br>
                         双方の特典は付与されません。
                     </div>
@@ -162,7 +180,7 @@
                     <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-brand-red mr-3 mt-0.5 flex-shrink-0" viewBox="0 0 20 20" fill="currentColor">
                         <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd" />
                     </svg>
-                    <div>
+                    <div data-i18n-html="notice.item3">
                         <strong class="font-semibold">ご紹介者様は経堂の会員様に限ります。</strong><br>
                         ご友人が他店舗に入会された場合、特典はご紹介者様のみに付与されます。<br>
                         <span class="text-xs text-gray-700">※双方の特典をご希望の場合は、ご友人も経堂にご入会ください。</span>
@@ -175,36 +193,36 @@
             <input type="hidden" name="campaignType" value="紹介・ペア入会">
 
             <fieldset class="mb-10">
-                <legend class="text-xl font-bold text-gray-900 border-b border-gray-200 pb-2 mb-6 w-full">ご紹介者様（あなた）の情報</legend>
+                <legend class="text-xl font-bold text-gray-900 border-b border-gray-200 pb-2 mb-6 w-full" data-i18n="form.referrerLegend">ご紹介者様（あなた）の情報</legend>
                 <div class="space-y-6">
                     <div class="sm:grid sm:grid-cols-2 sm:gap-6 space-y-6 sm:space-y-0">
                         <div>
-                            <label for="referrer-name" class="joy-field-label required-mark">お名前（フルネーム）</label>
-                            <input type="text" id="referrer-name" name="ご紹介者様のお名前" placeholder="例：佐藤太郎" required class="joy-input">
+                            <label for="referrer-name" class="joy-field-label required-mark" data-i18n="form.name">お名前（フルネーム）</label>
+                            <input type="text" id="referrer-name" name="ご紹介者様のお名前" data-i18n-placeholder="form.namePlaceholder" placeholder="例：佐藤太郎" required class="joy-input">
                         </div>
                         <div>
-                            <label for="referrer-phone" class="joy-field-label required-mark">お電話番号</label>
-                            <input type="tel" id="referrer-phone" name="ご紹介者様のお電話番号" placeholder="09012345678" required class="joy-input" pattern="[0-9]{10,11}" title="ハイフン不要・半角数字で入力してください。">
+                            <label for="referrer-phone" class="joy-field-label required-mark" data-i18n="form.phone">お電話番号</label>
+                            <input type="tel" id="referrer-phone" name="ご紹介者様のお電話番号" placeholder="09012345678" required class="joy-input" pattern="[0-9]{10,11}" data-i18n-title="form.phoneTitle" title="ハイフン不要・半角数字で入力してください。">
                         </div>
                     </div>
                 </div>
             </fieldset>
 
             <fieldset>
-                <legend class="text-xl font-bold text-gray-900 border-b border-gray-200 pb-2 mb-6 w-full">紹介したい方（ご友人）の情報</legend>
+                <legend class="text-xl font-bold text-gray-900 border-b border-gray-200 pb-2 mb-6 w-full" data-i18n="form.friendLegend">紹介したい方（ご友人）の情報</legend>
                 <div class="space-y-6">
                      <div class="sm:grid sm:grid-cols-2 sm:gap-6 space-y-6 sm:space-y-0">
                         <div>
-                            <label for="friend-name" class="joy-field-label required-mark">お名前（フルネーム）</label>
-                            <input type="text" id="friend-name" name="ご友人のお名前" placeholder="例：鈴木花子" required class="joy-input">
+                            <label for="friend-name" class="joy-field-label required-mark" data-i18n="form.name">お名前（フルネーム）</label>
+                            <input type="text" id="friend-name" name="ご友人のお名前" data-i18n-placeholder="form.friendNamePlaceholder" placeholder="例：鈴木花子" required class="joy-input">
                         </div>
                         <div>
-                            <label for="friend-phone" class="joy-field-label required-mark">お電話番号</label>
-                            <input type="tel" id="friend-phone" name="ご友人のお電話番号" placeholder="09012345678" required class="joy-input" pattern="[0-9]{10,11}" title="ハイフン不要・半角数字で入力してください。">
+                            <label for="friend-phone" class="joy-field-label required-mark" data-i18n="form.phone">お電話番号</label>
+                            <input type="tel" id="friend-phone" name="ご友人のお電話番号" placeholder="09012345678" required class="joy-input" pattern="[0-9]{10,11}" data-i18n-title="form.phoneTitle" title="ハイフン不要・半角数字で入力してください。">
                         </div>
                     </div>
                     <div>
-                        <label class="joy-field-label required-mark">ご入会予定店舗</label>
+                        <label class="joy-field-label required-mark" data-i18n="form.storeLabel">ご入会予定店舗</label>
                         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-2">
                              <label>
                                  <input type="radio" name="store-choice" value="JOYFIT24 経堂" class="hidden" checked>
@@ -212,12 +230,12 @@
                              </label>
                              <label>
                                  <input type="radio" name="store-choice" value="その他" class="hidden">
-                                 <div class="radio-label p-4 text-center cursor-pointer font-semibold transition">その他 (他店舗の場合)</div>
+                                 <div class="radio-label p-4 text-center cursor-pointer font-semibold transition" data-i18n="form.storeOther">その他 (他店舗の場合)</div>
                              </label>
                         </div>
                         <div id="other-store-wrapper" class="hidden mt-4">
-                            <label for="other-store-input" class="joy-field-label">他店舗名をご記入ください</label>
-                            <input type="text" id="other-store-input" placeholder="例：JOYFIT24 麻布十番" class="joy-input">
+                            <label for="other-store-input" class="joy-field-label" data-i18n="form.otherStoreLabel">他店舗名をご記入ください</label>
+                            <input type="text" id="other-store-input" data-i18n-placeholder="form.otherStorePlaceholder" placeholder="例：JOYFIT24 麻布十番" class="joy-input">
                         </div>
                          <input type="hidden" id="final-store-name" name="入会予定店舗">
                     </div>
@@ -225,7 +243,7 @@
             </fieldset>
 
             <div class="mt-10 pt-6 border-t">
-                <button type="submit" class="joy-submit">
+                <button type="submit" id="submit-btn" class="joy-submit" data-i18n="form.submit">
                     この内容で紹介する
                 </button>
             </div>
@@ -249,28 +267,35 @@
                 <!-- Panel 2: App Join Guide -->
                 <div id="guide-panel" class="hidden">
                     <div class="bg-brand-tint border-l-4 border-brand-red p-4 rounded-r-lg">
-                        <h3 class="font-bold text-brand-red text-lg">【重要】ご入会手続きについて</h3>
-                        <p class="text-sm text-gray-800 mt-2">
+                        <h3 class="font-bold text-brand-red text-lg" data-i18n="modal.guideTitle">【重要】ご入会手続きについて</h3>
+                        <p class="text-sm text-gray-800 mt-2" data-i18n-html="modal.guideBody">
                             キャンペーン申請ありがとうございます。<br>特典は自動で適用されます。<br><br>
                             こちらは<strong class="font-semibold">キャンペーン専用の申請フォーム</strong>です。<br>まだ入会がお済みでない方は、下記ボタンよりご入会手続きをお願いいたします。
                         </p>
-                        <a href="https://joyfit.jp/kyodo/app_join/" target="_blank" rel="noopener noreferrer" class="inline-block bg-brand-red text-white font-bold py-2 px-4 rounded-lg mt-4 hover:bg-brand-red-dark transition-colors">
+                        <a href="https://joyfit.jp/kyodo/app_join/" target="_blank" rel="noopener noreferrer" class="inline-block bg-brand-red text-white font-bold py-2 px-4 rounded-lg mt-4 hover:bg-brand-red-dark transition-colors" data-i18n="modal.guideBtn">
                             JOYFIT APPから入会手続きへ
                         </a>
                     </div>
                 </div>
             </div>
             <footer class="p-2 bg-gray-100 border-t grid grid-cols-4 gap-2 text-sm">
-                <button id="tab-receipt" class="modal-tab-btn p-2 rounded-md font-semibold transition-colors">控え</button>
-                <button id="tab-guide" class="modal-tab-btn p-2 rounded-md font-semibold transition-colors">入会案内</button>
-                <a href="index.html" class="modal-tab-btn text-center p-2 rounded-md font-semibold bg-gray-200 hover:bg-gray-300 transition-colors">他の申請へ</a>
-                <button id="close-modal-btn" class="modal-tab-btn p-2 rounded-md font-semibold bg-gray-200 hover:bg-gray-300 transition-colors">閉じる</button>
+                <button id="tab-receipt" class="modal-tab-btn p-2 rounded-md font-semibold transition-colors" data-i18n="modal.tabReceipt">控え</button>
+                <button id="tab-guide" class="modal-tab-btn p-2 rounded-md font-semibold transition-colors" data-i18n="modal.tabGuide">入会案内</button>
+                <a href="index.html" class="modal-tab-btn text-center p-2 rounded-md font-semibold bg-gray-200 hover:bg-gray-300 transition-colors" data-i18n="modal.tabOther">他の申請へ</a>
+                <button id="close-modal-btn" class="modal-tab-btn p-2 rounded-md font-semibold bg-gray-200 hover:bg-gray-300 transition-colors" data-i18n="modal.tabClose">閉じる</button>
             </footer>
         </div>
     </div>
 
+    <script src="locales.bundle.js"></script>
+    <script src="i18n.js"></script>
     <script>
+        function t(key, fallback) {
+            return window.JoyfitI18n ? JoyfitI18n.t(key, fallback) : fallback;
+        }
+
         document.addEventListener('DOMContentLoaded', () => {
+            JoyfitI18n.init('referral');
             const storeChoiceRadios = document.querySelectorAll('input[name="store-choice"]');
             const otherStoreWrapper = document.getElementById('other-store-wrapper');
             const otherStoreInput = document.getElementById('other-store-input');
@@ -302,13 +327,13 @@
             }
 
             if (!form.checkValidity()) {
-                showNotification('必須項目をすべて入力してください。', 'error');
+                showNotification(t('js.errorRequired', '必須項目をすべて入力してください。'), 'error');
                 form.reportValidity();
                 return;
             }
             
             submitButton.disabled = true;
-            submitButton.textContent = '送信中...';
+            submitButton.textContent = t('js.submitting', '送信中...');
             submitButton.classList.add('button-loading');
 
             const formData = new FormData(form);
@@ -329,10 +354,10 @@
 
             } catch (error) {
                 console.error('Error submitting form:', error);
-                showNotification(`送信に失敗しました。ネットワーク接続を確認してください。`, 'error');
+                showNotification(t('js.errorNetwork', '送信に失敗しました。ネットワーク接続を確認してください。'), 'error');
             } finally {
                 submitButton.disabled = false;
-                submitButton.textContent = 'この内容で紹介する';
+                submitButton.textContent = t('form.submit', 'この内容で紹介する');
                 submitButton.classList.remove('button-loading');
             }
         });
@@ -345,32 +370,32 @@
         const closeModalBtn = document.getElementById('close-modal-btn');
 
         function showConfirmationScreen(data) {
-            const submissionDate = new Date().toLocaleString('ja-JP');
+            const submissionDate = new Date().toLocaleString(JoyfitI18n.getLanguage() === 'ja' ? 'ja-JP' : undefined);
             receiptPanel.innerHTML = `
                 <div class="text-center">
-                    <h3 class="text-lg font-bold text-gray-800">ご紹介ありがとうございます！</h3>
-                    <p class="text-sm text-gray-600 mt-2 mb-4">以下の内容で申請を受け付けました。</p>
+                    <h3 class="text-lg font-bold text-gray-800">${t('modal.receiptTitle', 'ご紹介ありがとうございます！')}</h3>
+                    <p class="text-sm text-gray-600 mt-2 mb-4">${t('modal.receiptSub', '以下の内容で申請を受け付けました。')}</p>
                     <p class="text-brand-red font-semibold p-2 bg-brand-tint rounded-md">
-                        この画面をスクリーンショットし、<br>控えとして大切に保管してください。
+                        ${t('modal.receiptScreenshot', 'この画面をスクリーンショットし、<br>控えとして大切に保管してください。')}
                     </p>
                 </div>
                 <div class="space-y-3 text-sm border rounded-lg p-4 mt-4">
-                    <div class="flex"><p class="w-1/3 font-semibold text-gray-500">申請日時</p><p class="w-2/3">${submissionDate}</p></div>
-                    <div class="flex"><p class="w-1/3 font-semibold text-gray-500">キャンペーン</p><p class="w-2/3">${data.campaignType}</p></div>
+                    <div class="flex"><p class="w-1/3 font-semibold text-gray-500">${t('modal.labelDate', '申請日時')}</p><p class="w-2/3">${submissionDate}</p></div>
+                    <div class="flex"><p class="w-1/3 font-semibold text-gray-500">${t('modal.labelCampaign', 'キャンペーン')}</p><p class="w-2/3">${data.campaignType}</p></div>
                 </div>
                 <div class="mt-4">
-                    <h4 class="font-bold text-gray-700 mb-2">ご紹介者様（あなた）の情報</h4>
+                    <h4 class="font-bold text-gray-700 mb-2">${t('modal.referrerSection', 'ご紹介者様（あなた）の情報')}</h4>
                     <div class="space-y-3 text-sm border rounded-lg p-4">
-                        <div class="flex"><p class="w-1/3 font-semibold text-gray-500">お名前</p><p class="w-2/3">${data['ご紹介者様のお名前']}</p></div>
-                        <div class="flex"><p class="w-1/3 font-semibold text-gray-500">お電話番号</p><p class="w-2/3">${data['ご紹介者様のお電話番号']}</p></div>
+                        <div class="flex"><p class="w-1/3 font-semibold text-gray-500">${t('modal.labelName', 'お名前')}</p><p class="w-2/3">${data['ご紹介者様のお名前']}</p></div>
+                        <div class="flex"><p class="w-1/3 font-semibold text-gray-500">${t('modal.labelPhone', 'お電話番号')}</p><p class="w-2/3">${data['ご紹介者様のお電話番号']}</p></div>
                     </div>
                 </div>
                 <div class="mt-4">
-                    <h4 class="font-bold text-gray-700 mb-2">ご友人様の情報</h4>
+                    <h4 class="font-bold text-gray-700 mb-2">${t('modal.friendSection', 'ご友人様の情報')}</h4>
                     <div class="space-y-3 text-sm border rounded-lg p-4">
-                        <div class="flex"><p class="w-1/3 font-semibold text-gray-500">お名前</p><p class="w-2/3">${data['ご友人のお名前']}</p></div>
-                        <div class="flex"><p class="w-1/3 font-semibold text-gray-500">お電話番号</p><p class="w-2/3">${data['ご友人のお電話番号']}</p></div>
-                        <div class="flex"><p class="w-1/3 font-semibold text-gray-500">入会予定店舗</p><p class="w-2/3">${data['入会予定店舗']}</p></div>
+                        <div class="flex"><p class="w-1/3 font-semibold text-gray-500">${t('modal.labelName', 'お名前')}</p><p class="w-2/3">${data['ご友人のお名前']}</p></div>
+                        <div class="flex"><p class="w-1/3 font-semibold text-gray-500">${t('modal.labelPhone', 'お電話番号')}</p><p class="w-2/3">${data['ご友人のお電話番号']}</p></div>
+                        <div class="flex"><p class="w-1/3 font-semibold text-gray-500">${t('modal.labelStore', '入会予定店舗')}</p><p class="w-2/3">${data['入会予定店舗']}</p></div>
                     </div>
                 </div>
             `;

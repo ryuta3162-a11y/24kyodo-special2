@@ -1,0 +1,48 @@
+{
+  "meta": { "title": "JOYFIT24 Kyodo | Referral & Pair Membership Application" },
+  "header": { "title": "Referral & Pair Membership Application" },
+  "notice": {
+    "headline": "This campaign is exclusive to Kyodo.",
+    "item1": "Benefits are granted when both the referrer and friend complete membership.",
+    "item2": "If your friend has not joined via the app by the end of the application month, neither party will receive benefits.",
+    "item3": "<strong class=\"font-semibold\">Referrers must be Kyodo members.</strong><br>If your friend joins another location, only the referrer receives the benefit.<br><span class=\"text-xs text-gray-700\">*For both to receive benefits, your friend must also join Kyodo.</span>"
+  },
+  "form": {
+    "referrerLegend": "Referrer (You)",
+    "friendLegend": "Friend You Are Referring",
+    "name": "Full Name",
+    "phone": "Phone Number",
+    "namePlaceholder": "e.g. Taro Sato",
+    "friendNamePlaceholder": "e.g. Hanako Suzuki",
+    "phoneTitle": "Numbers only, no hyphens.",
+    "storeLabel": "Planned Membership Location",
+    "storeOther": "Other (another location)",
+    "otherStoreLabel": "Please enter the location name",
+    "otherStorePlaceholder": "e.g. JOYFIT24 Azabujuban",
+    "submit": "Submit Referral"
+  },
+  "modal": {
+    "guideTitle": "[Important] About Membership Registration",
+    "guideBody": "Thank you for applying for the campaign.<br>Benefits will be applied automatically.<br><br>This is a <strong class=\"font-semibold\">campaign-only application form</strong>.<br>If you have not yet joined, please complete membership via the button below.",
+    "guideBtn": "Join via JOYFIT APP",
+    "tabReceipt": "Receipt",
+    "tabGuide": "Join Guide",
+    "tabOther": "Other Applications",
+    "tabClose": "Close",
+    "receiptTitle": "Thank you for your referral!",
+    "receiptSub": "We have received your application with the following details.",
+    "receiptScreenshot": "Please screenshot this screen<br>and keep it as your receipt.",
+    "labelDate": "Application Date",
+    "labelCampaign": "Campaign",
+    "labelName": "Name",
+    "labelPhone": "Phone",
+    "labelStore": "Planned Location",
+    "referrerSection": "Referrer (You)",
+    "friendSection": "Friend"
+  },
+  "js": {
+    "submitting": "Sending...",
+    "errorRequired": "Please fill in all required fields.",
+    "errorNetwork": "Submission failed. Please check your network connection."
+  }
+}

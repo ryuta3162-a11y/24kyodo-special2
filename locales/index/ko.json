@@ -1,0 +1,31 @@
+{
+  "meta": { "title": "JOYFIT24 경당 | 특별 입회 캠페인" },
+  "hero": { "subtitle": "추가 혜택은 여기에서" },
+  "card1": {
+    "badge": "혜택 01",
+    "title": "친구 소개 캠페인",
+    "lead": "소개자와 입회자 모두",
+    "points": "Enjoy 포인트 증정",
+    "note": "※신규 입회자 한정",
+    "cta": "전용 양식에서 신청"
+  },
+  "card2": {
+    "badge": "혜택 02",
+    "title": "학교 관계자 할인",
+    "student": "학생",
+    "faculty": "교직원",
+    "tax": "(세금 포함)",
+    "studentDiscount": "2,200엔 할인",
+    "facultyDiscount": "1,100엔 할인",
+    "note": "※신규 입회자 한정",
+    "cta": "전용 양식에서 신청"
+  },
+  "card3": {
+    "badge": "혜택 03",
+    "title": "타 클럽 전환 할인",
+    "nextMonth": "다음 달 회비가",
+    "yen": "엔!",
+    "note": "※신규 입회자 한정",
+    "cta": "전용 양식에서 신청"
+  }
+}

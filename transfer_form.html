@@ -7,7 +7,8 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Noto+Sans+SC:wght@400;500;700&family=Noto+Sans+TC:wght@400;500;700&family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="i18n.css">
     <style>
         :root {
             --brand-red: #DC2626;
@@ -140,19 +141,36 @@
 </head>
 <body>
 
+    <div class="lang-switcher" id="lang-switcher">
+        <button type="button" class="lang-switcher__btn" id="lang-toggle" aria-expanded="false" aria-haspopup="listbox">
+            <span class="lang-switcher__icon" aria-hidden="true">🌐</span>
+            <span class="lang-switcher__label">Language</span>
+            <span class="lang-switcher__sep" aria-hidden="true">|</span>
+            <span class="lang-switcher__current" id="lang-current">日本語</span>
+            <span class="lang-switcher__caret" aria-hidden="true">▼</span>
+        </button>
+        <div class="lang-switcher__menu" id="lang-menu" role="listbox" aria-label="Language">
+            <button type="button" class="lang-switcher__item is-active" data-lang="ja" role="option">日本語</button>
+            <button type="button" class="lang-switcher__item" data-lang="en" role="option">English</button>
+            <button type="button" class="lang-switcher__item" data-lang="zh-CN" role="option">简体中文</button>
+            <button type="button" class="lang-switcher__item" data-lang="zh-TW" role="option">繁體中文</button>
+            <button type="button" class="lang-switcher__item" data-lang="ko" role="option">한국어</button>
+        </div>
+    </div>
+
     <div class="container mx-auto max-w-3xl px-4 py-8 sm:py-12">
 
         <header class="text-center mb-8">
             <h1 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-2">JOYFIT24経堂</h1>
-            <p class="text-xl sm:text-2xl font-semibold text-brand-red">他クラブ乗り換え申請</p>
+            <p class="text-xl sm:text-2xl font-semibold text-brand-red" data-i18n="header.title">他クラブ乗り換え申請</p>
         </header>
 
         <div class="joy-notice-card bg-white border border-gray-200/80 rounded-2xl shadow-sm mb-8 p-6">
             <div class="text-center mb-6 pb-6 border-b border-gray-200">
-                <p class="text-base font-medium text-gray-900">
+                <p class="text-base font-medium text-gray-900" data-i18n-html="notice.stepLine">
                     JOYFITアプリ入会 <span class="text-gray-500 mx-2">|</span> <span class="text-brand-red font-bold">本フォーム申請</span>
                 </p>
-                <p class="text-sm text-gray-800 mt-2 font-medium">上記2点でキャンペーン適用となります</p>
+                <p class="text-sm text-gray-800 mt-2 font-medium" data-i18n="notice.stepSub">上記2点でキャンペーン適用となります</p>
             </div>
             <ul class="space-y-4 text-sm text-gray-900 leading-relaxed">
                 <li class="flex items-start">
@@ -161,7 +179,7 @@
                             <div class="w-2 h-2 rounded-full bg-brand-red"></div>
                         </div>
                     </div>
-                    <div class="ml-3">
+                    <div class="ml-3" data-i18n-html="notice.item1">
                         <span class="font-bold text-brand-red">新規入会者様限定</span>のキャンペーンです。
                     </div>
                 </li>
@@ -171,7 +189,7 @@
                             <div class="w-2 h-2 rounded-full bg-brand-red"></div>
                         </div>
                     </div>
-                    <div class="ml-3">
+                    <div class="ml-3" data-i18n-html="notice.item2">
                         <span class="font-bold text-brand-red">当月末日まで</span>に申請を完了してください。
                     </div>
                 </li>
@@ -181,7 +199,7 @@
                             <div class="w-2 h-2 rounded-full bg-brand-red"></div>
                         </div>
                     </div>
-                    <div class="ml-3">
+                    <div class="ml-3" data-i18n="notice.item3">
                         法人会員様は本キャンペーンの適用対象外となります。
                     </div>
                 </li>
@@ -192,14 +210,14 @@
             <input type="hidden" name="campaignType" value="乗り換え">
 
             <div>
-                <label for="name" class="joy-field-label">お名前（フルネーム）</label>
-                <input type="text" id="name" name="お名前" placeholder="例：山田 太郎" required class="joy-input">
+                <label for="name" class="joy-field-label" data-i18n="form.name">お名前（フルネーム）</label>
+                <input type="text" id="name" name="お名前" data-i18n-placeholder="form.namePlaceholder" placeholder="例：山田 太郎" required class="joy-input">
             </div>
 
             <div>
-                <label for="previous-club-select" class="joy-field-label">移籍元クラブ</label>
+                <label for="previous-club-select" class="joy-field-label" data-i18n="form.previousClub">移籍元クラブ</label>
                 <select id="previous-club-select" required class="joy-input">
-                    <option value="" disabled selected>選択してください</option>
+                    <option value="" disabled selected data-i18n="form.selectPlaceholder">選択してください</option>
                     <option value="ルネサンス">ルネサンス</option>
                     <option value="ファストジム">ファストジム</option>
                     <option value="チョコザップ">チョコザップ</option>
@@ -207,36 +225,36 @@
                     <option value="FIT PLACE">FIT PLACE</option>
                     <option value="LAVA">LAVA</option>
                     <option value="パーソナルジム">パーソナルジム</option>
-                    <option value="その他">その他</option>
+                    <option value="その他" data-i18n="form.otherOption">その他</option>
                 </select>
                 <div id="other-club-wrapper" class="hidden mt-3">
-                    <label for="other-club-input" class="joy-field-label">移籍元クラブ名</label>
-                    <input type="text" id="other-club-input" placeholder="クラブ名を入力" class="joy-input">
+                    <label for="other-club-input" class="joy-field-label" data-i18n="form.otherClubLabel">移籍元クラブ名</label>
+                    <input type="text" id="other-club-input" data-i18n-placeholder="form.otherClubPlaceholder" placeholder="クラブ名を入力" class="joy-input">
                 </div>
                 <input type="hidden" name="移籍元クラブ" id="final-previous-club-value">
             </div>
 
             <div>
-                <label for="club-location" class="joy-field-label">移籍元クラブの地名</label>
-                <input type="text" id="club-location" name="移籍元クラブの地名" placeholder="例：経堂" required class="joy-input">
+                <label for="club-location" class="joy-field-label" data-i18n="form.clubLocation">移籍元クラブの地名</label>
+                <input type="text" id="club-location" name="移籍元クラブの地名" data-i18n-placeholder="form.clubLocationPlaceholder" placeholder="例：経堂" required class="joy-input">
             </div>
 
             <div>
-                <span class="joy-field-label">会員証明画像のアップロード</span>
+                <span class="joy-field-label" data-i18n="form.uploadLabel">会員証明画像のアップロード</span>
                 <label for="file-upload" class="file-input-label w-full flex flex-col items-center justify-center h-32 cursor-pointer">
                     <div class="flex flex-col items-center justify-center pt-5 pb-6">
                         <svg class="w-6 h-6 mb-2 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path></svg>
-                        <p id="file-upload-text" class="text-sm text-gray-800 font-medium">ファイルを選択</p>
+                        <p id="file-upload-text" class="text-sm text-gray-800 font-medium" data-i18n="form.selectFile">ファイルを選択</p>
                     </div>
                     <input id="file-upload" type="file" multiple class="hidden" accept="image/*,.heic,.heif" required>
                 </label>
-                <p class="text-xs text-gray-800 mt-2 font-medium">お名前と店舗名がわかる画像（最大5枚）</p>
+                <p class="text-xs text-gray-800 mt-2 font-medium" data-i18n="form.uploadHint">お名前と店舗名がわかる画像（最大5枚）</p>
                 <div id="file-preview" class="mt-3 text-xs text-gray-900 font-medium"></div>
                 <div id="base64-fields"></div>
             </div>
 
             <div class="pt-2">
-                <button type="submit" class="joy-submit">
+                <button type="submit" id="submit-btn" class="joy-submit" data-i18n="form.submit">
                     入力内容を送信する
                 </button>
             </div>
@@ -255,15 +273,15 @@
         <div class="relative bg-white rounded-lg shadow-2xl w-full max-w-lg flex flex-col p-8 overflow-visible">
             
             <!-- 閉じるボタン (右上にバナー風に配置) -->
-            <button id="modal-close-btn" class="close-btn" aria-label="閉じる">
+            <button id="modal-close-btn" class="close-btn" data-i18n-title="modal.closeLabel" aria-label="閉じる">
                 &times;
             </button>
 
             <!-- コンテンツ -->
             <div class="text-center">
-                <h3 class="text-2xl font-bold text-gray-900 mb-2">申請ありがとうございます</h3>
-                <p class="text-sm text-gray-700 font-bold">申請を受け付けました</p>
-                <p class="text-sm text-gray-700 mt-1 mb-6">下記がお控えの代わりになります</p>
+                <h3 class="text-2xl font-bold text-gray-900 mb-2" data-i18n="modal.title">申請ありがとうございます</h3>
+                <p class="text-sm text-gray-700 font-bold" data-i18n="modal.sub">申請を受け付けました</p>
+                <p class="text-sm text-gray-700 mt-1 mb-6" data-i18n="modal.receiptNote">下記がお控えの代わりになります</p>
 
                 <!-- 控え内容 -->
                 <div id="receipt-content" class="mb-8 text-left bg-gray-50 p-6 rounded border border-gray-100 space-y-3 text-sm text-gray-900">
@@ -274,13 +292,13 @@
                 <div class="bg-brand-tint border-2 border-brand-red rounded-lg p-4 text-brand-red shadow-md animate-pulse">
                     <div class="flex items-center justify-center mb-1">
                         <svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
-                        <span class="font-bold text-lg">重要</span>
+                        <span class="font-bold text-lg" data-i18n="modal.important">重要</span>
                     </div>
-                    <p class="font-bold text-sm sm:text-base">この画面をスクリーンショットして<br>必ず保存してください</p>
+                    <p class="font-bold text-sm sm:text-base" data-i18n-html="modal.screenshot">この画面をスクリーンショットして<br>必ず保存してください</p>
                 </div>
                 
                 <div class="mt-6">
-                    <a href="https://joyfit.jp/kyodo/app_join/" target="_blank" rel="noopener noreferrer" class="text-xs text-gray-700 hover:text-brand-red underline transition-colors font-medium">
+                    <a href="https://joyfit.jp/kyodo/app_join/" target="_blank" rel="noopener noreferrer" class="text-xs text-gray-700 hover:text-brand-red underline transition-colors font-medium" data-i18n="modal.appLink">
                         まだ入会がお済みでない方はこちら (JOYFIT APP)
                     </a>
                 </div>
@@ -288,8 +306,15 @@
         </div>
     </div>
 
+    <script src="locales.bundle.js"></script>
+    <script src="i18n.js"></script>
     <script>
+        function t(key, fallback) {
+            return window.JoyfitI18n ? JoyfitI18n.t(key, fallback) : fallback;
+        }
+
         document.addEventListener('DOMContentLoaded', () => {
+            JoyfitI18n.init('transfer');
             const form = document.getElementById('transfer-form');
             const submitButton = form.querySelector('button[type="submit"]');
             const previousClubSelect = document.getElementById('previous-club-select');
@@ -316,22 +341,22 @@
                 base64Fields.innerHTML = ''; 
 
                 if (!files || files.length === 0) {
-                    fileUploadText.textContent = 'ファイルを選択';
+                    fileUploadText.textContent = t('form.selectFile', 'ファイルを選択');
                     fileUpload.required = true;
                     return;
                 }
                 if (files.length > 5) {
-                    showNotification('ファイルは5つまでしかアップロードできません。', 'error');
+                    showNotification(t('js.errorMaxFiles', 'ファイルは5つまでしかアップロードできません。'), 'error');
                     fileUpload.value = '';
                     return;
                 }
 
-                fileUploadText.textContent = `${files.length}個のファイルを選択中`;
+                fileUploadText.textContent = `${files.length} ${t('form.filesSelected', '個のファイルを選択中')}`;
                 
                 let filePromises = Array.from(files).map((file, index) => {
                     return new Promise((resolve, reject) => {
                         if (file.size > 10 * 1024 * 1024) { 
-                           return reject(new Error(`${file.name} は大きすぎます`));
+                           return reject(new Error(`${file.name} ${t('js.errorFileSize', 'は大きすぎます')}`));
                         }
                         const reader = new FileReader();
                         reader.onload = (e) => {
@@ -362,7 +387,7 @@
                 
                 Promise.all(filePromises)
                     .then(() => {
-                        filePreview.textContent = `${files.length}枚の画像を選択中`;
+                        filePreview.textContent = `${files.length} ${t('form.imagesSelected', '枚の画像を選択中')}`;
                         fileUpload.required = false;
                     })
                     .catch(error => {
@@ -379,13 +404,13 @@
                 finalClubValueInput.value = previousClubSelect.value === 'その他' ? otherClubInput.value : previousClubSelect.value;
                 
                 if (!form.checkValidity()) {
-                    showNotification('必須項目を入力してください', 'error');
+                    showNotification(t('js.errorRequired', '必須項目を入力してください'), 'error');
                     form.reportValidity();
                     return;
                 }
 
                 submitButton.disabled = true;
-                submitButton.textContent = '送信中...';
+                submitButton.textContent = t('js.submitting', '送信中...');
                 submitButton.classList.add('button-loading');
 
                 const formData = new FormData(form);
@@ -406,10 +431,10 @@
 
                 } catch (error) {
                     console.error('Error:', error);
-                    showNotification(`送信失敗。ネットワークを確認してください`, 'error');
+                    showNotification(t('js.errorNetwork', '送信失敗。ネットワークを確認してください'), 'error');
                 } finally {
                     submitButton.disabled = false;
-                    submitButton.textContent = '入力内容を送信する';
+                    submitButton.textContent = t('form.submit', '入力内容を送信する');
                     submitButton.classList.remove('button-loading');
                 }
             });
@@ -417,19 +442,19 @@
             const showCompletionModal = (data) => {
                 receiptContent.innerHTML = `
                     <div class="flex justify-between border-b border-gray-200 pb-2">
-                        <span class="text-gray-600 font-medium">申請日時</span>
-                        <span class="font-bold text-gray-900 font-mono">${new Date().toLocaleString('ja-JP')}</span>
+                        <span class="text-gray-600 font-medium">${t('modal.labelDate', '申請日時')}</span>
+                        <span class="font-bold text-gray-900 font-mono">${new Date().toLocaleString(JoyfitI18n.getLanguage() === 'ja' ? 'ja-JP' : undefined)}</span>
                     </div>
                     <div class="flex justify-between border-b border-gray-200 pb-2">
-                        <span class="text-gray-600 font-medium">キャンペーン</span>
+                        <span class="text-gray-600 font-medium">${t('modal.labelCampaign', 'キャンペーン')}</span>
                         <span class="font-bold text-gray-900">${data['campaignType']}</span>
                     </div>
                     <div class="flex justify-between border-b border-gray-200 pb-2">
-                        <span class="text-gray-600 font-medium">お名前</span>
+                        <span class="text-gray-600 font-medium">${t('modal.labelName', 'お名前')}</span>
                         <span class="font-bold text-gray-900">${data['お名前']}</span>
                     </div>
                     <div class="flex justify-between border-b border-gray-200 pb-2">
-                        <span class="text-gray-600 font-medium">移籍元クラブ</span>
+                        <span class="text-gray-600 font-medium">${t('modal.labelClub', '移籍元クラブ')}</span>
                         <span class="font-bold text-gray-900">${data['移籍元クラブ']}</span>
                     </div>
                 `;
@@ -443,7 +468,7 @@
                 form.reset();
                 otherClubWrapper.classList.add('hidden');
                 otherClubInput.required = false;
-                fileUploadText.textContent = 'ファイルを選択';
+                fileUploadText.textContent = t('form.selectFile', 'ファイルを選択');
                 filePreview.textContent = '';
                 base64Fields.innerHTML = '';
                 fileUpload.required = true;

@@ -1,0 +1,48 @@
+{
+  "meta": { "title": "【JOYFIT24经堂】介绍·双人入会申请" },
+  "header": { "title": "介绍·双人入会申请" },
+  "notice": {
+    "headline": "此为经堂限定活动。",
+    "item1": "介绍人与好友双方均完成入会后，方可获得特典。",
+    "item2": "若申请月结束前好友尚未通过APP入会，双方均无法获得特典。",
+    "item3": "<strong class=\"font-semibold\">介绍人须为经堂会员。</strong><br>若好友入会其他店铺，特典仅授予介绍人。<br><span class=\"text-xs text-gray-700\">※若希望双方均获得特典，请好友也入会经堂。</span>"
+  },
+  "form": {
+    "referrerLegend": "介绍人（您）的信息",
+    "friendLegend": "被介绍人（好友）的信息",
+    "name": "姓名（全名）",
+    "phone": "电话号码",
+    "namePlaceholder": "例：佐藤太郎",
+    "friendNamePlaceholder": "例：铃木花子",
+    "phoneTitle": "请勿输入连字符，使用半角数字。",
+    "storeLabel": "预计入会店铺",
+    "storeOther": "其他（其他店铺）",
+    "otherStoreLabel": "请填写店铺名称",
+    "otherStorePlaceholder": "例：JOYFIT24 麻布十番",
+    "submit": "以此内容提交介绍"
+  },
+  "modal": {
+    "guideTitle": "【重要】关于入会手续",
+    "guideBody": "感谢您申请本活动。<br>特典将自动适用。<br><br>此为<strong class=\"font-semibold\">活动专用申请表</strong>。<br>尚未入会者请通过下方按钮办理入会。",
+    "guideBtn": "通过JOYFIT APP办理入会",
+    "tabReceipt": "凭证",
+    "tabGuide": "入会指南",
+    "tabOther": "其他申请",
+    "tabClose": "关闭",
+    "receiptTitle": "感谢您的介绍！",
+    "receiptSub": "我们已受理以下内容的申请。",
+    "receiptScreenshot": "请截图保存此画面<br>作为凭证妥善保管。",
+    "labelDate": "申请日期",
+    "labelCampaign": "活动",
+    "labelName": "姓名",
+    "labelPhone": "电话",
+    "labelStore": "预计入会店铺",
+    "referrerSection": "介绍人（您）",
+    "friendSection": "好友信息"
+  },
+  "js": {
+    "submitting": "发送中...",
+    "errorRequired": "请填写所有必填项。",
+    "errorNetwork": "发送失败。请检查网络连接。"
+  }
+}

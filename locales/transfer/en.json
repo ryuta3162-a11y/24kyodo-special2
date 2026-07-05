@@ -1,0 +1,48 @@
+{
+  "meta": { "title": "JOYFIT24 Kyodo | Gym Transfer Application" },
+  "header": { "title": "Gym Transfer Application" },
+  "notice": {
+    "stepLine": "JOYFIT App Membership <span class=\"text-gray-500 mx-2\">|</span> <span class=\"text-brand-red font-bold\">This Form Application</span>",
+    "stepSub": "Both steps are required for the campaign.",
+    "item1": "<span class=\"font-bold text-brand-red\">For new members only</span>.",
+    "item2": "Please complete your application by <span class=\"font-bold text-brand-red\">the end of this month</span>.",
+    "item3": "Corporate members are not eligible for this campaign."
+  },
+  "form": {
+    "name": "Full Name",
+    "namePlaceholder": "e.g. Taro Yamada",
+    "previousClub": "Previous Gym",
+    "selectPlaceholder": "Please select",
+    "otherOption": "Other",
+    "otherClubLabel": "Previous Gym Name",
+    "otherClubPlaceholder": "Enter gym name",
+    "clubLocation": "Location of Previous Gym",
+    "clubLocationPlaceholder": "e.g. Kyodo",
+    "uploadLabel": "Membership Proof Image Upload",
+    "selectFile": "Select File",
+    "uploadHint": "Image showing your name and gym name (up to 5 images)",
+    "filesSelected": "files selected",
+    "imagesSelected": "images selected",
+    "submit": "Submit Application"
+  },
+  "modal": {
+    "title": "Thank you for your application",
+    "sub": "Your application has been received",
+    "receiptNote": "The details below serve as your receipt",
+    "important": "Important",
+    "screenshot": "Please screenshot this screen<br>and save it",
+    "appLink": "Not yet a member? Join here (JOYFIT APP)",
+    "closeLabel": "Close",
+    "labelDate": "Application Date",
+    "labelCampaign": "Campaign",
+    "labelName": "Name",
+    "labelClub": "Previous Gym"
+  },
+  "js": {
+    "submitting": "Sending...",
+    "errorRequired": "Please fill in all required fields",
+    "errorNetwork": "Submission failed. Please check your network.",
+    "errorMaxFiles": "You can upload up to 5 files.",
+    "errorFileSize": "is too large"
+  }
+}

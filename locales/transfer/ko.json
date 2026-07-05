@@ -1,0 +1,48 @@
+{
+  "meta": { "title": "JOYFIT24 경당 타 클럽 전환 신청" },
+  "header": { "title": "타 클럽 전환 신청" },
+  "notice": {
+    "stepLine": "JOYFIT 앱 입회 <span class=\"text-gray-500 mx-2\">|</span> <span class=\"text-brand-red font-bold\">본 양식 신청</span>",
+    "stepSub": "위 2가지를 완료하면 캠페인이 적용됩니다",
+    "item1": "<span class=\"font-bold text-brand-red\">신규 입회자 한정</span> 캠페인입니다.",
+    "item2": "<span class=\"font-bold text-brand-red\">당월 말일</span>까지 신청을 완료해 주세요.",
+    "item3": "법인 회원은 본 캠페인 대상에서 제외됩니다."
+  },
+  "form": {
+    "name": "이름(성명)",
+    "namePlaceholder": "예: 야마다 타로",
+    "previousClub": "이전 클럽",
+    "selectPlaceholder": "선택해 주세요",
+    "otherOption": "기타",
+    "otherClubLabel": "이전 클럽명",
+    "otherClubPlaceholder": "클럽명 입력",
+    "clubLocation": "이전 클럽 지역",
+    "clubLocationPlaceholder": "예: 경당",
+    "uploadLabel": "회원 증명 이미지 업로드",
+    "selectFile": "파일 선택",
+    "uploadHint": "이름과 매장명이 보이는 이미지(최대 5장)",
+    "filesSelected": "개 파일 선택됨",
+    "imagesSelected": "장 이미지 선택됨",
+    "submit": "입력 내용 전송"
+  },
+  "modal": {
+    "title": "신청해 주셔서 감사합니다",
+    "sub": "신청을 접수했습니다",
+    "receiptNote": "아래 내용이 영수증 대용이 됩니다",
+    "important": "중요",
+    "screenshot": "이 화면을 스크린샷하여<br>반드시 저장해 주세요",
+    "appLink": "아직 입회하지 않으셨다면 여기(JOYFIT APP)",
+    "closeLabel": "닫기",
+    "labelDate": "신청 일시",
+    "labelCampaign": "캠페인",
+    "labelName": "이름",
+    "labelClub": "이전 클럽"
+  },
+  "js": {
+    "submitting": "전송 중...",
+    "errorRequired": "필수 항목을 입력해 주세요",
+    "errorNetwork": "전송 실패. 네트워크를 확인해 주세요",
+    "errorMaxFiles": "파일은 최대 5개까지 업로드할 수 있습니다.",
+    "errorFileSize": "파일이 너무 큽니다"
+  }
+}

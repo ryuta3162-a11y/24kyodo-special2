@@ -8,7 +8,8 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Noto+Sans+SC:wght@400;500;700;900&family=Noto+Sans+TC:wght@400;500;700;900&family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="i18n.css">
     
     <style>
         :root {
@@ -168,6 +169,23 @@
 </head>
 <body class="antialiased">
 
+    <div class="lang-switcher" id="lang-switcher">
+        <button type="button" class="lang-switcher__btn" id="lang-toggle" aria-expanded="false" aria-haspopup="listbox">
+            <span class="lang-switcher__icon" aria-hidden="true">🌐</span>
+            <span class="lang-switcher__label">Language</span>
+            <span class="lang-switcher__sep" aria-hidden="true">|</span>
+            <span class="lang-switcher__current" id="lang-current">日本語</span>
+            <span class="lang-switcher__caret" aria-hidden="true">▼</span>
+        </button>
+        <div class="lang-switcher__menu" id="lang-menu" role="listbox" aria-label="Language">
+            <button type="button" class="lang-switcher__item is-active" data-lang="ja" role="option">日本語</button>
+            <button type="button" class="lang-switcher__item" data-lang="en" role="option">English</button>
+            <button type="button" class="lang-switcher__item" data-lang="zh-CN" role="option">简体中文</button>
+            <button type="button" class="lang-switcher__item" data-lang="zh-TW" role="option">繁體中文</button>
+            <button type="button" class="lang-switcher__item" data-lang="ko" role="option">한국어</button>
+        </div>
+    </div>
+
     <!-- Header Section -->
     <header class="w-full">
         <div class="container mx-auto px-6 pt-16 pb-4 flex flex-col justify-center items-center text-center">
@@ -179,7 +197,7 @@
                 <h2 class="text-2xl md:text-3xl font-black text-brand-red leading-tight">
                     SPECIAL CAMPAIGN
                 </h2>
-                <p class="hero-subtitle mt-2 mb-0">
+                <p class="hero-subtitle mt-2 mb-0" data-i18n="hero.subtitle">
                     追加特典はこちらから
                 </p>
             </div>
@@ -195,82 +213,82 @@
 
                 <!-- 特典01: お友達紹介キャンペーン -->
                 <div class="campaign-card p-8 pt-12 flex flex-col h-full text-center">
-                    <div class="metallic-badge">特典 01</div>
+                    <div class="metallic-badge" data-i18n="card1.badge">特典 01</div>
 
                     <div class="flex-grow">
-                        <h3 class="text-2xl font-bold mt-2 mb-6">お友達紹介キャンペーン</h3>
+                        <h3 class="text-2xl font-bold mt-2 mb-6" data-i18n="card1.title">お友達紹介キャンペーン</h3>
                     </div>
                     <!-- 統一されたジム風パネル -->
                     <div class="gym-panel flex flex-col justify-center items-center">
-                        <p class="text-sm font-bold text-gray-600 mb-1">紹介者・入会者どちらも</p>
+                        <p class="text-sm font-bold text-gray-600 mb-1" data-i18n="card1.lead">紹介者・入会者どちらも</p>
                         <div class="flex items-baseline justify-center text-brand-red my-1">
                             <span class="text-4xl font-black">1,000</span>
                             <span class="text-xl font-bold ml-1">pt</span>
                         </div>
-                        <p class="text-base font-bold text-gray-700">Enjoyポイントプレゼント</p>
-                        <p class="text-xs text-gray-500 font-bold mt-3">※新規入会者限定</p>
+                        <p class="text-base font-bold text-gray-700" data-i18n="card1.points">Enjoyポイントプレゼント</p>
+                        <p class="text-xs text-gray-500 font-bold mt-3" data-i18n="card1.note">※新規入会者限定</p>
                     </div>
                     
-                    <a href="referral_form.html" class="cta-button w-full mt-8 block text-center bg-brand-red text-white font-bold py-4 px-8 rounded-lg hover:bg-brand-red-dark">
+                    <a href="referral_form.html" class="cta-button w-full mt-8 block text-center bg-brand-red text-white font-bold py-4 px-8 rounded-lg hover:bg-brand-red-dark" data-i18n="card1.cta">
                         専用フォームから申請
                     </a>
                 </div>
 
                 <!-- 特典02: 学校関係者割 -->
                 <div class="campaign-card p-8 pt-12 flex flex-col h-full text-center">
-                    <div class="metallic-badge">特典 02</div>
+                    <div class="metallic-badge" data-i18n="card2.badge">特典 02</div>
 
                     <div class="flex-grow">
-                        <h3 class="text-2xl font-bold mt-2 mb-6">学校関係者割</h3>
+                        <h3 class="text-2xl font-bold mt-2 mb-6" data-i18n="card2.title">学校関係者割</h3>
                     </div>
                     <!-- 統一されたジム風パネル -->
                     <div class="gym-panel">
                         <div class="grid grid-cols-2 divide-x divide-gray-300">
                             <!-- 学生 -->
                             <div class="px-1 border-r border-gray-300">
-                                <p class="text-xs font-bold text-gray-600">学生</p>
+                                <p class="text-xs font-bold text-gray-600" data-i18n="card2.student">学生</p>
                                 <div class="my-1">
                                     <p class="text-xl font-bold text-brand-red leading-tight">7,150円</p>
-                                    <p class="text-[10px] text-brand-red font-bold">(税込)</p>
+                                    <p class="text-[10px] text-brand-red font-bold" data-i18n="card2.tax">(税込)</p>
                                 </div>
-                                <p class="text-[10px] text-gray-500 font-bold">2,200円引</p>
+                                <p class="text-[10px] text-gray-500 font-bold" data-i18n="card2.studentDiscount">2,200円引</p>
                             </div>
                             <!-- 教職員 -->
                             <div class="px-1">
-                                <p class="text-xs font-bold text-gray-600">教職員</p>
+                                <p class="text-xs font-bold text-gray-600" data-i18n="card2.faculty">教職員</p>
                                 <div class="my-1">
                                     <p class="text-xl font-bold text-gray-700 leading-tight">8,250円</p>
-                                    <p class="text-[10px] text-gray-600 font-bold">(税込)</p>
+                                    <p class="text-[10px] text-gray-600 font-bold" data-i18n="card2.tax">(税込)</p>
                                 </div>
-                                <p class="text-[10px] text-gray-500 font-bold">1,100円引</p>
+                                <p class="text-[10px] text-gray-500 font-bold" data-i18n="card2.facultyDiscount">1,100円引</p>
                             </div>
                         </div>
-                        <p class="text-xs text-gray-500 font-bold mt-3">※新規入会者限定</p>
+                        <p class="text-xs text-gray-500 font-bold mt-3" data-i18n="card2.note">※新規入会者限定</p>
                     </div>
                     
-                    <a href="https://forms.gle/PCrYhsMrFGtQocZe6" target="_blank" rel="noopener noreferrer" class="cta-button w-full mt-8 block text-center bg-brand-red text-white font-bold py-4 px-8 rounded-lg hover:bg-brand-red-dark">
+                    <a href="https://forms.gle/PCrYhsMrFGtQocZe6" target="_blank" rel="noopener noreferrer" class="cta-button w-full mt-8 block text-center bg-brand-red text-white font-bold py-4 px-8 rounded-lg hover:bg-brand-red-dark" data-i18n="card2.cta">
                         専用フォームから申請
                     </a>
                 </div>
 
                 <!-- 特典03: 他クラブ乗り換え割 -->
                 <div class="campaign-card p-8 pt-12 flex flex-col h-full text-center">
-                    <div class="metallic-badge">特典 03</div>
+                    <div class="metallic-badge" data-i18n="card3.badge">特典 03</div>
 
                     <div class="flex-grow">
-                        <h3 class="text-2xl font-bold mt-2 mb-6">他クラブ乗り換え割</h3>
+                        <h3 class="text-2xl font-bold mt-2 mb-6" data-i18n="card3.title">他クラブ乗り換え割</h3>
                     </div>
                     <!-- 統一されたジム風パネル -->
                     <div class="gym-panel flex flex-col items-center justify-center min-h-[120px]">
                         <div class="flex items-baseline justify-center w-full">
-                            <span class="text-lg md:text-xl font-bold mr-2 text-gray-700">翌月会費が</span>
+                            <span class="text-lg md:text-xl font-bold mr-2 text-gray-700" data-i18n="card3.nextMonth">翌月会費が</span>
                             <span class="text-4xl font-black text-brand-red">0</span>
-                            <span class="text-xl md:text-2xl font-bold ml-1 text-gray-700">円に！</span>
+                            <span class="text-xl md:text-2xl font-bold ml-1 text-gray-700" data-i18n="card3.yen">円に！</span>
                         </div>
-                        <p class="text-xs text-gray-500 font-bold mt-3">※新規入会者限定</p>
+                        <p class="text-xs text-gray-500 font-bold mt-3" data-i18n="card3.note">※新規入会者限定</p>
                     </div>
                     
-                    <a href="transfer_form.html" class="cta-button w-full mt-8 block text-center bg-brand-red text-white font-bold py-4 px-8 rounded-lg hover:bg-brand-red-dark">
+                    <a href="transfer_form.html" class="cta-button w-full mt-8 block text-center bg-brand-red text-white font-bold py-4 px-8 rounded-lg hover:bg-brand-red-dark" data-i18n="card3.cta">
                         専用フォームから申請
                     </a>
                 </div>
@@ -285,5 +303,8 @@
         </div>
     </footer>
 
+    <script src="locales.bundle.js"></script>
+    <script src="i18n.js"></script>
+    <script>JoyfitI18n.init('index');</script>
 </body>
 </html>

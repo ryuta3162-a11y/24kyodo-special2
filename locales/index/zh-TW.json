@@ -1,0 +1,31 @@
+{
+  "meta": { "title": "JOYFIT24經堂 | 優惠入會活動" },
+  "hero": { "subtitle": "額外特典請由此查看" },
+  "card1": {
+    "badge": "特典 01",
+    "title": "好友介紹活動",
+    "lead": "介紹人與入會者雙方均可獲得",
+    "points": "Enjoy積分贈送",
+    "note": "※限新入會者",
+    "cta": "透過專用表單申請"
+  },
+  "card2": {
+    "badge": "特典 02",
+    "title": "學校相關人員優惠",
+    "student": "學生",
+    "faculty": "教職員",
+    "tax": "（含稅）",
+    "studentDiscount": "減免2,200日圓",
+    "facultyDiscount": "減免1,100日圓",
+    "note": "※限新入會者",
+    "cta": "透過專用表單申請"
+  },
+  "card3": {
+    "badge": "特典 03",
+    "title": "其他健身房轉籍優惠",
+    "nextMonth": "次月會費僅需",
+    "yen": "日圓！",
+    "note": "※限新入會者",
+    "cta": "透過專用表單申請"
+  }
+}

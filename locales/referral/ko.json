@@ -1,0 +1,48 @@
+{
+  "meta": { "title": "【JOYFIT24 경당】소개·페어 입회 신청" },
+  "header": { "title": "소개·페어 입회 신청" },
+  "notice": {
+    "headline": "경당 한정 캠페인입니다.",
+    "item1": "소개자와 친구 모두 입회가 완료된 경우 혜택이 지급됩니다.",
+    "item2": "신청 월 말까지 앱을 통해 미입회인 경우, 양쪽 모두 혜택이 지급되지 않습니다.",
+    "item3": "<strong class=\"font-semibold\">소개자는 경당 회원에 한합니다.</strong><br>친구가 다른 매장에 입회한 경우, 혜택은 소개자에게만 지급됩니다.<br><span class=\"text-xs text-gray-700\">※양쪽 모두 혜택을 원하시면 친구도 경당에 입회해 주세요.</span>"
+  },
+  "form": {
+    "referrerLegend": "소개자(본인) 정보",
+    "friendLegend": "소개할 분(친구) 정보",
+    "name": "이름(성명)",
+    "phone": "전화번호",
+    "namePlaceholder": "예: 사토 타로",
+    "friendNamePlaceholder": "예: 스즈키 하나코",
+    "phoneTitle": "하이픈 없이 숫자만 입력해 주세요.",
+    "storeLabel": "입회 예정 매장",
+    "storeOther": "기타 (다른 매장)",
+    "otherStoreLabel": "매장명을 입력해 주세요",
+    "otherStorePlaceholder": "예: JOYFIT24 아자부주반",
+    "submit": "이 내용으로 소개하기"
+  },
+  "modal": {
+    "guideTitle": "【중요】입회 절차 안내",
+    "guideBody": "캠페인 신청 감사합니다.<br>혜택은 자동으로 적용됩니다.<br><br>이곳은 <strong class=\"font-semibold\">캠페인 전용 신청 양식</strong>입니다.<br>아직 입회하지 않으셨다면 아래 버튼에서 입회해 주세요.",
+    "guideBtn": "JOYFIT APP에서 입회하기",
+    "tabReceipt": "영수증",
+    "tabGuide": "입회 안내",
+    "tabOther": "다른 신청",
+    "tabClose": "닫기",
+    "receiptTitle": "소개해 주셔서 감사합니다!",
+    "receiptSub": "아래 내용으로 신청을 접수했습니다.",
+    "receiptScreenshot": "이 화면을 스크린샷하여<br>영수증으로 보관해 주세요.",
+    "labelDate": "신청 일시",
+    "labelCampaign": "캠페인",
+    "labelName": "이름",
+    "labelPhone": "전화번호",
+    "labelStore": "입회 예정 매장",
+    "referrerSection": "소개자(본인)",
+    "friendSection": "친구 정보"
+  },
+  "js": {
+    "submitting": "전송 중...",
+    "errorRequired": "필수 항목을 모두 입력해 주세요.",
+    "errorNetwork": "전송에 실패했습니다. 네트워크 연결을 확인해 주세요."
+  }
+}
