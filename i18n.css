@@ -1,78 +1,84 @@
+/* Language switcher — 白背景・黒文字・スマホはコンパクト */
 .lang-switcher {
     position: fixed;
-    top: max(0.45rem, env(safe-area-inset-top));
-    right: max(0.45rem, env(safe-area-inset-right));
+    top: max(6px, env(safe-area-inset-top));
+    right: max(6px, env(safe-area-inset-right));
     z-index: 50;
+    max-width: calc(100vw - 12px);
 }
 .lang-switcher__btn {
     display: inline-flex;
     align-items: center;
-    gap: 0.3rem;
-    padding: 0.32rem 0.5rem;
-    border-radius: 0.25rem;
-    border: 1px solid #111827;
+    gap: 4px;
+    padding: 4px 8px;
+    border-radius: 4px;
+    border: 1px solid #1f2937;
     background: #ffffff;
     color: #111827;
-    font-size: 0.62rem;
+    font-size: 10px;
     font-weight: 700;
-    letter-spacing: 0.02em;
-    box-shadow: 0 1px 2px rgba(17, 24, 39, 0.08);
+    line-height: 1.2;
+    letter-spacing: 0.01em;
+    box-shadow: 0 1px 2px rgba(17, 24, 39, 0.06);
     cursor: pointer;
-    transition: background 0.15s ease, box-shadow 0.15s ease;
+    transition: background 0.15s ease;
+    white-space: nowrap;
 }
 .lang-switcher__btn:hover {
     background: #f9fafb;
-    box-shadow: 0 2px 5px rgba(17, 24, 39, 0.1);
 }
 .lang-switcher__btn:active {
     background: #f3f4f6;
 }
 .lang-switcher__icon {
-    font-size: 0.68rem;
+    font-size: 12px;
     line-height: 1;
+    flex-shrink: 0;
 }
 .lang-switcher__label {
-    color: #374151;
-    font-weight: 600;
-    font-size: 0.55rem;
+    color: #111827;
+    font-weight: 700;
+    font-size: 9px;
     text-transform: uppercase;
-    letter-spacing: 0.06em;
+    letter-spacing: 0.04em;
 }
 .lang-switcher__sep {
-    color: #9ca3af;
+    color: #6b7280;
     font-weight: 400;
+    font-size: 9px;
 }
 .lang-switcher__current {
     color: #111827;
     font-weight: 700;
-    font-size: 0.62rem;
+    font-size: 10px;
 }
 .lang-switcher__caret {
-    color: #6b7280;
-    font-size: 0.48rem;
-    margin-left: 0.05rem;
+    color: #374151;
+    font-size: 7px;
+    margin-left: 1px;
+    flex-shrink: 0;
 }
 .lang-switcher__menu {
     display: none;
     position: absolute;
-    top: calc(100% + 0.35rem);
+    top: calc(100% + 4px);
     right: 0;
-    min-width: 9rem;
-    padding: 0.25rem;
-    border-radius: 0.3rem;
-    border: 1px solid #111827;
+    min-width: 8.5rem;
+    padding: 4px;
+    border-radius: 4px;
+    border: 1px solid #1f2937;
     background: #ffffff;
-    box-shadow: 0 8px 20px rgba(17, 24, 39, 0.12);
+    box-shadow: 0 6px 16px rgba(17, 24, 39, 0.1);
 }
 .lang-switcher.is-open .lang-switcher__menu { display: block; }
 .lang-switcher__item {
     width: 100%;
     text-align: left;
-    padding: 0.45rem 0.6rem;
+    padding: 6px 8px;
     border: none;
-    border-radius: 0.2rem;
+    border-radius: 3px;
     background: transparent;
-    font-size: 0.75rem;
+    font-size: 11px;
     font-weight: 600;
     color: #111827;
     cursor: pointer;
@@ -89,25 +95,25 @@
 
 @media (min-width: 640px) {
     .lang-switcher {
-        top: max(0.6rem, env(safe-area-inset-top));
-        right: max(0.6rem, env(safe-area-inset-right));
+        top: max(10px, env(safe-area-inset-top));
+        right: max(10px, env(safe-area-inset-right));
     }
     .lang-switcher__btn {
-        gap: 0.4rem;
-        padding: 0.4rem 0.65rem;
-        font-size: 0.7rem;
-        border-radius: 0.3rem;
+        gap: 6px;
+        padding: 6px 11px;
+        font-size: 11px;
+        border-radius: 5px;
     }
-    .lang-switcher__icon { font-size: 0.78rem; }
-    .lang-switcher__label { font-size: 0.62rem; }
-    .lang-switcher__current { font-size: 0.7rem; }
-    .lang-switcher__caret { font-size: 0.55rem; }
+    .lang-switcher__icon { font-size: 13px; }
+    .lang-switcher__label { font-size: 10px; }
+    .lang-switcher__current { font-size: 11px; }
+    .lang-switcher__caret { font-size: 8px; }
     .lang-switcher__menu {
-        min-width: 10rem;
-        padding: 0.3rem;
+        min-width: 9.5rem;
+        padding: 5px;
     }
     .lang-switcher__item {
-        padding: 0.5rem 0.65rem;
-        font-size: 0.8rem;
+        padding: 7px 10px;
+        font-size: 12px;
     }
 }
