@@ -1,6 +1,10 @@
 {
   "meta": { "title": "JOYFIT24經堂 | 優惠入會活動" },
-  "hero": { "subtitle": "額外特典請由此查看" },
+  "hero": {
+    "lineBlack": "入會更優惠",
+    "lineRed": "額外特典請由此查看",
+    "subtitle": "額外特典請由此查看"
+  },
   "card1": {
     "badge": "特典 01",
     "title": "好友介紹活動",

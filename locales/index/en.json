@@ -1,6 +1,10 @@
 {
   "meta": { "title": "JOYFIT24 Kyodo | Special Membership Campaign" },
-  "hero": { "subtitle": "View bonus benefits here" },
+  "hero": {
+    "lineBlack": "Make joining more rewarding",
+    "lineRed": "Bonus benefits start here",
+    "subtitle": "View bonus benefits here"
+  },
   "card1": {
     "badge": "Bonus 01",
     "title": "Friend Referral Campaign",

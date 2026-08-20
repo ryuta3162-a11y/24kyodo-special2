@@ -70,6 +70,40 @@
             background-repeat: no-repeat;
             background-size: 1.25em 1.25em;
         }
+        .page-hero {
+            text-align: center;
+            margin-bottom: 2rem;
+            padding-top: 0.5rem;
+        }
+        .page-hero .hero-brand {
+            font-size: 0.78rem;
+            font-weight: 800;
+            letter-spacing: 0.14em;
+            color: var(--ink);
+            margin-bottom: 0.85rem;
+        }
+        .page-hero .hero-title-red {
+            margin: 0;
+            font-size: clamp(1.35rem, 4.5vw, 1.85rem);
+            font-weight: 900;
+            line-height: 1.35;
+            color: var(--brand-red);
+        }
+        .page-hero .hero-rule {
+            width: 100%;
+            max-width: 18rem;
+            height: 4px;
+            margin: 1rem auto 0;
+            background: var(--brand-red);
+            border: none;
+        }
+        .joy-notice-card {
+            border: 1px solid var(--line);
+            border-top: 4px solid var(--brand-red);
+            border-radius: 0.35rem;
+            box-shadow: none;
+            background: #fff;
+        }
         .site-footer-bar {
             background: #FFFFFF;
             border-top: 1px solid #E5E5E5;
@@ -150,12 +184,13 @@
 
     <div class="container mx-auto max-w-3xl px-4 py-8 sm:py-12">
         
-        <header class="text-center mb-8">
-            <h1 class="text-3xl sm:text-4xl font-bold text-gray-800 mb-2">JOYFIT24経堂</h1>
-            <p class="text-xl sm:text-2xl font-semibold text-brand-red" data-i18n="header.title">紹介・ペア入会申請</p>
+        <header class="page-hero">
+            <p class="hero-brand">JOYFIT24 経堂</p>
+            <p class="hero-title-red" data-i18n="header.title">紹介・ペア入会申請</p>
+            <hr class="hero-rule">
         </header>
 
-        <div class="joy-notice-card bg-white border border-gray-200/80 rounded-2xl shadow-sm mb-8 p-6">
+        <div class="joy-notice-card mb-8 p-6">
             <div class="text-center">
                 <p class="text-lg font-bold text-brand-red" data-i18n="notice.headline">
                     こちらは経堂限定のキャンペーンです。

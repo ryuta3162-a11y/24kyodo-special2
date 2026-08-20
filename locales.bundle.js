@@ -5,6 +5,8 @@ window.JOYFIT_LOCALES = {
         "title": "JOYFIT24 Kyodo | Special Membership Campaign"
       },
       "hero": {
+        "lineBlack": "Make joining more rewarding",
+        "lineRed": "Bonus benefits start here",
         "subtitle": "View bonus benefits here"
       },
       "card1": {
@@ -40,6 +42,8 @@ window.JOYFIT_LOCALES = {
         "title": "JOYFIT24 경당 | 특별 입회 캠페인"
       },
       "hero": {
+        "lineBlack": "입회를 더 알뜰하게",
+        "lineRed": "추가 혜택은 여기에서",
         "subtitle": "추가 혜택은 여기에서"
       },
       "card1": {
@@ -75,6 +79,8 @@ window.JOYFIT_LOCALES = {
         "title": "JOYFIT24经堂 | 优惠入会活动"
       },
       "hero": {
+        "lineBlack": "入会更优惠",
+        "lineRed": "额外特典请由此查看",
         "subtitle": "额外特典请由此查看"
       },
       "card1": {
@@ -110,6 +116,8 @@ window.JOYFIT_LOCALES = {
         "title": "JOYFIT24經堂 | 優惠入會活動"
       },
       "hero": {
+        "lineBlack": "入會更優惠",
+        "lineRed": "額外特典請由此查看",
         "subtitle": "額外特典請由此查看"
       },
       "card1": {

@@ -1,6 +1,10 @@
 {
   "meta": { "title": "JOYFIT24经堂 | 优惠入会活动" },
-  "hero": { "subtitle": "额外特典请由此查看" },
+  "hero": {
+    "lineBlack": "入会更优惠",
+    "lineRed": "额外特典请由此查看",
+    "subtitle": "额外特典请由此查看"
+  },
   "card1": {
     "badge": "特典 01",
     "title": "好友介绍活动",

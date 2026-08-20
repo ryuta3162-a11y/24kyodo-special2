@@ -90,7 +90,40 @@
             transform: none;
             box-shadow: none;
         }
-        .joy-notice-card { border-top: 3px solid var(--brand-red); }
+        .joy-notice-card {
+            border: 1px solid var(--line);
+            border-top: 4px solid var(--brand-red);
+            border-radius: 0.35rem;
+            box-shadow: none;
+            background: #fff;
+        }
+        .page-hero {
+            text-align: center;
+            margin-bottom: 2rem;
+            padding-top: 0.5rem;
+        }
+        .page-hero .hero-brand {
+            font-size: 0.78rem;
+            font-weight: 800;
+            letter-spacing: 0.14em;
+            color: var(--ink);
+            margin-bottom: 0.85rem;
+        }
+        .page-hero .hero-title-red {
+            margin: 0;
+            font-size: clamp(1.35rem, 4.5vw, 1.85rem);
+            font-weight: 900;
+            line-height: 1.35;
+            color: var(--brand-red);
+        }
+        .page-hero .hero-rule {
+            width: 100%;
+            max-width: 18rem;
+            height: 4px;
+            margin: 1rem auto 0;
+            background: var(--brand-red);
+            border: none;
+        }
         .file-input-label {
             transition: all 0.2s ease-in-out;
             border: 1px dashed var(--line);
@@ -164,12 +197,13 @@
 
     <div class="container mx-auto max-w-3xl px-4 py-8 sm:py-12">
 
-        <header class="text-center mb-8">
-            <h1 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-2">JOYFIT24経堂</h1>
-            <p class="text-xl sm:text-2xl font-semibold text-brand-red" data-i18n="header.title">他クラブ乗り換え申請</p>
+        <header class="page-hero">
+            <p class="hero-brand">JOYFIT24 経堂</p>
+            <p class="hero-title-red" data-i18n="header.title">他クラブ乗り換え申請</p>
+            <hr class="hero-rule">
         </header>
 
-        <div class="joy-notice-card bg-white border border-gray-200/80 rounded-2xl shadow-sm mb-8 p-6">
+        <div class="joy-notice-card mb-8 p-6">
             <div class="text-center mb-6 pb-6 border-b border-gray-200">
                 <p class="text-base font-medium text-gray-900" data-i18n-html="notice.stepLine">
                     JOYFITアプリ入会 <span class="text-gray-500 mx-2">|</span> <span class="text-brand-red font-bold">本フォーム申請</span>

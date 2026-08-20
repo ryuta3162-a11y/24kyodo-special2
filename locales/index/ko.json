@@ -1,6 +1,10 @@
 {
   "meta": { "title": "JOYFIT24 경당 | 특별 입회 캠페인" },
-  "hero": { "subtitle": "추가 혜택은 여기에서" },
+  "hero": {
+    "lineBlack": "입회를 더 알뜰하게",
+    "lineRed": "추가 혜택은 여기에서",
+    "subtitle": "추가 혜택은 여기에서"
+  },
   "card1": {
     "badge": "혜택 01",
     "title": "친구 소개 캠페인",
