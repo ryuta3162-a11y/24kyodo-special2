@@ -13,13 +13,13 @@
     
     <style>
         :root {
-            --page-bg: #F3F4F6;
-            --logo-wine-bg: #A63646;
-            --brand-red: #DC2626;
-            --brand-red-dark: #B91C1C;
-            --brand-burgundy: #DC2626;
-            --brand-red-soft: rgba(220, 38, 38, 0.14);
-            --ink: #111827;
+            --page-bg: #FFFFFF;
+            --logo-wine-bg: #C21632;
+            --brand-red: #C21632;
+            --brand-red-dark: #8a0e20;
+            --brand-burgundy: #C21632;
+            --brand-red-soft: rgba(194, 22, 50, 0.14);
+            --ink: #111111;
             --muted: #6B7280;
         }
         body {
@@ -29,17 +29,6 @@
             min-height: 100vh;
             position: relative;
             overflow-x: hidden;
-        }
-        body::before {
-            content: "";
-            position: fixed;
-            inset: 0;
-            z-index: 0;
-            pointer-events: none;
-            background:
-                radial-gradient(1200px 600px at 50% -10%, rgba(220, 38, 38, 0.07), transparent 60%),
-                radial-gradient(900px 500px at 10% 20%, rgba(255, 255, 255, 0.9), transparent 55%),
-                radial-gradient(900px 500px at 90% 20%, rgba(255, 255, 255, 0.7), transparent 55%);
         }
         main, header { position: relative; z-index: 1; }
         .hero-brand-line {
@@ -63,108 +52,100 @@
         }
         .hero-subtitle {
             margin-top: 1.25rem;
-            color: #374151;
+            color: #555555;
             font-size: clamp(1rem, 2.5vw, 1.25rem);
             font-weight: 700;
             letter-spacing: 0.03em;
         }
         .page-title-card {
-            margin-top: 1.5rem;
-            background: #FFFFFF;
-            border: 1px solid rgba(17, 24, 39, 0.10);
-            border-radius: 1rem;
-            padding: 1rem 1.5rem;
-            box-shadow: 0 10px 22px rgba(17, 24, 39, 0.08);
+            margin-top: 1.25rem;
+            background: transparent;
+            border: none;
+            border-radius: 0;
+            padding: 0.25rem 0 0;
+            box-shadow: none;
         }
         .text-brand-red { color: var(--brand-red); } 
         .bg-brand-red { background-color: var(--brand-red); }
         .hover\:bg-brand-red-dark:hover { background-color: var(--brand-red-dark); }
         .border-brand-red { border-color: var(--brand-red); }
 
-        /* カード本体のスタイル：メタリックフレーム風 */
         .campaign-card {
             background-color: #FFFFFF;
             position: relative;
             overflow: visible;
-            
-            /* メタリック調の赤枠 */
-            border: 4px solid transparent;
-            background-image: linear-gradient(#fff, #fff), linear-gradient(135deg, #F87171 0%, var(--brand-red) 50%, var(--brand-burgundy) 100%);
-            background-origin: border-box;
-            background-clip: padding-box, border-box;
-            
-            border-radius: 1.5rem;
-            color: #1F2937;
-            
-            box-shadow: 0 10px 15px -3px rgba(17, 24, 39, 0.10), 0 4px 6px -2px rgba(17, 24, 39, 0.06);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            
-            margin-top: 2rem; 
+            border: 1px solid #E5E5E5;
+            border-top: 3px solid var(--brand-red);
+            border-radius: 0.5rem;
+            color: #111111;
+            box-shadow: none;
+            margin-top: 2rem;
         }
         
         .campaign-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 25px -5px rgba(220, 38, 38, 0.35), 0 10px 10px -5px rgba(0, 0, 0, 0.2);
+            transform: none;
+            box-shadow: none;
+            border-color: var(--brand-red);
         }
 
-        /* メタリックバッジ */
         .metallic-badge {
             position: absolute;
-            top: -1.25rem;
+            top: -0.85rem;
             left: 50%;
             transform: translateX(-50%);
-            
-            background: linear-gradient(135deg, #F87171 0%, var(--brand-red) 50%, var(--brand-burgundy) 100%);
-            color: white;
+            background: var(--brand-red);
+            color: #fff;
             font-weight: 900;
             letter-spacing: 0.1em;
-            padding: 0.5rem 2rem;
-            border-radius: 9999px;
-            
-            border: 2px solid rgba(220, 38, 38, 0.28);
-            
-            text-shadow: 0 1px 2px rgba(0,0,0,0.5);
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3), inset 0 2px 4px rgba(255,255,255,0.3);
-            
+            padding: 0.4rem 1.4rem;
+            border-radius: 0.25rem;
+            border: none;
+            text-shadow: none;
+            box-shadow: none;
             white-space: nowrap;
             z-index: 10;
         }
 
-        /* 内部のジム風パネル（価格表示エリア） */
         .gym-panel {
-            background: linear-gradient(to bottom right, #F9FAFB, #E5E7EB);
-            border: 1px solid #D1D5DB;
-            border-radius: 0.75rem;
-            box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, 0.05);
+            background: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 0.5rem;
+            box-shadow: none;
             padding: 1.5rem 0.5rem;
             text-align: center;
         }
 
-        .campaign-card h3 { color: #111827; }
-        .campaign-card p { color: #4B5563; }
+        .campaign-card h3 { color: #111111; }
+        .campaign-card p { color: #555555; }
 
         .cta-button {
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            transition: background-color 0.15s ease;
+            box-shadow: none;
+            border-radius: 0.5rem;
         }
         
         .cta-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 15px -3px rgba(220, 38, 38, 0.22), 0 4px 6px -2px rgba(220, 38, 38, 0.14);
+            transform: none;
+            box-shadow: none;
+            background-color: var(--brand-red-dark);
         }
 
         .site-footer-bar {
-            background-color: var(--logo-wine-bg);
+            background: #FFFFFF;
+            border-top: 1px solid #E5E5E5;
             padding: 1.25rem 1rem;
+            margin-top: 2rem;
         }
-        .site-footer-bar .footer-logo-img {
-            height: 2rem;
-            width: auto;
-            max-width: min(100%, 220px);
-            display: block;
-            margin-left: auto;
-            margin-right: auto;
+        .site-footer-bar .footer-text {
+            margin: 0;
+            text-align: center;
+            color: #111111;
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 0.04em;
         }
+
+        
     </style>
 </head>
 <body class="antialiased">
@@ -297,13 +278,8 @@
         </div>
     </main>
 
-    <footer class="site-footer-bar border-t border-white/10">
-        <div class="container mx-auto text-center">
-            <img src="joyfit_logo.png" alt="JOYFIT24" class="footer-logo-img">
-        </div>
-    </footer>
-
-    <script src="locales.bundle.js"></script>
+    <footer class="site-footer-bar"><p class="footer-text">JOYFIT24 経堂</p></footer>
+<script src="locales.bundle.js"></script>
     <script src="i18n.js"></script>
     <script>JoyfitI18n.init('index');</script>
 </body>
